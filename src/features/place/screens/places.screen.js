@@ -6,7 +6,7 @@ import { PlaceInfoCard } from "../components/placeInfoCard.components";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  ${StatusBar.currentHeight && `margintop: ${StatusBar.currentHeight}px`}
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`}
 `;
 
 const SearchContainer = styled.View`
@@ -14,7 +14,7 @@ const SearchContainer = styled.View`
 `;
 
 const ListContainer = styled.View`
-    flex: 1,
+  flex: 1;
   padding: ${(props) => props.theme.space[3]};
 `;
 

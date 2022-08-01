@@ -1,18 +1,19 @@
 import styled from "styled-components";
 import { Card } from "react-native-paper";
 
-const Title = styled.Text`
-  padding: 16px;
-  color: red;
-`;
-
 const PlaceCard = styled(Card)`
-  backgroundcolor: "white";
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
 `;
 
 const PlaceCardCover = styled(Card.Cover)`
-  padding: 20px;
-  backgroundcolor: "white";
+  padding: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
+`;
+
+const Title = styled.Text`
+  font-family: ${(props) => props.theme.fonts.body};
+  padding: ${(props) => props.theme.space[3]};
+  color: ${(props) => props.theme.colors.ui.primary};
 `;
 
 export const PlaceInfoCard = ({ place = {} }) => {

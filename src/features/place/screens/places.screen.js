@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { StatusBar, SafeAreaView } from "react-native";
 import { Searchbar } from "react-native-paper";
 

@@ -86,25 +86,21 @@ export const PlaceInfoCard = ({ place = {} }) => {
         <Title>{name}</Title>
         <Row>
           <Rating>
-            {rateArr.map(() => (
-              <SvgXml xml={star} width={20} height={20} />
+            {rateArr.map((a, index) => (
+              <SvgXml key={index} xml={star} width={20} height={20} />
             ))}
           </Rating>
           <IsOpen>
             {isClosedTemporarily && <CloseText>CLOSED TEMPORARILY</CloseText>}
             {isOpenNow && (
-              <>
-                {/* <Spacer position="left" size="large"> */}
+              <Spacer position="left" size="large">
                 <SvgXml xml={open} width={20} height={20} />
-                {/* </Spacer> */}
-              </>
+              </Spacer>
             )}
             {iconList.map((icon) => (
-              <>
-                {/* <Spacer key={icon.id} position="left" size="large"> */}
+              <Spacer key={icon.id} position="left" size="large">
                 <PlaceIcon key={icon.id} source={{ uri: icon.url }} />
-                {/* </Spacer> */}
-              </>
+              </Spacer>
             ))}
           </IsOpen>
         </Row>

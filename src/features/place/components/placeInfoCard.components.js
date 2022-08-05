@@ -40,12 +40,7 @@ export const PlaceInfoCard = ({ place = {} }) => {
     <PlaceCard elevation={5}>
       <PlaceCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Row>
-          <Text variant="label">{name}</Text>
-          {isClosedTemporarily && (
-            <Text variant="error">CLOSED TEMPORARILY</Text>
-          )}
-        </Row>
+        <Text variant="label">{name}</Text>
         <Row>
           <Rating>
             {rateArr.map((a, index) => (
@@ -53,6 +48,9 @@ export const PlaceInfoCard = ({ place = {} }) => {
             ))}
           </Rating>
           <IsOpen>
+            {isClosedTemporarily && (
+              <Text variant="error">CLOSED TEMPORARILY</Text>
+            )}
             {isOpenNow && (
               <Spacer position="left" size="large">
                 <SvgXml xml={open} width={20} height={20} />

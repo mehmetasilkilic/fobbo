@@ -1,62 +1,19 @@
-import styled from "styled-components/native";
-import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { Text } from "../../../components/typography/text.component";
 import open from "../../../../assets/open";
 import star from "../../../../assets/star";
 
-const PlaceCard = styled(Card)`
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
-`;
-
-const PlaceCardCover = styled(Card.Cover)`
-  padding-top: ${(props) => props.theme.space[3]};
-  padding-left: ${(props) => props.theme.space[3]};
-  padding-right: ${(props) => props.theme.space[3]};
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
-`;
-
-const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Address = styled.Text`
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.caption};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
-
-const Title = styled.Text`
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.body};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
-
-const Row = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[2]};
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-`;
-
-const IsOpen = styled.View`
-  flex-direction: row;
-`;
-
-const CloseText = styled.Text`
-  color: red;
-`;
-
-const PlaceIcon = styled.Image`
-  width: 15px;
-  height: 15px;
-`;
+import {
+  PlaceCard,
+  PlaceCardCover,
+  Info,
+  Row,
+  Rating,
+  IsOpen,
+  PlaceIcon,
+} from "./placeInfoCard.styles";
 
 export const PlaceInfoCard = ({ place = {} }) => {
   const {
@@ -84,8 +41,10 @@ export const PlaceInfoCard = ({ place = {} }) => {
       <PlaceCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Row>
-          <Title>{name}</Title>
-          {isClosedTemporarily && <CloseText>CLOSED TEMPORARILY</CloseText>}
+          <Text variant="label">{name}</Text>
+          {isClosedTemporarily && (
+            <Text variant="error">CLOSED TEMPORARILY</Text>
+          )}
         </Row>
         <Row>
           <Rating>
@@ -106,7 +65,7 @@ export const PlaceInfoCard = ({ place = {} }) => {
             ))}
           </IsOpen>
         </Row>
-        <Address>{address}</Address>
+        <Text variant="caption">{address}</Text>
       </Info>
     </PlaceCard>
   );

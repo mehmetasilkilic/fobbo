@@ -1,30 +1,29 @@
-import styled from "styled-components/native";
-import { StatusBar, SafeAreaView } from "react-native";
 import { Searchbar } from "react-native-paper";
 
 import { PlaceInfoCard } from "../components/placeInfoCard.components";
 
-const SafeArea = styled(SafeAreaView)`
-  flex: 1;
-  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`}
-`;
-
-const SearchContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const ListContainer = styled.View`
-  flex: 1;
-  padding: ${(props) => props.theme.space[3]};
-`;
+import { SafeArea, SearchContainer, PlacesList } from "./places.styles";
 
 export const PlacesScreen = () => (
   <SafeArea>
     <SearchContainer>
       <Searchbar />
     </SearchContainer>
-    <ListContainer>
-      <PlaceInfoCard />
-    </ListContainer>
+    <PlacesList
+      data={[
+        { name: 1 },
+        { name: 2 },
+        { name: 3 },
+        { name: 4 },
+        { name: 5 },
+        { name: 6 },
+        { name: 7 },
+        { name: 8 },
+        { name: 9 },
+        { name: 10 },
+      ]}
+      renderItem={() => <PlaceInfoCard />}
+      keyExtractor={(item) => item.name}
+    />
   </SafeArea>
 );

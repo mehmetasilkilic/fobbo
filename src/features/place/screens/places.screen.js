@@ -2,7 +2,8 @@ import { Searchbar } from "react-native-paper";
 
 import { PlaceInfoCard } from "../components/placeInfoCard.components";
 
-import { SafeArea, SearchContainer, PlacesList } from "./places.styles";
+import { SafeArea } from "../../../components/utility/safeArea.component";
+import { SearchContainer, PlacesList } from "./places.styles";
 
 export const PlacesScreen = () => (
   <SafeArea>

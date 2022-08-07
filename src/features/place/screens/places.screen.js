@@ -1,30 +1,37 @@
-import { Searchbar } from "react-native-paper";
+import { useContext } from "react";
+import { Searchbar, Colors } from "react-native-paper";
 
 import { PlaceInfoCard } from "../components/placeInfoCard.components";
 
-import { SafeArea } from "../../../components/utility/safeArea.component";
-import { SearchContainer, PlacesList } from "./places.styles";
+import { PlacesContext } from "../../../services/places/places.context";
 
-export const PlacesScreen = () => (
-  <SafeArea>
-    <SearchContainer>
-      <Searchbar />
-    </SearchContainer>
-    <PlacesList
-      data={[
-        { name: 1 },
-        { name: 2 },
-        { name: 3 },
-        { name: 4 },
-        { name: 5 },
-        { name: 6 },
-        { name: 7 },
-        { name: 8 },
-        { name: 9 },
-        { name: 10 },
-      ]}
-      renderItem={() => <PlaceInfoCard />}
-      keyExtractor={(item) => item.name}
-    />
-  </SafeArea>
-);
+import { SafeArea } from "../../../components/utility/safeArea.component";
+import {
+  SearchContainer,
+  PlacesList,
+  LoadingContainer,
+  Loading,
+} from "./places.styles";
+
+export const PlacesScreen = () => {
+  const { places, isLoading, error } = useContext(PlacesContext);
+  return (
+    <SafeArea>
+      {isLoading && (
+        <LoadingContainer style={{}}>
+          <Loading size={50} animating={true} color={Colors.red300} />
+        </LoadingContainer>
+      )}
+      <SearchContainer>
+        <Searchbar />
+      </SearchContainer>
+      <PlacesList
+        data={places}
+        renderItem={({ item }) => {
+          return <PlaceInfoCard place={item} />;
+        }}
+        keyExtractor={(item) => item.name}
+      />
+    </SafeArea>
+  );
+};

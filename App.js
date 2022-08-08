@@ -15,7 +15,7 @@ import { PlacesScreen } from "./src/features/place/screens/places.screen";
 
 import { PlacesContextProvider } from "./src/services/places/places.context";
 
-import { SafeArea } from "./src/components/utility/safeArea.component";
+import { SafeArea } from "./src/components/utils/safeArea.component";
 import { Text } from "react-native";
 
 const Tab = createBottomTabNavigator();

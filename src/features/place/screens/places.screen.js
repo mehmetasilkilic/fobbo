@@ -5,7 +5,7 @@ import { PlaceInfoCard } from "../components/placeInfoCard.components";
 
 import { PlacesContext } from "../../../services/places/places.context";
 
-import { SafeArea } from "../../../components/utility/safeArea.component";
+import { SafeArea } from "../../../components/utils/safeArea.component";
 import {
   SearchContainer,
   PlacesList,

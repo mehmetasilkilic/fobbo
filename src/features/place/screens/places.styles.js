@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { FlatList } from "react-native";
-import { Searchbar, ActivityIndicator, Colors } from "react-native-paper";
+import { ActivityIndicator } from "react-native-paper";
 
 export const LoadingContainer = styled.View`
   position: absolute;
@@ -10,10 +10,6 @@ export const LoadingContainer = styled.View`
 
 export const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
-`;
-
-export const SearchContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const PlacesList = styled(FlatList).attrs({

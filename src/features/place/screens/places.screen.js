@@ -1,17 +1,13 @@
 import { useContext } from "react";
-import { Searchbar, Colors } from "react-native-paper";
-
-import { PlaceInfoCard } from "../components/placeInfoCard.components";
+import { Colors } from "react-native-paper";
 
 import { PlacesContext } from "../../../services/places/places.context";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
-import {
-  SearchContainer,
-  PlacesList,
-  LoadingContainer,
-  Loading,
-} from "./places.styles";
+import { PlaceInfoCard } from "../components/placeInfoCard.components";
+import { Search } from "../components/search.component";
+
+import { PlacesList, LoadingContainer, Loading } from "./places.styles";
 
 export const PlacesScreen = () => {
   const { places, isLoading, error } = useContext(PlacesContext);
@@ -22,9 +18,7 @@ export const PlacesScreen = () => {
           <Loading size={50} animating={true} color={Colors.red300} />
         </LoadingContainer>
       )}
-      <SearchContainer>
-        <Searchbar />
-      </SearchContainer>
+      <Search />
       <PlacesList
         data={places}
         renderItem={({ item }) => {

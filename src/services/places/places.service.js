@@ -18,6 +18,7 @@ export const placesTransform = ({ results = [] }) => {
     });
     return {
       ...place,
+      address: place.vicinity,
       isOpenNow: place.opening_hours && place.opening_hours.open_now,
       isClosedTemporarily: place.business_status === "CLOSED_TEMPORARILY",
     };

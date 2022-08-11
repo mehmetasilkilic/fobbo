@@ -14,6 +14,7 @@ import { theme } from "./src/infrastructure/theme";
 import { PlacesScreen } from "./src/features/place/screens/places.screen";
 
 import { PlacesContextProvider } from "./src/services/places/places.context";
+import { LocationContextProvider } from "./src/services/location/location.context";
 
 import { SafeArea } from "./src/components/utils/safeArea.component";
 import { Text } from "react-native";
@@ -60,15 +61,17 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <PlacesContextProvider>
-          <NavigationContainer>
-            <Tab.Navigator screenOptions={screenOptions}>
-              <Tab.Screen name="Places" component={PlacesScreen} />
-              <Tab.Screen name="Map" component={MapScreen} />
-              <Tab.Screen name="Settings" component={SettingsScreen} />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </PlacesContextProvider>
+        <LocationContextProvider>
+          <PlacesContextProvider>
+            <NavigationContainer>
+              <Tab.Navigator screenOptions={screenOptions}>
+                <Tab.Screen name="Places" component={PlacesScreen} />
+                <Tab.Screen name="Map" component={MapScreen} />
+                <Tab.Screen name="Settings" component={SettingsScreen} />
+              </Tab.Navigator>
+            </NavigationContainer>
+          </PlacesContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

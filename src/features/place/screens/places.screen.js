@@ -10,7 +10,7 @@ import { Search } from "../components/search.component";
 import { PlacesList, LoadingContainer, Loading } from "./places.styles";
 
 export const PlacesScreen = () => {
-  const { places, isLoading, error } = useContext(PlacesContext);
+  const { places, isLoading } = useContext(PlacesContext);
   return (
     <SafeArea>
       {isLoading && (

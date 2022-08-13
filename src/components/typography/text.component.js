@@ -11,30 +11,54 @@ const defaultTextStyles = (theme) => `
 
 const body = (theme) => `
     font-size: ${theme.fontSizes.body};
+    line-height: ${theme.fontSizes.title};
+`;
+
+const title = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.h4};
+    line-height: ${theme.fontSizes.h4};
+    font-weight: ${theme.fontWeights.bold};
+    color: ${theme.colors.text.inverse};
 `;
 
 const hint = (theme) => `
     font-size: ${theme.fontSizes.body};
+    line-height: ${theme.fontSizes.body};
+    font-size: ${theme.fontSizes.button};
+    line-height: ${theme.fontSizes.body};
 `;
 
 const error = (theme) => `
     color: ${theme.colors.text.error};
+    font-size: ${theme.fontSizes.button};
+    line-height: ${theme.fontSizes.body};
+`;
+
+const lightError = (theme) => `
+    color: ${theme.colors.brand.secondary};
+    font-size: ${theme.fontSizes.button};
+    line-height: ${theme.fontSizes.body};
 `;
 
 const caption = (theme) => `
     font-size: ${theme.fontSizes.caption};
+    line-height: ${theme.fontSizes.button};
     font-weight: ${theme.fontWeights.bold};
 `;
 
 const label = (theme) => `
     font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.body};
+    line-height: ${theme.fontSizes.title};
     font-weight: ${theme.fontWeights.medium};
 `;
 
 const variants = {
   body,
+  title,
   label,
+  lightError,
   caption,
   error,
   hint,

@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
 
 import {
   createStackNavigator,
@@ -7,6 +6,7 @@ import {
 } from "@react-navigation/stack";
 
 import { PlacesScreen } from "../../features/place/screens/places.screen";
+import { PlaceDetailScreen } from "../../features/place/screens/placeDetail.screen";
 
 const PlaceStack = createStackNavigator();
 
@@ -19,10 +19,7 @@ export const PlacesNavigator = () => {
       }}
     >
       <PlaceStack.Screen name="Places" component={PlacesScreen} />
-      <PlaceStack.Screen
-        name="PlaceDetail"
-        component={() => <Text>Restaurant Detail</Text>}
-      />
+      <PlaceStack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
     </PlaceStack.Navigator>
   );
 };

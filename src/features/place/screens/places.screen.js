@@ -25,7 +25,11 @@ export const PlacesScreen = ({ navigation }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              onPress={() => navigation.navigate("PlaceDetail")}
+              onPress={() =>
+                navigation.navigate("PlaceDetail", {
+                  place: item,
+                })
+              }
             >
               <PlaceInfoCard place={item} />
             </TouchableOpacity>

@@ -15,7 +15,8 @@ export const PlacesNavigator = () => {
     <PlaceStack.Navigator
       headerMode="none"
       screenOptions={{
-        ...TransitionPresets.ModalPresentationIOS,
+        gestureEnabled: true,
+        ...TransitionPresets.ModalSlideFromBottomIOS,
       }}
     >
       <PlaceStack.Screen name="Places" component={PlacesScreen} />

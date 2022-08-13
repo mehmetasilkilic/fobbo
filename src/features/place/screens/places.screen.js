@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { TouchableOpacity } from "react-native";
 import { Colors } from "react-native-paper";
 
 import { PlacesContext } from "../../../services/places/places.context";
@@ -9,7 +10,7 @@ import { Search } from "../components/search.component";
 
 import { PlacesList, LoadingContainer, Loading } from "./places.styles";
 
-export const PlacesScreen = () => {
+export const PlacesScreen = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
   return (
     <SafeArea>
@@ -22,7 +23,13 @@ export const PlacesScreen = () => {
       <PlacesList
         data={places}
         renderItem={({ item }) => {
-          return <PlaceInfoCard place={item} />;
+          return (
+            <TouchableOpacity
+              onPress={() => navigation.navigate("PlaceDetail")}
+            >
+              <PlaceInfoCard place={item} />
+            </TouchableOpacity>
+          );
         }}
         keyExtractor={(item) => item.name}
       />

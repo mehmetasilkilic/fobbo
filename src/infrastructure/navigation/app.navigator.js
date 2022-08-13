@@ -3,8 +3,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
 
-import { PlacesScreen } from "../../features/place/screens/places.screen";
 import { SafeArea } from "../../components/utils/safeArea.component";
+
+import { PlacesNavigator } from "./places.navigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -39,7 +40,7 @@ const screenOptions = ({ route }) => {
 export const AppNavigator = () => (
   <NavigationContainer>
     <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name="Places" component={PlacesScreen} />
+      <Tab.Screen name="Places" component={PlacesNavigator} />
       <Tab.Screen name="Map" component={Map} />
       <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>

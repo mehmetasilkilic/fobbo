@@ -13,28 +13,36 @@ export const Row = styled.View`
   align-items: flex-start;
 `;
 
+export const Types = styled.View`
+  flex-direction: row;
+`;
+
 export const Title = styled(Text)`
   color: ${(props) => props.theme.colors.text.secondary};
   max-width: 80%;
 `;
 
-export const RatingContainer = styled.View``;
+export const RatingContainer = styled.View`
+  border-radius: 5px;
+`;
 
 export const RatingContainerTop = styled.View`
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
-  width: 65px;
+  background-color: ${(props) => props.theme.colors.brand.secondary};
+  width: 60px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: ${(props) => props.theme.space[1]};
 `;
 
 export const RatingContainerBottom = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  background-color: ${(props) => props.theme.colors.brand.secondary};
-  width: 65px;
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
+  width: 60px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: ${(props) => props.theme.space[1]};

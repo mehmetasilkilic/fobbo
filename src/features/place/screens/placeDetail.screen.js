@@ -4,6 +4,8 @@ import { Appbar } from "react-native-paper";
 
 import { SvgXml } from "react-native-svg";
 
+import { FootTrafficChart } from "../components/footTrafficChart.component";
+
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
@@ -13,6 +15,7 @@ import success from "../../../../assets/success";
 import comment from "../../../../assets/comment";
 
 import {
+  PlaceDetailContainer,
   HeaderContainer,
   Row,
   Title,
@@ -77,47 +80,55 @@ export const PlaceDetailScreen = ({ route }) => {
         </Types>
       </Appbar.Header>
       <ScrollView>
-        <HeaderContainer>
-          <Spacer position="bottom" size="large">
-            <Row>
-              <Title variant="title">{place.name}</Title>
-              <RatingContainer>
-                <RatingContainerTop>
-                  <SvgXml xml={star} width={18} height={18} />
-                  <Text variant="error">{place.rating} / 5</Text>
-                </RatingContainerTop>
-                <RatingContainerBottom>
-                  <SvgXml xml={comment} width={18} height={18} />
-                  <Text variant="error">200+</Text>
-                </RatingContainerBottom>
-              </RatingContainer>
-            </Row>
-          </Spacer>
+        <PlaceDetailContainer>
+          <HeaderContainer>
+            <Spacer position="bottom" size="large">
+              <Row>
+                <Title variant="title">{place.name}</Title>
+                <RatingContainer>
+                  <RatingContainerTop>
+                    <SvgXml xml={star} width={18} height={18} />
+                    <Text variant="error">{place.rating} / 5</Text>
+                  </RatingContainerTop>
+                  <RatingContainerBottom>
+                    <SvgXml xml={comment} width={18} height={18} />
+                    <Text variant="error">200+</Text>
+                  </RatingContainerBottom>
+                </RatingContainer>
+              </Row>
+            </Spacer>
+            <Spacer position="bottom" size="small">
+              <Types>
+                {place.types.slice(0, typeCount).map((item, index) => (
+                  <Text key={index} variant="subTitle">
+                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                    {index < typeCount - 1 ? ", " : ""}
+                  </Text>
+                ))}
+              </Types>
+            </Spacer>
+            <Spacer position="bottom" size="small">
+              <Text variant="lightError">{place.address}</Text>
+            </Spacer>
+            <IfOpen>
+              <SvgXml xml={success} width={18} height={18} />
+              <Text variant="success">Open now</Text>
+            </IfOpen>
+          </HeaderContainer>
           <Spacer position="bottom" size="small">
-            <Types>
-              {place.types.slice(0, typeCount).map((item, index) => (
-                <Text key={index} variant="subTitle">
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
-                  {index < typeCount - 1 ? ", " : ""}
-                </Text>
-              ))}
-            </Types>
+            <SliderBox
+              images={place.photos}
+              dotColor="#9C1F19"
+              inactiveDotColor="#FDDEBB"
+              dotStyle={dotStyle}
+              circleLoop
+            />
           </Spacer>
-          <Spacer position="bottom" size="small">
-            <Text variant="lightError">{place.address}</Text>
+          <Spacer position="left" size="large">
+            <Text variant="label">Foot Traffic</Text>
           </Spacer>
-          <IfOpen>
-            <SvgXml xml={success} width={18} height={18} />
-            <Text variant="success">Open now</Text>
-          </IfOpen>
-        </HeaderContainer>
-        <SliderBox
-          images={place.photos}
-          dotColor="#9C1F19"
-          inactiveDotColor="#FDDEBB"
-          dotStyle={dotStyle}
-          circleLoop
-        />
+          <FootTrafficChart />
+        </PlaceDetailContainer>
       </ScrollView>
     </SafeArea>
   );

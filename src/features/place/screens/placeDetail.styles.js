@@ -1,6 +1,10 @@
 import styled from "styled-components/native";
 import { Text } from "../../../components/typography/text.component";
 
+export const PlaceDetailContainer = styled.View`
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
+`;
+
 export const HeaderContainer = styled.View`
   min-height: 100px;
   padding-right: ${(props) => props.theme.space[3]};

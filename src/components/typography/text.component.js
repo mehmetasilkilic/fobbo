@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 const defaultTextStyles = (theme) => `
-  font-family: ${theme.fonts.body};
+  font-family: ${theme.fonts.heading};
   font-weight: ${theme.fontWeights.regular};
   color: ${theme.colors.text.primary};
   flex-wrap: wrap;
@@ -14,7 +14,6 @@ const body = (theme) => `
 `;
 
 const title = (theme) => `
-    font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.h4};
     line-height: ${theme.fontSizes.h4};
     font-weight: ${theme.fontWeights.bold};
@@ -22,12 +21,16 @@ const title = (theme) => `
 `;
 
 const subTitle = (theme) => `
-    font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.body};
     color: ${theme.colors.text.inverse};
 `;
 
 const hint = (theme) => `
+    font-size: ${theme.fontSizes.button};
+`;
+
+const success = (theme) => `
+    color: ${theme.colors.text.success};
     font-size: ${theme.fontSizes.button};
 `;
 
@@ -47,7 +50,6 @@ const caption = (theme) => `
 `;
 
 const label = (theme) => `
-    font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.body};
     font-weight: ${theme.fontWeights.medium};
 `;
@@ -59,6 +61,7 @@ const variants = {
   label,
   lightError,
   caption,
+  success,
   error,
   hint,
 };

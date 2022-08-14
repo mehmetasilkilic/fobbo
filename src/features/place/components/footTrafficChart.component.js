@@ -32,7 +32,7 @@ const data = {
   labels,
   datasets: [
     {
-      data: [5, 5, 10, 10, 15, 20, 30, 40, 40, 50, 50, 60, 70, 85, 90, 90, 95],
+      data: [5, 5, 10, 10, 15, 20, 30, 40, 40, 50, 50, 60, 70, 85, 80, 70, 55],
       colors: labels.map((_, index) =>
         currentBar === index ? redBar : blueBar
       ),

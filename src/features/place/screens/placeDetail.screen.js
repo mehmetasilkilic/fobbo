@@ -4,12 +4,13 @@ import { Appbar } from "react-native-paper";
 
 import { FootTrafficChart } from "../components/footTrafficChart.component";
 import { PlaceDetailHeader } from "../components/placeDetailHeader.component";
+import { ReviewCard } from "../components/reviewCard.component";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 
-import { PlaceDetailContainer, Types } from "./placeDetail.styles";
+import { PlaceDetailContainer, Types, Row } from "./placeDetail.styles";
 
 export const PlaceDetailScreen = ({ route }) => {
   const { place } = route.params;
@@ -66,7 +67,7 @@ export const PlaceDetailScreen = ({ route }) => {
       <ScrollView>
         <PlaceDetailContainer>
           <PlaceDetailHeader place={place} />
-          <Spacer position="bottom" size="small">
+          <Spacer position="bottom" size="large">
             <SliderBox
               images={place.photos}
               dotColor="#9C1F19"
@@ -79,6 +80,12 @@ export const PlaceDetailScreen = ({ route }) => {
             <Text variant="label">Foot Traffic</Text>
           </Spacer>
           <FootTrafficChart />
+          <Row>
+            <Text variant="label">All Ratings and Reviews</Text>
+            <Text variant="error">Top Rated</Text>
+          </Row>
+          <ReviewCard />
+          <ReviewCard />
         </PlaceDetailContainer>
       </ScrollView>
     </SafeArea>

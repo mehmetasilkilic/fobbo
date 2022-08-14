@@ -27,6 +27,8 @@ const subTitle = (theme) => `
 
 const hint = (theme) => `
     font-size: ${theme.fontSizes.button};
+    color: ${theme.colors.text.disabled};
+
 `;
 
 const success = (theme) => `
@@ -46,7 +48,7 @@ const lightError = (theme) => `
 
 const caption = (theme) => `
     font-size: ${theme.fontSizes.caption};
-    font-weight: ${theme.fontWeights.bold};
+    color: ${theme.colors.text.disabled};
 `;
 
 const label = (theme) => `

@@ -32,7 +32,7 @@ const screenOptions = ({ route }) => {
     tabBarIcon: ({ size, color }) => (
       <Ionicons name={iconName} size={size} color={color} />
     ),
-    tabBarActiveTintColor: "tomato",
+    tabBarActiveTintColor: "#9C1F19",
     tabBarInactiveTintColor: "gray",
     headerShown: false,
   };

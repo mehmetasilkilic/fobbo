@@ -21,7 +21,7 @@ const labels = [
   "00",
 ];
 
-const currentTime = new Date().getHours() + 3;
+const currentTime = new Date().getHours();
 
 const currentBar = currentTime - 8;
 

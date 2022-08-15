@@ -13,8 +13,8 @@ const PlaceStack = createStackNavigator();
 export const PlacesNavigator = () => {
   return (
     <PlaceStack.Navigator
-      headerMode="none"
       screenOptions={{
+        headerShown: false,
         gestureEnabled: true,
         ...TransitionPresets.ModalSlideFromBottomIOS,
       }}

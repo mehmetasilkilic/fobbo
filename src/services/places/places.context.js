@@ -16,18 +16,18 @@ export const PlacesContextProvider = ({ children }) => {
     setIsLoading(true);
     setPlaces([]);
 
-    // setTimeout(() => {
-    placesRequest(loc)
-      .then(placesTransform)
-      .then((res) => {
-        setPlaces(res);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setIsLoading(false);
-      });
-    // }, 2000);
+    setTimeout(() => {
+      placesRequest(loc)
+        .then(placesTransform)
+        .then((res) => {
+          setPlaces(res);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setError(err);
+          setIsLoading(false);
+        });
+    }, 1000);
   };
 
   useEffect(() => {

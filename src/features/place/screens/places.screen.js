@@ -1,16 +1,19 @@
 import { useContext } from "react";
 import { TouchableOpacity } from "react-native";
 
-import { PlacesContext } from "../../../services/places/places.context";
-
 import { SafeArea } from "../../../components/utils/safeArea.component";
+
 import { PlaceInfoCard } from "../components/placeInfoCard.components";
 import { Search } from "../components/search.component";
+
+import { PlacesContext } from "../../../services/places/places.context";
+import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
 import { PlacesList, LoadingContainer, Loading } from "./places.styles";
 
 export const PlacesScreen = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
+  const { favourites } = useContext(FavouritesContext);
 
   return (
     <SafeArea>

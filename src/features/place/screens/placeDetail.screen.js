@@ -1,6 +1,6 @@
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, TouchableOpacity } from "react-native";
 import { SliderBox } from "react-native-image-slider-box";
-import { Appbar } from "react-native-paper";
+import { AntDesign } from "@expo/vector-icons";
 
 import { FootTrafficChart } from "../components/footTrafficChart.component";
 import { PlaceDetailHeader } from "../components/placeDetailHeader.component";
@@ -9,24 +9,12 @@ import { ReviewCard } from "../components/reviewCard.component";
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
+import { Favourite } from "../../../components/favourites/favourite.component";
 
-import { PlaceDetailContainer, Types, Row } from "./placeDetail.styles";
+import { PlaceDetailContainer, Types, Row, TopBar } from "./placeDetail.styles";
 
 export const PlaceDetailScreen = ({ route }) => {
   const { place } = route.params;
-
-  const appBarStyle = {
-    paddingRight: 8,
-    paddingLeft: 0,
-    marginTop: 0,
-    backgroundColor: "#9C1F19",
-    justifyContent: "space-between",
-  };
-
-  const appBarIconStyle = {
-    padding: 0,
-    margin: 0,
-  };
 
   const dotStyle = {
     width: 40,
@@ -38,32 +26,19 @@ export const PlaceDetailScreen = ({ route }) => {
 
   return (
     <SafeArea>
-      <Appbar.Header style={appBarStyle}>
+      <TopBar>
         <View>
-          <Appbar.Action
-            color="white"
-            icon="chevron-down"
-            size={30}
-            onPress={() => {}}
-          />
+          <AntDesign name="down" size={24} color={"white"} />
         </View>
         <Types>
-          <Appbar.Action
-            style={appBarIconStyle}
-            color="white"
-            icon="map-marker-outline"
-            size={26}
-            onPress={() => {}}
-          />
-          <Appbar.Action
-            style={appBarIconStyle}
-            color="white"
-            icon="cards-heart-outline"
-            size={26}
-            onPress={() => {}}
-          />
+          <Spacer position="right" size="large">
+            <TouchableOpacity>
+              <AntDesign name="enviromento" size={24} color={"white"} />
+            </TouchableOpacity>
+          </Spacer>
+          <Favourite place={place} />
         </Types>
-      </Appbar.Header>
+      </TopBar>
       <ScrollView>
         <PlaceDetailContainer>
           <PlaceDetailHeader place={place} />

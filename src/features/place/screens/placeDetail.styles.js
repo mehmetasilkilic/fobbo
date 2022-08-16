@@ -4,6 +4,13 @@ export const PlaceDetailContainer = styled.View`
   background-color: ${(props) => props.theme.colors.ui.quaternary};
 `;
 
+export const TopBar = styled.View`
+  padding: ${(props) => props.theme.space[3]};
+  flex-direction: row;
+  background-color: #9c1f19;
+  justify-content: space-between;
+`;
+
 export const Row = styled.View`
   flex-direction: row;
   justify-content: space-between;

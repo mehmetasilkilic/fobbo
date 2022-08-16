@@ -21,7 +21,7 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 
 export const ReviewCard = () => {
   const rating = 5;
-  const rateArr = Array.from(new Array(Math.floor(rating)));
+  const rateArr = Array.from(new Array(rating));
 
   const reviewText =
     "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.";

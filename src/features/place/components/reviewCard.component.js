@@ -1,5 +1,5 @@
-import { Button } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
+import { AntDesign } from "@expo/vector-icons";
 
 import { Text } from "../../../components/typography/text.component";
 
@@ -14,6 +14,8 @@ import {
   ProfilePicture,
   StarRow,
   ButtonRow,
+  ReviewButton,
+  ButtonText,
 } from "./reviewCard.styles";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
@@ -53,27 +55,19 @@ export const ReviewCard = () => {
         <Spacer position="top" size="medium">
           <ButtonRow>
             <Spacer position="right" size="medium">
-              <Button
-                compact={true}
-                buttonColor="#D0421B"
-                labelStyle={{ color: "#D0421B" }}
-                icon="thumb-up-outline"
-                mode="outlined"
-                onPress={() => console.log("Pressed")}
-              >
-                324
-              </Button>
+              <ReviewButton onPress={() => {}}>
+                <Spacer position="right" size="small">
+                  <AntDesign name="like2" size={16} color="#D0421B" />
+                </Spacer>
+                <ButtonText variant="error">202</ButtonText>
+              </ReviewButton>
             </Spacer>
-            <Button
-              compact={true}
-              buttonColor="#D0421B"
-              labelStyle={{ color: "#D0421B" }}
-              icon="thumb-down-outline"
-              mode="outlined"
-              onPress={() => console.log("Pressed")}
-            >
-              16
-            </Button>
+            <ReviewButton onPress={() => {}}>
+              <Spacer position="right" size="small">
+                <AntDesign name="dislike2" size={16} color="#D0421B" />
+              </Spacer>
+              <ButtonText variant="error">1</ButtonText>
+            </ReviewButton>
           </ButtonRow>
         </Spacer>
       </ReviewColumn>

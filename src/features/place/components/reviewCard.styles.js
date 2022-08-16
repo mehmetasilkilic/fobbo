@@ -1,4 +1,7 @@
+import { Pressable } from "react-native";
 import styled from "styled-components/native";
+
+import { Text } from "../../../components/typography/text.component";
 
 export const ReviewCardContainer = styled.View`
   flex-direction: row;
@@ -39,4 +42,19 @@ export const StarRow = styled.View`
 export const ButtonRow = styled.View`
   flex-direction: row;
   align-items: flex-start;
+`;
+
+export const ReviewButton = styled(Pressable)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${(props) => props.theme.space[1]};
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: ${(props) => props.theme.colors.ui.error};
+`;
+
+export const ButtonText = styled(Text)`
+  text-align: center;
+  min-width: 25px;
 `;

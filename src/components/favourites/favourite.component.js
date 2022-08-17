@@ -14,8 +14,8 @@ const CardStyle = styled(TouchableOpacity)`
 
 const DetailStyle = styled(TouchableOpacity)``;
 
-export const Favourite = ({ place, variable }) => {
-  const FavouriteButton = variable === 1 ? CardStyle : DetailStyle;
+export const Favourite = ({ place, styleVariable }) => {
+  const FavouriteButton = styleVariable === "card" ? CardStyle : DetailStyle;
 
   const { favourites, addToFavourites, removeFromFavourites } =
     useContext(FavouritesContext);

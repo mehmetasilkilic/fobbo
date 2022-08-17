@@ -41,7 +41,7 @@ export const PlaceInfoCard = ({ place = {} }) => {
   return (
     <Spacer position="bottom" size="large">
       <PlaceCard elevation={5}>
-        <Favourite place={place} variable={1} />
+        <Favourite place={place} styleVariable="card" />
         <PlaceCardCover key={name} source={{ uri: photos[0] }} />
         <Info>
           <Text variant="label">{name}</Text>

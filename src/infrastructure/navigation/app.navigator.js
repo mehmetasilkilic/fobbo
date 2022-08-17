@@ -7,18 +7,27 @@ import { SafeArea } from "../../components/utils/safeArea.component";
 
 import { PlacesNavigator } from "./places.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
+import { Home } from "../../features/home/screens/home.screen";
 
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
-  Places: "md-restaurant",
+  Home: "md-home",
   Map: "md-map",
+  Places: "md-restaurant",
+  Favourites: "md-heart",
   Settings: "md-settings",
 };
 
 const Settings = () => (
   <SafeArea>
     <Text>Settings</Text>
+  </SafeArea>
+);
+
+const Favourites = () => (
+  <SafeArea>
+    <Text>Favourites</Text>
   </SafeArea>
 );
 
@@ -37,8 +46,10 @@ const screenOptions = ({ route }) => {
 export const AppNavigator = () => (
   <NavigationContainer>
     <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name="Places" component={PlacesNavigator} />
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Map" component={MapScreen} />
+      <Tab.Screen name="Places" component={PlacesNavigator} />
+      <Tab.Screen name="Favourites" component={Favourites} />
       <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   </NavigationContainer>

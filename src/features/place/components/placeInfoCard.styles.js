@@ -3,6 +3,7 @@ import { Card } from "react-native-paper";
 
 export const PlaceCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.ui.quaternary};
+  overflow: hidden;
 `;
 
 export const PlaceCardCover = styled(Card.Cover)`

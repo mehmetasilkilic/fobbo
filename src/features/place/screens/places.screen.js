@@ -5,11 +5,12 @@ import { SafeArea } from "../../../components/utils/safeArea.component";
 
 import { PlaceInfoCard } from "../components/placeInfoCard.components";
 import { Search } from "../components/search.component";
+import { Loading } from "../../../components/loading/loading.component";
 
 import { PlacesContext } from "../../../services/places/places.context";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
-import { PlacesList, LoadingContainer, Loading } from "./places.styles";
+import { PlacesList } from "./places.styles";
 
 export const PlacesScreen = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
@@ -17,11 +18,7 @@ export const PlacesScreen = ({ navigation }) => {
 
   return (
     <SafeArea>
-      {isLoading && (
-        <LoadingContainer>
-          <Loading size={50} animating={true} color="#9C1F19" />
-        </LoadingContainer>
-      )}
+      {isLoading && <Loading />}
       <Search />
       <PlacesList
         data={places}

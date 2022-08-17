@@ -1,4 +1,3 @@
-import { TouchableOpacity } from "react-native";
 import { SvgXml } from "react-native-svg";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -19,7 +18,7 @@ import {
   PlaceIcon,
 } from "./placeInfoCard.styles";
 
-export const PlaceInfoCard = ({ place = {}, ifVertical, navigation }) => {
+export const PlaceInfoCard = ({ place = {}, ifVertical }) => {
   const {
     name = "Pardi",
     iconList = [

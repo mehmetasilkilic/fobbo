@@ -8,7 +8,7 @@ import { HorizontalBar } from "../../../components/horizontalBar/horizontalBar.c
 import { PlacesContext } from "../../../services/places/places.context";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
-export const Home = () => {
+export const Home = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
   const { favourites } = useContext(FavouritesContext);
 
@@ -16,7 +16,7 @@ export const Home = () => {
     <SafeArea>
       {isLoading && <Loading />}
       <Search />
-      <HorizontalBar data={places} />
+      <HorizontalBar data={places} onNavigate={navigation.navigate} />
     </SafeArea>
   );
 };

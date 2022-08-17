@@ -1,3 +1,4 @@
+import { TouchableOpacity } from "react-native";
 import { SvgXml } from "react-native-svg";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -8,7 +9,8 @@ import open from "../../../../assets/open";
 import star from "../../../../assets/star";
 
 import {
-  PlaceCard,
+  PlaceCardHorizontal,
+  PlaceCardVertical,
   PlaceCardCover,
   Info,
   Row,
@@ -17,7 +19,7 @@ import {
   PlaceIcon,
 } from "./placeInfoCard.styles";
 
-export const PlaceInfoCard = ({ place = {} }) => {
+export const PlaceInfoCard = ({ place = {}, ifVertical, navigation }) => {
   const {
     name = "Pardi",
     iconList = [
@@ -37,6 +39,8 @@ export const PlaceInfoCard = ({ place = {} }) => {
   } = place;
 
   const rateArr = Array.from(new Array(Math.floor(rating)));
+
+  const PlaceCard = ifVertical ? PlaceCardVertical : PlaceCardHorizontal;
 
   return (
     <Spacer position="bottom" size="large">

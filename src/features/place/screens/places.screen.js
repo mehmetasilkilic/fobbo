@@ -4,7 +4,7 @@ import { TouchableOpacity } from "react-native";
 import { SafeArea } from "../../../components/utils/safeArea.component";
 
 import { PlaceInfoCard } from "../components/placeInfoCard.components";
-import { Search } from "../components/search.component";
+import { Search } from "../../../components/search/search.component";
 import { Loading } from "../../../components/loading/loading.component";
 
 import { PlacesContext } from "../../../services/places/places.context";
@@ -31,7 +31,7 @@ export const PlacesScreen = ({ navigation }) => {
                 })
               }
             >
-              <PlaceInfoCard place={item} />
+              <PlaceInfoCard place={item} ifVertical={true} />
             </TouchableOpacity>
           );
         }}

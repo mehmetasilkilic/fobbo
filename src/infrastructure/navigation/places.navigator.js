@@ -19,7 +19,7 @@ export const PlacesNavigator = () => {
         ...TransitionPresets.ModalSlideFromBottomIOS,
       }}
     >
-      <PlaceStack.Screen name="Places" component={PlacesScreen} />
+      <PlaceStack.Screen name="PlacesList" component={PlacesScreen} />
       <PlaceStack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
     </PlaceStack.Navigator>
   );

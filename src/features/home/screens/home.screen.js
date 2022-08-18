@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ScrollView } from "react-native";
+import { Image, ScrollView } from "react-native";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Loading } from "../../../components/loading/loading.component";
@@ -10,9 +10,21 @@ import { PlacesContext } from "../../../services/places/places.context";
 import { CategoriesList } from "../components/categoriesList.component";
 import { AdvertisementList } from "../components/advertisementList.component";
 import { SmallPlaceList } from "../components/smallPlaceList.component";
+import styled from "styled-components";
 
 export const Home = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
+
+  const AdvertisementImageWrapper = styled.View`
+    padding: ${(props) => props.theme.space[2]};
+    border-radius: 5px;
+  `;
+
+  const AdvertisementImage = styled.Image`
+    padding: ${(props) => props.theme.space[2]};
+    height: 200px;
+    border-radius: 5px;
+  `;
 
   const categoryDummyData = [
     {
@@ -92,6 +104,14 @@ export const Home = ({ navigation }) => {
         <CategoriesList data={categoryDummyData} />
         <HorizontalPlaceList data={places} onNavigate={navigation.navigate} />
         <AdvertisementList data={advertisementDummyData} />
+        <SmallPlaceList data={places} />
+        <AdvertisementImageWrapper>
+          <AdvertisementImage
+            source={{
+              uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
+            }}
+          />
+        </AdvertisementImageWrapper>
         <SmallPlaceList data={places} />
       </ScrollView>
     </SafeArea>

@@ -1,14 +1,14 @@
 import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
-import { PlaceInfoCard } from "../../features/place/components/placeInfoCard.components";
-import { Spacer } from "../spacer/spacer.component";
+import { PlaceInfoCard } from "../../place/components/placeInfoCard.components";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
 const HorizontalBarContainer = styled.View`
   padding: 10px;
 `;
 
-export const HorizontalBar = ({ data, onNavigate }) => (
+export const HorizontalPlaceList = ({ data, onNavigate }) => (
   <HorizontalBarContainer>
     <FlatList
       data={data}

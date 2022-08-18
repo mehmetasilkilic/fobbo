@@ -10,27 +10,26 @@ const cardWidthHalf = (Math.floor(Dimensions.get("window").width) - 30) / 2;
 
 export const PlaceCardHorizontal = styled(Card)`
   width: ${cardWidthHorizontal}px;
-  height: 300px;
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   overflow: hidden;
 `;
 
 export const PlaceCardVertical = styled(Card)`
-  height: 300px;
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   overflow: hidden;
 `;
 
 export const PlaceCardSmall = styled(Card)`
   width: ${cardWidthHalf}px;
-  height: 300px;
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   margin-right: ${(props) => props.theme.space[2]};
   overflow: hidden;
 `;
 
-export const PlaceCardCover = styled(Card.Cover)`
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
+export const PlaceCardCoverBig = styled(Card.Cover)``;
+
+export const PlaceCardCoverSmall = styled(Card.Cover)`
+  height: 140px;
 `;
 
 export const Info = styled.View`
@@ -43,10 +42,6 @@ export const Row = styled.View`
   align-items: center;
   padding-top: ${(props) => props.theme.space[2]};
   padding-bottom: ${(props) => props.theme.space[2]};
-`;
-
-export const Rating = styled.View`
-  flex-direction: row;
 `;
 
 export const IsOpen = styled.View`

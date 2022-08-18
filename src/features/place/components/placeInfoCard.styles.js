@@ -6,7 +6,7 @@ const cardWidthHorizontal =
   Math.floor(Dimensions.get("window").width) -
   Math.floor(Dimensions.get("window").width) / 5;
 
-const cardWidthHalf = cardWidthHorizontal / 2;
+const cardWidthHalf = (Math.floor(Dimensions.get("window").width) - 30) / 2;
 
 export const PlaceCardHorizontal = styled(Card)`
   width: ${cardWidthHorizontal}px;
@@ -25,6 +25,7 @@ export const PlaceCardSmall = styled(Card)`
   width: ${cardWidthHalf}px;
   height: 300px;
   background-color: ${(props) => props.theme.colors.ui.quaternary};
+  margin-right: ${(props) => props.theme.space[2]};
   overflow: hidden;
 `;
 

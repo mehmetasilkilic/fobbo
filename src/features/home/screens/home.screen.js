@@ -9,6 +9,7 @@ import { HorizontalPlaceList } from "../components/horizontalPlaceList.component
 import { PlacesContext } from "../../../services/places/places.context";
 import { CategoriesList } from "../components/categoriesList.component";
 import { AdvertisementList } from "../components/advertisementList.component";
+import { SmallPlaceList } from "../components/smallPlaceList.component";
 
 export const Home = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
@@ -91,6 +92,7 @@ export const Home = ({ navigation }) => {
         <CategoriesList data={categoryDummyData} />
         <HorizontalPlaceList data={places} onNavigate={navigation.navigate} />
         <AdvertisementList data={advertisementDummyData} />
+        <SmallPlaceList data={places} />
       </ScrollView>
     </SafeArea>
   );

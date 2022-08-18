@@ -42,37 +42,35 @@ export const PlaceInfoCard = ({ place = {}, ifVertical }) => {
   const PlaceCard = ifVertical ? PlaceCardVertical : PlaceCardHorizontal;
 
   return (
-    <Spacer position="bottom" size="large">
-      <PlaceCard elevation={5}>
-        <Favourite place={place} styleVariable="card" />
-        <PlaceCardCover key={name} source={{ uri: photos[0] }} />
-        <Info>
-          <Text variant="label">{name}</Text>
-          <Row>
-            <Rating>
-              {rateArr.map((a, index) => (
-                <SvgXml key={index} xml={star} width={20} height={20} />
-              ))}
-            </Rating>
-            <IsOpen>
-              {isClosedTemporarily && (
-                <Text variant="error">CLOSED TEMPORARILY</Text>
-              )}
-              {isOpenNow && (
-                <Spacer position="left" size="large">
-                  <SvgXml xml={open} width={20} height={20} />
-                </Spacer>
-              )}
-              {iconList.map((icon) => (
-                <Spacer key={icon.id} position="left" size="large">
-                  <PlaceIcon key={icon.id} source={{ uri: icon.url }} />
-                </Spacer>
-              ))}
-            </IsOpen>
-          </Row>
-          <Text variant="caption">{address}</Text>
-        </Info>
-      </PlaceCard>
-    </Spacer>
+    <PlaceCard elevation={5}>
+      <Favourite place={place} styleVariable="card" />
+      <PlaceCardCover key={name} source={{ uri: photos[0] }} />
+      <Info>
+        <Text variant="label">{name}</Text>
+        <Row>
+          <Rating>
+            {rateArr.map((a, index) => (
+              <SvgXml key={index} xml={star} width={20} height={20} />
+            ))}
+          </Rating>
+          <IsOpen>
+            {isClosedTemporarily && (
+              <Text variant="error">CLOSED TEMPORARILY</Text>
+            )}
+            {isOpenNow && (
+              <Spacer position="left" size="large">
+                <SvgXml xml={open} width={20} height={20} />
+              </Spacer>
+            )}
+            {iconList.map((icon) => (
+              <Spacer key={icon.id} position="left" size="large">
+                <PlaceIcon key={icon.id} source={{ uri: icon.url }} />
+              </Spacer>
+            ))}
+          </IsOpen>
+        </Row>
+        <Text variant="caption">{address}</Text>
+      </Info>
+    </PlaceCard>
   );
 };

@@ -6,6 +6,7 @@ import { SafeArea } from "../../../components/utils/safeArea.component";
 import { PlaceInfoCard } from "../components/placeInfoCard.components";
 import { Search } from "../../../components/search/search.component";
 import { Loading } from "../../../components/loading/loading.component";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
 import { PlacesContext } from "../../../services/places/places.context";
 
@@ -29,7 +30,9 @@ export const PlacesScreen = ({ navigation }) => {
                 })
               }
             >
-              <PlaceInfoCard place={item} ifVertical={true} />
+              <Spacer position="bottom" size="large">
+                <PlaceInfoCard place={item} ifVertical={true} />
+              </Spacer>
             </TouchableOpacity>
           );
         }}

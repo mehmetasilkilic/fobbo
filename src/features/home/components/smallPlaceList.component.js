@@ -11,7 +11,7 @@ import {
   InlineRow,
 } from "./smallPlaceList.styles";
 
-export const SmallPlaceList = ({ data, navigation }) => {
+export const SmallPlaceList = ({ data, onNavigate }) => {
   return (
     <>
       <Row>
@@ -25,8 +25,9 @@ export const SmallPlaceList = ({ data, navigation }) => {
         {data.slice(0, 4).map((item) => (
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate("PlaceDetail", {
-                place: item,
+              onNavigate("Places", {
+                screen: "PlaceDetail",
+                params: { place: item },
               })
             }
           >

@@ -106,7 +106,7 @@ export const Home = ({ navigation }) => {
         <CategoriesList data={categoryDummyData} />
         <HorizontalPlaceList data={places} onNavigate={navigation.navigate} />
         <AdvertisementList data={advertisementDummyData} />
-        <SmallPlaceList data={places} />
+        <SmallPlaceList data={places} onNavigate={navigation.navigate} />
         <AdvertisementImageWrapper>
           <AdvertisementImage
             source={{
@@ -114,7 +114,7 @@ export const Home = ({ navigation }) => {
             }}
           />
         </AdvertisementImageWrapper>
-        <SmallPlaceList data={places} />
+        <SmallPlaceList data={places} onNavigate={navigation.navigate} />
       </ScrollView>
     </SafeArea>
   );

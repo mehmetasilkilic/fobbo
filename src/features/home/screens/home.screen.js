@@ -16,7 +16,9 @@ export const Home = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
 
   const AdvertisementImageWrapper = styled.View`
-    padding: ${(props) => props.theme.space[2]};
+    padding-right: ${(props) => props.theme.space[2]};
+    padding-left: ${(props) => props.theme.space[2]};
+    padding-bottom: ${(props) => props.theme.space[2]};
     border-radius: 5px;
   `;
 

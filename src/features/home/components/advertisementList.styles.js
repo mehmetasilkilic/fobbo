@@ -12,5 +12,5 @@ export const AdvertisementFlatList = styled(FlatList)`
 export const CompactImage = styled.Image`
   border-radius: 5px;
   width: 160px;
-  height: 240px;
+  height: 200px;
 `;

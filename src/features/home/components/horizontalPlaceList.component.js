@@ -1,11 +1,11 @@
-import { FlatList, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import { PlaceInfoCard } from "../../place/components/placeInfoCard.components";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 
-import { Row, InlineRow } from "./horizontalPlaceList.styles";
+import { PlacesFlatList, Row, InlineRow } from "./horizontalPlaceList.styles";
 
 export const HorizontalPlaceList = ({ data, onNavigate }) => (
   <>
@@ -16,7 +16,7 @@ export const HorizontalPlaceList = ({ data, onNavigate }) => (
         <AntDesign name="doubleright" size={10} color="#D0421B" />
       </InlineRow>
     </Row>
-    <FlatList
+    <PlacesFlatList
       data={data}
       horizontal
       showsHorizontalScrollIndicator={false}

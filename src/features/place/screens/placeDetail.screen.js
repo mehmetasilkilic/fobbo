@@ -13,7 +13,7 @@ import { Favourite } from "../../../components/favourites/favourite.component";
 
 import { PlaceDetailContainer, Types, Row, TopBar } from "./placeDetail.styles";
 
-export const PlaceDetailScreen = ({ route }) => {
+export const PlaceDetailScreen = ({ route, navigation }) => {
   const { place } = route.params;
 
   const dotStyle = {
@@ -28,7 +28,9 @@ export const PlaceDetailScreen = ({ route }) => {
     <SafeArea>
       <TopBar>
         <View>
-          <AntDesign name="down" size={24} color={"white"} />
+          <TouchableOpacity onPress={() => navigation.pop()}>
+            <AntDesign name="down" size={24} color={"white"} />
+          </TouchableOpacity>
         </View>
         <Types>
           <Spacer position="right" size="large">

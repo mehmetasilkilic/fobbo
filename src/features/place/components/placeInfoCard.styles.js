@@ -24,7 +24,7 @@ export const PlaceCardCover = styled(Card.Cover)`
 `;
 
 export const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[2]};
 `;
 
 export const Row = styled.View`

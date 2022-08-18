@@ -7,8 +7,8 @@ import { FavouritesContext } from "../../services/favourites/favourites.context"
 
 const CardStyle = styled(TouchableOpacity)`
   position: absolute;
-  top: ${(props) => props.theme.space[3]};
-  right: ${(props) => props.theme.space[3]};
+  top: ${(props) => props.theme.space[2]};
+  right: ${(props) => props.theme.space[2]};
   z-index: 9;
 `;
 

@@ -7,7 +7,7 @@ export const ReviewCardContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[2]};
   border-bottom-width: 1px;
   border-bottom-color: ${(props) => props.theme.colors.ui.disabled};
 `;

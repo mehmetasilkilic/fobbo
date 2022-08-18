@@ -3,9 +3,9 @@ import { Text } from "../../../components/typography/text.component";
 
 export const HeaderContainer = styled.View`
   min-height: 100px;
-  padding-right: ${(props) => props.theme.space[3]};
-  padding-bottom: ${(props) => props.theme.space[3]};
-  padding-left: ${(props) => props.theme.space[3]};
+  padding-right: ${(props) => props.theme.space[2]};
+  padding-bottom: ${(props) => props.theme.space[2]};
+  padding-left: ${(props) => props.theme.space[2]};
   background-color: ${(props) => props.theme.colors.brand.primary};
 `;
 

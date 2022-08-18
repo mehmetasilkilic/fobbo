@@ -8,13 +8,11 @@ import { Search } from "../../../components/search/search.component";
 import { Loading } from "../../../components/loading/loading.component";
 
 import { PlacesContext } from "../../../services/places/places.context";
-import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
 import { PlacesList } from "./places.styles";
 
 export const PlacesScreen = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
-  const { favourites } = useContext(FavouritesContext);
 
   return (
     <SafeArea>

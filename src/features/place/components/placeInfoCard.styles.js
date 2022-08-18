@@ -2,18 +2,27 @@ import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 import { Card } from "react-native-paper";
 
-const screenWidthHorizontal =
+const cardWidthHorizontal =
   Math.floor(Dimensions.get("window").width) -
   Math.floor(Dimensions.get("window").width) / 5;
 
+const cardWidthHalf = cardWidthHorizontal / 2;
+
 export const PlaceCardHorizontal = styled(Card)`
-  width: ${screenWidthHorizontal}px;
+  width: ${cardWidthHorizontal}px;
   height: 300px;
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   overflow: hidden;
 `;
 
 export const PlaceCardVertical = styled(Card)`
+  height: 300px;
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
+  overflow: hidden;
+`;
+
+export const PlaceCardSmall = styled(Card)`
+  width: ${cardWidthHalf}px;
   height: 300px;
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   overflow: hidden;

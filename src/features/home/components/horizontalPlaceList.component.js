@@ -31,7 +31,7 @@ export const HorizontalPlaceList = ({ data, onNavigate }) => (
                 })
               }
             >
-              <PlaceInfoCard place={item} ifVertical={false} />
+              <PlaceInfoCard place={item} cardStyle="horizontal" />
             </TouchableOpacity>
           </Spacer>
         );

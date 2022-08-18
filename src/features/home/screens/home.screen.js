@@ -85,8 +85,8 @@ export const Home = ({ navigation }) => {
 
   return (
     <SafeArea>
-      {isLoading && <Loading />}
       <Search />
+      {isLoading && <Loading />}
       <ScrollView>
         <CategoriesList data={categoryDummyData} />
         <HorizontalPlaceList data={places} onNavigate={navigation.navigate} />

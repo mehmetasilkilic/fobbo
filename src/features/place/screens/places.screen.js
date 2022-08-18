@@ -31,7 +31,7 @@ export const PlacesScreen = ({ navigation }) => {
               }
             >
               <Spacer position="bottom" size="large">
-                <PlaceInfoCard place={item} ifVertical={true} />
+                <PlaceInfoCard place={item} cardStyle="vertical" />
               </Spacer>
             </TouchableOpacity>
           );

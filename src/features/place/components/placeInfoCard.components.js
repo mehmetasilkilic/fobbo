@@ -10,6 +10,7 @@ import star from "../../../../assets/star";
 import {
   PlaceCardHorizontal,
   PlaceCardVertical,
+  PlaceCardSmall,
   PlaceCardCover,
   Info,
   Row,
@@ -18,7 +19,7 @@ import {
   PlaceIcon,
 } from "./placeInfoCard.styles";
 
-export const PlaceInfoCard = ({ place = {}, ifVertical }) => {
+export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
   const {
     name = "Pardi",
     iconList = [
@@ -39,7 +40,14 @@ export const PlaceInfoCard = ({ place = {}, ifVertical }) => {
 
   const rateArr = Array.from(new Array(Math.floor(rating)));
 
-  const PlaceCard = ifVertical ? PlaceCardVertical : PlaceCardHorizontal;
+  const PlaceCard =
+    cardStyle === "vertical"
+      ? PlaceCardVertical
+      : cardStyle === "horizontal"
+      ? PlaceCardHorizontal
+      : cardStyle === "small"
+      ? PlaceCardSmall
+      : "";
 
   return (
     <PlaceCard elevation={5}>

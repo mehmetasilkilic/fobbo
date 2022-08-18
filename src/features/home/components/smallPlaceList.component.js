@@ -30,7 +30,7 @@ export const SmallPlaceList = ({ data, navigation }) => {
               })
             }
           >
-            <Spacer position="bottom" size="large">
+            <Spacer position="bottom" size="medium">
               <PlaceInfoCard place={item} cardStyle="small" />
             </Spacer>
           </TouchableOpacity>

@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 
 export const PlacesFlatList = styled(FlatList)`
   flex-grow: 0;
+  padding-bottom: ${(props) => props.theme.space[2]};
 `;
 
 export const Row = styled.View`

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { ScrollView } from "react-native";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Loading } from "../../../components/loading/loading.component";
@@ -7,6 +8,7 @@ import { HorizontalPlaceList } from "../components/horizontalPlaceList.component
 
 import { PlacesContext } from "../../../services/places/places.context";
 import { CategoriesList } from "../components/categoriesList.component";
+import { AdvertisementList } from "../components/advertisementList.component";
 
 export const Home = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
@@ -46,12 +48,50 @@ export const Home = ({ navigation }) => {
     },
   ];
 
+  const advertisementDummyData = [
+    {
+      name: "Bar",
+      url: "https://askbootstrap.com/preview/swiggi/template2/img/pro4.jpg",
+    },
+    {
+      name: "Restaurant",
+      url: "https://askbootstrap.com/preview/swiggi/template2/img/pro1.jpg",
+    },
+    {
+      name: "Fast Food",
+      url: "https://askbootstrap.com/preview/swiggi/template2/img/pro3.jpg",
+    },
+    {
+      name: "Cafe",
+      url: "https://askbootstrap.com/preview/swiggi/template2/img/pro2.jpg",
+    },
+    {
+      name: "Vegan",
+      url: "https://askbootstrap.com/preview/swiggi/template2/img/pro3.jpg",
+    },
+    {
+      name: "Gym",
+      url: "https://askbootstrap.com/preview/swiggi/template2/img/pro4.jpg",
+    },
+    {
+      name: "Night Club",
+      url: "https://askbootstrap.com/preview/swiggi/template2/img/pro2.jpg",
+    },
+    {
+      name: "Mall",
+      url: "https://askbootstrap.com/preview/swiggi/template2/img/pro1.jpg",
+    },
+  ];
+
   return (
     <SafeArea>
       {isLoading && <Loading />}
       <Search />
-      <CategoriesList data={categoryDummyData} />
-      <HorizontalPlaceList data={places} onNavigate={navigation.navigate} />
+      <ScrollView>
+        <CategoriesList data={categoryDummyData} />
+        <HorizontalPlaceList data={places} onNavigate={navigation.navigate} />
+        <AdvertisementList data={advertisementDummyData} />
+      </ScrollView>
     </SafeArea>
   );
 };

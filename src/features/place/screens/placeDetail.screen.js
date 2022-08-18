@@ -44,7 +44,7 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
       <ScrollView>
         <PlaceDetailContainer>
           <PlaceDetailHeader place={place} />
-          <Spacer position="bottom" size="large">
+          <Spacer position="bottom" size="medium">
             <SliderBox
               images={place.photos}
               dotColor="#9C1F19"
@@ -53,7 +53,7 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
               circleLoop
             />
           </Spacer>
-          <Spacer position="left" size="large">
+          <Spacer position="left" size="medium">
             <Text variant="label">Foot Traffic</Text>
           </Spacer>
           <FootTrafficChart />

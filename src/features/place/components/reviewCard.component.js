@@ -49,7 +49,7 @@ export const ReviewCard = () => {
             ))}
           </StarRow>
         </Row>
-        <Spacer position="top" size="large">
+        <Spacer position="top" size="medium">
           <Text variant="hint">{reviewText}</Text>
         </Spacer>
         <Spacer position="top" size="medium">

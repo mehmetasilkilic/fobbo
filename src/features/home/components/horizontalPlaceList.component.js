@@ -1,7 +1,7 @@
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-import { PlaceInfoCard } from "../../place/components/placeInfoCard.components";
+import { PlaceInfoCard } from "../../../components/place/placeInfoCard.components";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 

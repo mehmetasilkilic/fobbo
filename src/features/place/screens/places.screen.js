@@ -3,7 +3,7 @@ import { TouchableOpacity } from "react-native";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
 
-import { PlaceInfoCard } from "../components/placeInfoCard.components";
+import { PlaceInfoCard } from "../../../components/place/placeInfoCard.components";
 import { Search } from "../../../components/search/search.component";
 import { Loading } from "../../../components/loading/loading.component";
 import { Spacer } from "../../../components/spacer/spacer.component";

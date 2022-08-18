@@ -56,11 +56,18 @@ const label = (theme) => `
     font-weight: ${theme.fontWeights.medium};
 `;
 
+const boldLabel = (theme) => `
+    font-size: ${theme.fontSizes.body};
+    font-weight: ${theme.fontWeights.medium};
+    font-weight: ${theme.fontWeights.bold};
+`;
+
 const variants = {
   body,
   title,
   subTitle,
   label,
+  boldLabel,
   lightError,
   caption,
   success,

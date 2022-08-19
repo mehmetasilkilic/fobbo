@@ -105,13 +105,11 @@ export const Profile = () => (
       <RowNoBorder>
         <Text variant="label">Version</Text>
       </RowNoBorder>
-      <Spacer position="bottom" size="large">
-        <Info>
-          <RowNoBorder>
-            <Text variant="label">1.13.10</Text>
-          </RowNoBorder>
-        </Info>
-      </Spacer>
+      <Info>
+        <RowNoBorder>
+          <Text variant="label">1.13.10</Text>
+        </RowNoBorder>
+      </Info>
     </ScrollView>
   </SafeArea>
 );

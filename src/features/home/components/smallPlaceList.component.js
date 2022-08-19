@@ -22,8 +22,9 @@ export const SmallPlaceList = ({ data, onNavigate }) => {
         </InlineRow>
       </Row>
       <SmallPlaceListContainer>
-        {data.slice(0, 4).map((item) => (
+        {data.slice(0, 4).map((item, index) => (
           <TouchableOpacity
+            key={index}
             onPress={() =>
               onNavigate("Places", {
                 screen: "PlaceDetail",

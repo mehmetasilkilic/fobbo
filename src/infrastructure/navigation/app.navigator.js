@@ -1,36 +1,28 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
-import { Text } from "react-native";
-
-import { SafeArea } from "../../components/utils/safeArea.component";
+import { AntDesign } from "@expo/vector-icons";
 
 import { PlacesNavigator } from "./places.navigator";
-import { MapScreen } from "../../features/map/screens/map.screen";
 import { Home } from "../../features/home/screens/home.screen";
+import { MapScreen } from "../../features/map/screens/map.screen";
 import { FavouritesScreen } from "../../features/favourites/screens/favourites.screen";
+import { Profile } from "../../features/profile/screens/profile.screen";
 
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
-  Home: "md-home",
-  Map: "md-map",
-  Places: "md-restaurant",
-  Favourites: "md-heart",
-  Settings: "md-settings",
+  Home: "home",
+  Map: "enviromento",
+  Places: "appstore-o",
+  Favourites: "hearto",
+  Profile: "user",
 };
-
-const Settings = () => (
-  <SafeArea>
-    <Text>Settings</Text>
-  </SafeArea>
-);
 
 const screenOptions = ({ route }) => {
   const iconName = TAB_ICON[route.name];
   return {
     tabBarIcon: ({ size, color }) => (
-      <Ionicons name={iconName} size={size} color={color} />
+      <AntDesign name={iconName} size={size} color={color} />
     ),
     tabBarActiveTintColor: "#9C1F19",
     tabBarInactiveTintColor: "gray",
@@ -45,7 +37,7 @@ export const AppNavigator = () => (
       <Tab.Screen name="Map" component={MapScreen} />
       <Tab.Screen name="Places" component={PlacesNavigator} />
       <Tab.Screen name="Favourites" component={FavouritesScreen} />
-      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   </NavigationContainer>
 );

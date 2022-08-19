@@ -26,7 +26,9 @@ export const PlaceCardSmall = styled(Card)`
   overflow: hidden;
 `;
 
-export const PlaceCardCoverBig = styled(Card.Cover)``;
+export const PlaceCardCoverBig = styled(Card.Cover)`
+  height: 180px;
+`;
 
 export const PlaceCardCoverSmall = styled(Card.Cover)`
   height: 140px;
@@ -40,17 +42,40 @@ export const Row = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-top: ${(props) => props.theme.space[2]};
   padding-bottom: ${(props) => props.theme.space[2]};
-`;
-
-export const IsOpen = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export const PlaceIcon = styled.Image`
   width: 15px;
   height: 15px;
+`;
+
+export const RatingContainerBig = styled.View`
+  position: absolute;
+  top: 145px;
+  right: ${(props) => props.theme.space[2]};
+  z-index: 9;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.ui.success};
+  width: 45px;
+  height: 25px;
+  border-radius: 5px;
+  padding: ${(props) => props.theme.space[1]};
+`;
+
+export const RatingContainerSmall = styled.View`
+  position: absolute;
+  top: 105px;
+  right: ${(props) => props.theme.space[2]};
+  z-index: 9;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.ui.success};
+  width: 45px;
+  height: 25px;
+  border-radius: 5px;
+  padding: ${(props) => props.theme.space[1]};
 `;

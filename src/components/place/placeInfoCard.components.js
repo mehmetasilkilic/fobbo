@@ -1,3 +1,5 @@
+import { AntDesign } from "@expo/vector-icons";
+
 import { Spacer } from "../spacer/spacer.component";
 import { Text } from "../typography/text.component";
 import { Favourite } from "../favourites/favourite.component";
@@ -10,8 +12,9 @@ import {
   PlaceCardCoverSmall,
   Info,
   Row,
-  IsOpen,
   PlaceIcon,
+  RatingContainerBig,
+  RatingContainerSmall,
 } from "./placeInfoCard.styles";
 
 export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
@@ -50,22 +53,35 @@ export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
       ? PlaceCardCoverSmall
       : "";
 
+  const RatingContainer =
+    cardStyle === "vertical"
+      ? RatingContainerBig
+      : cardStyle === "horizontal"
+      ? RatingContainerBig
+      : cardStyle === "small"
+      ? RatingContainerSmall
+      : "";
+
   return (
     <PlaceCard elevation={5}>
       <Favourite place={place} styleVariable="card" />
+      <RatingContainer>
+        <AntDesign name="staro" size={14} color={"white"} />
+        <Text variant="captionWhite">{place.rating}</Text>
+      </RatingContainer>
       <PlaceCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Text numberOfLines={1} variant="label">
-          {name}
-        </Text>
+        <Spacer position="bottom" size="medium">
+          <Text numberOfLines={1} variant="label">
+            {name}
+          </Text>
+        </Spacer>
         <Row>
-          <IsOpen>
-            {iconList.map((icon) => (
-              <Spacer key={icon.id} position="right" size="medium">
-                <PlaceIcon key={icon.id} source={{ uri: icon.url }} />
-              </Spacer>
-            ))}
-          </IsOpen>
+          {iconList.map((icon) => (
+            <Spacer key={icon.id} position="right" size="medium">
+              <PlaceIcon key={icon.id} source={{ uri: icon.url }} />
+            </Spacer>
+          ))}
         </Row>
         <Text numberOfLines={1} variant="caption">
           {address}

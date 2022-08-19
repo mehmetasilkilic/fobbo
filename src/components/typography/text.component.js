@@ -51,6 +51,12 @@ const caption = (theme) => `
     color: ${theme.colors.text.disabled};
 `;
 
+const captionWhite = (theme) => `
+    font-size: ${theme.fontSizes.caption};
+    color: ${theme.colors.text.inverse};
+    font-weight: ${theme.fontWeights.bold};
+`;
+
 const label = (theme) => `
     font-size: ${theme.fontSizes.body};
     font-weight: ${theme.fontWeights.medium};
@@ -58,7 +64,6 @@ const label = (theme) => `
 
 const boldLabel = (theme) => `
     font-size: ${theme.fontSizes.body};
-    font-weight: ${theme.fontWeights.medium};
     font-weight: ${theme.fontWeights.bold};
 `;
 
@@ -66,6 +71,7 @@ const variants = {
   body,
   title,
   subTitle,
+  captionWhite,
   label,
   boldLabel,
   lightError,

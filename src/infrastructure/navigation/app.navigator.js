@@ -25,8 +25,22 @@ const screenOptions = ({ route }) => {
       <AntDesign name={iconName} size={size} color={color} />
     ),
     tabBarActiveTintColor: "#9C1F19",
-    tabBarInactiveTintColor: "gray",
+    tabBarActiveBackgroundColor: "#EEEEEE",
+    tabBarInactiveTintColor: "#757575",
     headerShown: false,
+    tabBarStyle: {
+      position: "absolute",
+      margin: 10,
+      borderRadius: 5,
+      height: 70,
+    },
+    tabBarItemStyle: {
+      borderRadius: 5,
+    },
+    tabBarLabelStyle: {
+      paddingBottom: 10,
+      margin: 0,
+    },
   };
 };
 

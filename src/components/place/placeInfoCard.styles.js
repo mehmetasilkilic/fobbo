@@ -50,6 +50,34 @@ export const PlaceIcon = styled.Image`
   height: 15px;
 `;
 
+export const IsOpenContainer = styled.View`
+  position: absolute;
+  top: ${(props) => props.theme.space[2]};
+  left: ${(props) => props.theme.space[2]};
+  z-index: 9;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.ui.success};
+  height: 25px;
+  border-radius: 5px;
+  padding: ${(props) => props.theme.space[1]};
+`;
+
+export const IsCloseContainer = styled.View`
+  position: absolute;
+  top: ${(props) => props.theme.space[2]};
+  left: ${(props) => props.theme.space[2]};
+  z-index: 9;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.ui.error};
+  height: 25px;
+  border-radius: 5px;
+  padding: ${(props) => props.theme.space[1]};
+`;
+
 export const RatingContainerBig = styled.View`
   position: absolute;
   top: 145px;
@@ -59,7 +87,6 @@ export const RatingContainerBig = styled.View`
   justify-content: space-around;
   align-items: center;
   background-color: ${(props) => props.theme.colors.ui.success};
-  width: 45px;
   height: 25px;
   border-radius: 5px;
   padding: ${(props) => props.theme.space[1]};
@@ -74,7 +101,6 @@ export const RatingContainerSmall = styled.View`
   justify-content: space-around;
   align-items: center;
   background-color: ${(props) => props.theme.colors.ui.success};
-  width: 45px;
   height: 25px;
   border-radius: 5px;
   padding: ${(props) => props.theme.space[1]};

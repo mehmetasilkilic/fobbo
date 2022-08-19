@@ -15,6 +15,8 @@ import {
   PlaceIcon,
   RatingContainerBig,
   RatingContainerSmall,
+  IsOpenContainer,
+  IsCloseContainer,
 } from "./placeInfoCard.styles";
 
 export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
@@ -62,12 +64,20 @@ export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
       ? RatingContainerSmall
       : "";
 
+  const IfOpen = isOpenNow ? IsOpenContainer : IsCloseContainer;
+
   return (
     <PlaceCard elevation={5}>
       <Favourite place={place} styleVariable="card" />
+      <IfOpen>
+        {isOpenNow && <Text variant="captionWhite">OPEN</Text>}
+        {!isOpenNow && <Text variant="captionWhite">CLOSED</Text>}
+      </IfOpen>
       <RatingContainer>
         <AntDesign name="staro" size={14} color={"white"} />
-        <Text variant="captionWhite">{place.rating}</Text>
+        <Spacer position="left" size="small">
+          <Text variant="captionWhite">{place.rating}</Text>
+        </Spacer>
       </RatingContainer>
       <PlaceCardCover key={name} source={{ uri: photos[0] }} />
       <Info>

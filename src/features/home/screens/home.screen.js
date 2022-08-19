@@ -98,13 +98,18 @@ export const Home = ({ navigation }) => {
     },
   ];
 
+  const topTenPlaces = places.slice(0, 10);
+
   return (
     <SafeArea>
       <Search />
       {isLoading && <Loading />}
       <ScrollView>
         <CategoriesList data={categoryDummyData} />
-        <HorizontalPlaceList data={places} onNavigate={navigation.navigate} />
+        <HorizontalPlaceList
+          data={topTenPlaces}
+          onNavigate={navigation.navigate}
+        />
         <AdvertisementList data={advertisementDummyData} />
         <SmallPlaceList data={places} onNavigate={navigation.navigate} />
         <AdvertisementImageWrapper>

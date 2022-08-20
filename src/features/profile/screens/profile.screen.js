@@ -1,4 +1,4 @@
-import { ScrollView, TouchableOpacity } from "react-native";
+import { ScrollView, TouchableWithoutFeedback } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
@@ -7,13 +7,21 @@ import { Text } from "../../../components/typography/text.component";
 
 import {
   AccountInfo,
-  Row,
   ProfilePicture,
   Column,
   Info,
   InlineRow,
   RowNoBorder,
 } from "./profile.styles";
+import { ProfileRow } from "../components/profileRow.component";
+
+const RowList = [
+  { label: "Contact", color: "red", icon: "phone" },
+  { label: "Term of use", color: "green", icon: "infocirlceo" },
+  { label: "Privacy policy", color: "#f0bb00", icon: "filetext1" },
+  { label: "Login settings", color: "black", icon: "lock1" },
+  { label: "Logout", color: "red", icon: "logout" },
+];
 
 export const ProfileScreen = ({ navigation }) => (
   <SafeArea>
@@ -37,7 +45,9 @@ export const ProfileScreen = ({ navigation }) => (
       </Spacer>
       <Spacer position="top" size="medium">
         <Info>
-          <TouchableOpacity onPress={() => navigation.navigate("Favourites")}>
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate("Favourites")}
+          >
             <RowNoBorder>
               <InlineRow>
                 <Spacer position="right" size="medium">
@@ -47,52 +57,16 @@ export const ProfileScreen = ({ navigation }) => (
               </InlineRow>
               <AntDesign name="right" size={16} color="black" />
             </RowNoBorder>
-          </TouchableOpacity>
-          <Row>
-            <InlineRow>
-              <Spacer position="right" size="medium">
-                <AntDesign name="phone" size={26} color="red" />
-              </Spacer>
-              <Text variant="label">Contact</Text>
-            </InlineRow>
-            <AntDesign name="right" size={16} color="black" />
-          </Row>
-          <Row>
-            <InlineRow>
-              <Spacer position="right" size="medium">
-                <AntDesign name="infocirlceo" size={26} color="green" />
-              </Spacer>
-              <Text variant="label">Term of use</Text>
-            </InlineRow>
-            <AntDesign name="right" size={16} color="black" />
-          </Row>
-          <Row>
-            <InlineRow>
-              <Spacer position="right" size="medium">
-                <AntDesign name="filetext1" size={26} color="#f0bb00" />
-              </Spacer>
-              <Text variant="label">Privacy policy</Text>
-            </InlineRow>
-            <AntDesign name="right" size={16} color="black" />
-          </Row>
-          <Row>
-            <InlineRow>
-              <Spacer position="right" size="medium">
-                <AntDesign name="lock1" size={26} color="black" />
-              </Spacer>
-              <Text variant="label">Login settings</Text>
-            </InlineRow>
-            <AntDesign name="right" size={16} color="black" />
-          </Row>
-          <Row>
-            <InlineRow>
-              <Spacer position="right" size="medium">
-                <AntDesign name="logout" size={26} color="red" />
-              </Spacer>
-              <Text variant="label">Logout</Text>
-            </InlineRow>
-            <AntDesign name="right" size={16} color="black" />
-          </Row>
+          </TouchableWithoutFeedback>
+          {RowList.map((item) => (
+            <TouchableWithoutFeedback>
+              <ProfileRow
+                label={item.label}
+                color={item.color}
+                icon={item.icon}
+              />
+            </TouchableWithoutFeedback>
+          ))}
         </Info>
       </Spacer>
       <RowNoBorder>

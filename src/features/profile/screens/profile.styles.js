@@ -7,18 +7,6 @@ export const AccountInfo = styled.View`
   padding: ${(props) => props.theme.space[2]};
 `;
 
-export const Row = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-top-width: 1px;
-  border-top-color: ${(props) => props.theme.colors.ui.disabled};
-  padding-top: ${(props) => props.theme.space[3]};
-  padding-right: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[3]};
-  padding-left: ${(props) => props.theme.space[2]};
-`;
-
 export const RowNoBorder = styled.View`
   flex-direction: row;
   justify-content: space-between;

@@ -3,10 +3,9 @@ import styled from "styled-components/native";
 import { Card } from "react-native-paper";
 
 const cardWidthHorizontal =
-  Math.floor(Dimensions.get("window").width) -
-  Math.floor(Dimensions.get("window").width) / 5;
+  Dimensions.get("window").width - Dimensions.get("window").width / 5;
 
-const cardWidthHalf = (Math.floor(Dimensions.get("window").width) - 30) / 2;
+const cardWidthHalf = (Dimensions.get("window").width - 30) / 2;
 
 export const PlaceCardHorizontal = styled(Card)`
   width: ${cardWidthHorizontal}px;

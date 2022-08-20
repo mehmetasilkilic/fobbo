@@ -6,8 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { PlacesNavigator } from "./places.navigator";
 import { Home } from "../../features/home/screens/home.screen";
 import { MapScreen } from "../../features/map/screens/map.screen";
-import { FavouritesScreen } from "../../features/favourites/screens/favourites.screen";
-import { Profile } from "../../features/profile/screens/profile.screen";
+import { ProfileNavigator } from "./profile.navigator";
 
 import navLogo from "../../../assets/nav-logo.png";
 
@@ -63,7 +62,6 @@ const screenOptions = ({ route }) => {
     tabBarActiveTintColor: "#9C1F19",
     tabBarInactiveTintColor: "#757575",
     tabBarActiveBackgroundColor: "#EEEEEE",
-    // tabBarStyle: tabBarStyle,
     tabBarStyle: route.name !== "Places" ? tabBarStyle : tabBarStyleHidden,
     tabBarItemStyle: tabBarItemStyle,
   };
@@ -75,8 +73,8 @@ export const AppNavigator = () => (
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Map" component={MapScreen} />
       <Tab.Screen name="Places" component={PlacesNavigator} />
-      <Tab.Screen name="Favourites" component={FavouritesScreen} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Favourites" component={ProfileNavigator} />
+      <Tab.Screen name="Profile" component={ProfileNavigator} />
     </Tab.Navigator>
   </NavigationContainer>
 );

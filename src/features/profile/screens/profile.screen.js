@@ -1,4 +1,4 @@
-import { ScrollView } from "react-native";
+import { ScrollView, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
@@ -15,7 +15,7 @@ import {
   RowNoBorder,
 } from "./profile.styles";
 
-export const Profile = () => (
+export const ProfileScreen = ({ navigation }) => (
   <SafeArea>
     <ScrollView>
       <Spacer position="top" size="medium">
@@ -37,15 +37,17 @@ export const Profile = () => (
       </Spacer>
       <Spacer position="top" size="medium">
         <Info>
-          <RowNoBorder>
-            <InlineRow>
-              <Spacer position="right" size="medium">
-                <AntDesign name="setting" size={26} color="gray" />
-              </Spacer>
-              <Text variant="label">Settings</Text>
-            </InlineRow>
-            <AntDesign name="right" size={16} color="black" />
-          </RowNoBorder>
+          <TouchableOpacity onPress={() => navigation.navigate("Favourites")}>
+            <RowNoBorder>
+              <InlineRow>
+                <Spacer position="right" size="medium">
+                  <AntDesign name="heart" size={26} color="red" />
+                </Spacer>
+                <Text variant="label">Favourites</Text>
+              </InlineRow>
+              <AntDesign name="right" size={16} color="black" />
+            </RowNoBorder>
+          </TouchableOpacity>
           <Row>
             <InlineRow>
               <Spacer position="right" size="medium">

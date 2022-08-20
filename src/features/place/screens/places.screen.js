@@ -16,28 +16,31 @@ export const PlacesScreen = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
 
   return (
-    <SafeArea>
-      {isLoading && <Loading />}
-      <Search />
-      <PlacesList
-        data={places}
-        renderItem={({ item }) => {
-          return (
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("PlaceDetail", {
-                  place: item,
-                })
-              }
-            >
-              <Spacer position="bottom" size="medium">
-                <PlaceInfoCard place={item} cardStyle="vertical" />
-              </Spacer>
-            </TouchableOpacity>
-          );
-        }}
-        keyExtractor={(item) => item.name}
-      />
-    </SafeArea>
+    <>
+      <SafeArea>
+        {isLoading && <Loading />}
+        <Search />
+        <PlacesList
+          data={places}
+          renderItem={({ item }) => {
+            return (
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("PlaceDetail", {
+                    place: item,
+                  })
+                }
+              >
+                <Spacer position="bottom" size="medium">
+                  <PlaceInfoCard place={item} cardStyle="vertical" />
+                </Spacer>
+              </TouchableOpacity>
+            );
+          }}
+          keyExtractor={(item) => item.name}
+        />
+      </SafeArea>
+      <Spacer position="bottom" size="extraLarge" />
+    </>
   );
 };

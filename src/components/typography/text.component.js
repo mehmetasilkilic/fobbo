@@ -20,6 +20,13 @@ const title = (theme) => `
     color: ${theme.colors.text.inverse};
 `;
 
+const titleMedium = (theme) => `
+    font-size: ${theme.fontSizes.h5};
+    line-height: ${theme.fontSizes.h5};
+    font-weight: ${theme.fontWeights.bold};
+    color: ${theme.colors.text.inverse};
+`;
+
 const subTitle = (theme) => `
     font-size: ${theme.fontSizes.body};
     color: ${theme.colors.text.inverse};
@@ -70,6 +77,7 @@ const boldLabel = (theme) => `
 const variants = {
   body,
   title,
+  titleMedium,
   subTitle,
   captionWhite,
   label,

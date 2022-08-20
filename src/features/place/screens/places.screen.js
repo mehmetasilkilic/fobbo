@@ -40,7 +40,6 @@ export const PlacesScreen = ({ navigation }) => {
           keyExtractor={(item) => item.name}
         />
       </SafeArea>
-      <Spacer position="bottom" size="extraLarge" />
     </>
   );
 };

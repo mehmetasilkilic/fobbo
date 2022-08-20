@@ -1,3 +1,4 @@
+import { Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign } from "@expo/vector-icons";
@@ -7,6 +8,8 @@ import { Home } from "../../features/home/screens/home.screen";
 import { MapScreen } from "../../features/map/screens/map.screen";
 import { FavouritesScreen } from "../../features/favourites/screens/favourites.screen";
 import { Profile } from "../../features/profile/screens/profile.screen";
+
+import navLogo from "../../../assets/nav-logo.png";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,29 +21,51 @@ const TAB_ICON = {
   Profile: "user",
 };
 
+const tabBarStyle = {
+  position: "absolute",
+  margin: 10,
+  borderRadius: 5,
+  height: 70,
+  shadowColor: "#000",
+  shadowOpacity: 0.06,
+  shadowOffset: {
+    width: 10,
+    height: 10,
+  },
+};
+
+const tabBarStyleHidden = {
+  display: "none",
+};
+
+const tabBarItemStyle = {
+  borderRadius: 5,
+};
+
+const tabBarActionButtonStyle = {
+  width: 70,
+  height: 90,
+  transform: [{ translateY: -10 }],
+};
+
 const screenOptions = ({ route }) => {
   const iconName = TAB_ICON[route.name];
+
   return {
-    tabBarIcon: ({ size, color }) => (
-      <AntDesign name={iconName} size={size} color={color} />
-    ),
-    tabBarActiveTintColor: "#9C1F19",
-    tabBarActiveBackgroundColor: "#EEEEEE",
-    tabBarInactiveTintColor: "#757575",
+    tabBarIcon:
+      route.name === "Places"
+        ? () => <Image source={navLogo} style={tabBarActionButtonStyle} />
+        : ({ size, color }) => (
+            <AntDesign name={iconName} size={28} color={color} />
+          ),
     headerShown: false,
-    tabBarStyle: {
-      position: "absolute",
-      margin: 10,
-      borderRadius: 5,
-      height: 70,
-    },
-    tabBarItemStyle: {
-      borderRadius: 5,
-    },
-    tabBarLabelStyle: {
-      paddingBottom: 10,
-      margin: 0,
-    },
+    tabBarShowLabel: false,
+    tabBarActiveTintColor: "#9C1F19",
+    tabBarInactiveTintColor: "#757575",
+    tabBarActiveBackgroundColor: "#EEEEEE",
+    // tabBarStyle: tabBarStyle,
+    tabBarStyle: route.name !== "Places" ? tabBarStyle : tabBarStyleHidden,
+    tabBarItemStyle: tabBarItemStyle,
   };
 };
 

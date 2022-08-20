@@ -11,6 +11,7 @@ import { CategoriesList } from "../components/categoriesList.component";
 import { AdvertisementList } from "../components/advertisementList.component";
 import { SmallPlaceList } from "../components/smallPlaceList.component";
 import styled from "styled-components";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
 export const Home = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
@@ -120,6 +121,7 @@ export const Home = ({ navigation }) => {
           />
         </AdvertisementImageWrapper>
         <SmallPlaceList data={places} onNavigate={navigation.navigate} />
+        <Spacer position="bottom" size="extraLarge" />
       </ScrollView>
     </SafeArea>
   );

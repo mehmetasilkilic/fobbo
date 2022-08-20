@@ -16,11 +16,11 @@ import {
 import { ProfileRow } from "../components/profileRow.component";
 
 const RowList = [
-  { label: "Contact", color: "red", icon: "phone" },
-  { label: "Term of use", color: "green", icon: "infocirlceo" },
-  { label: "Privacy policy", color: "#f0bb00", icon: "filetext1" },
-  { label: "Login settings", color: "black", icon: "lock1" },
-  { label: "Logout", color: "red", icon: "logout" },
+  { id: 1, label: "Contact", color: "red", icon: "phone" },
+  { id: 2, label: "Term of use", color: "green", icon: "infocirlceo" },
+  { id: 3, label: "Privacy policy", color: "#f0bb00", icon: "filetext1" },
+  { id: 4, label: "Login settings", color: "black", icon: "lock1" },
+  { id: 5, label: "Logout", color: "red", icon: "logout" },
 ];
 
 export const ProfileScreen = ({ navigation }) => (
@@ -59,7 +59,7 @@ export const ProfileScreen = ({ navigation }) => (
             </RowNoBorder>
           </TouchableWithoutFeedback>
           {RowList.map((item) => (
-            <TouchableWithoutFeedback>
+            <TouchableWithoutFeedback key={item.id}>
               <ProfileRow
                 label={item.label}
                 color={item.color}

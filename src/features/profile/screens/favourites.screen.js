@@ -16,9 +16,8 @@ export const FavouritesScreen = ({ navigation }) => {
   const { favourites, isLoading } = useContext(FavouritesContext);
 
   return (
-    <SafeArea>
+    <>
       {isLoading && <Loading />}
-      <Search />
       <PlacesList
         numColumns={2}
         data={favourites}
@@ -40,6 +39,6 @@ export const FavouritesScreen = ({ navigation }) => {
         keyExtractor={(item) => item.name}
       />
       <Spacer position="bottom" size="extraLarge" />
-    </SafeArea>
+    </>
   );
 };

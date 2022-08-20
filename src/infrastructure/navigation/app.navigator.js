@@ -54,9 +54,7 @@ const screenOptions = ({ route }) => {
     tabBarIcon:
       route.name === "Places"
         ? () => <Image source={navLogo} style={tabBarActionButtonStyle} />
-        : ({ size, color }) => (
-            <AntDesign name={iconName} size={28} color={color} />
-          ),
+        : ({ color }) => <AntDesign name={iconName} size={28} color={color} />,
     headerShown: false,
     tabBarShowLabel: false,
     tabBarActiveTintColor: "#9C1F19",
@@ -73,7 +71,6 @@ export const AppNavigator = () => (
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Map" component={MapScreen} />
       <Tab.Screen name="Places" component={PlacesNavigator} />
-      <Tab.Screen name="Favourites" component={ProfileNavigator} />
       <Tab.Screen name="Profile" component={ProfileNavigator} />
     </Tab.Navigator>
   </NavigationContainer>

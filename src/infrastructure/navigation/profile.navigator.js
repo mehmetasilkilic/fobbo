@@ -19,8 +19,14 @@ export const ProfileNavigator = () => {
         ...TransitionPresets.SlideFromRightIOS,
       }}
     >
-      <ProfileStack.Screen name="Profile" component={ProfileScreen} />
-      <ProfileStack.Screen name="Favourites" component={FavouritesScreen} />
+      <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <ProfileStack.Screen
+        name="Favourites"
+        component={FavouritesScreen}
+        options={{
+          headerShown: true,
+        }}
+      />
     </ProfileStack.Navigator>
   );
 };

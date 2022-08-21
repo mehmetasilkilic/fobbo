@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { TouchableRipple } from "react-native-paper";
+import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import { Text } from "../../../components/typography/text.component";
@@ -82,11 +82,11 @@ export const ReviewCard = ({ review }) => {
             {review.reviewText}
           </Text>
           {numOfLines > 3 && (
-            <TouchableRipple onPress={onLoadMoreToggle}>
+            <TouchableOpacity onPress={onLoadMoreToggle}>
               <Text variant="error">
                 {loadMore ? "Load Less" : "Load More"}
               </Text>
-            </TouchableRipple>
+            </TouchableOpacity>
           )}
         </Spacer>
         <Spacer position="top" size="medium">

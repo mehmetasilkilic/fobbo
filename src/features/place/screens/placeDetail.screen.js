@@ -13,6 +13,18 @@ import { Favourite } from "../../../components/favourites/favourite.component";
 
 import { PlaceDetailContainer, Types, Row, TopBar } from "./placeDetail.styles";
 
+const review = {
+  username: "John Doe",
+  rating: 4,
+  date: "20 Mar 2022",
+  reviewText:
+    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+  profilePicture:
+    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+  likes: 202,
+  dislikes: 2,
+};
+
 export const PlaceDetailScreen = ({ route, navigation }) => {
   const { place } = route.params;
 
@@ -61,8 +73,8 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
             <Text variant="label">All Ratings and Reviews</Text>
             <Text variant="error">Top Rated</Text>
           </Row>
-          <ReviewCard />
-          <ReviewCard />
+          <ReviewCard review={review} />
+          <ReviewCard review={review} />
         </PlaceDetailContainer>
       </ScrollView>
     </SafeArea>

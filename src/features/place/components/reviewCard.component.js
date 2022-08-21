@@ -1,9 +1,7 @@
-import { SvgXml } from "react-native-svg";
 import { AntDesign } from "@expo/vector-icons";
 
 import { Text } from "../../../components/typography/text.component";
-
-import star from "../../../../assets/star";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
 import {
   Column,
@@ -17,21 +15,17 @@ import {
   ReviewButton,
   ButtonText,
 } from "./reviewCard.styles";
-import { Spacer } from "../../../components/spacer/spacer.component";
 
-export const ReviewCard = () => {
-  const rating = 5;
-  const rateArr = Array.from(new Array(rating));
-
-  const reviewText =
-    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.";
+export const ReviewCard = ({ review }) => {
+  const rateArr = Array.from(new Array(review.rating));
+  const rateArrMinus = Array.from(new Array(5 - review.rating));
 
   return (
     <ReviewCardContainer>
       <ImageColumn>
         <ProfilePicture
           source={{
-            uri: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+            uri: review.profilePicture,
           }}
         />
       </ImageColumn>
@@ -39,18 +33,22 @@ export const ReviewCard = () => {
         <Row>
           <Column>
             <Spacer position="bottom" size="small">
-              <Text variant="error">John Doe</Text>
+              <Text variant="error">{review.username}</Text>
             </Spacer>
-            <Text variant="caption">20 Mar 2022</Text>
+            <Text variant="caption">{review.date}</Text>
           </Column>
           <StarRow>
             {rateArr.map((a, index) => (
-              <SvgXml key={index} xml={star} width={20} height={20} />
+              <AntDesign name="star" size={16} color="#D0421B" key={index} />
             ))}
+            {rateArrMinus &&
+              rateArrMinus.map((a, index) => (
+                <AntDesign name="staro" size={16} color="#D0421B" key={index} />
+              ))}
           </StarRow>
         </Row>
         <Spacer position="top" size="medium">
-          <Text variant="hint">{reviewText}</Text>
+          <Text variant="hint">{review.reviewText}</Text>
         </Spacer>
         <Spacer position="top" size="medium">
           <ButtonRow>
@@ -59,14 +57,14 @@ export const ReviewCard = () => {
                 <Spacer position="right" size="small">
                   <AntDesign name="like2" size={16} color="#D0421B" />
                 </Spacer>
-                <ButtonText variant="error">202</ButtonText>
+                <ButtonText variant="error">{review.likes}</ButtonText>
               </ReviewButton>
             </Spacer>
             <ReviewButton onPress={() => {}}>
               <Spacer position="right" size="small">
                 <AntDesign name="dislike2" size={16} color="#D0421B" />
               </Spacer>
-              <ButtonText variant="error">1</ButtonText>
+              <ButtonText variant="error">{review.dislikes}</ButtonText>
             </ReviewButton>
           </ButtonRow>
         </Spacer>

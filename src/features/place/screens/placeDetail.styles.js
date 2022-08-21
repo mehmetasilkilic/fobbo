@@ -7,7 +7,7 @@ export const PlaceDetailContainer = styled.View`
 export const TopBar = styled.View`
   padding: ${(props) => props.theme.space[2]};
   flex-direction: row;
-  background-color: #9c1f19;
+  background-color: ${(props) => props.theme.colors.brand.primary};
   justify-content: space-between;
 `;
 

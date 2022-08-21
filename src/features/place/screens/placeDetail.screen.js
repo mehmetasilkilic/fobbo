@@ -13,17 +13,31 @@ import { Favourite } from "../../../components/favourites/favourite.component";
 
 import { PlaceDetailContainer, Types, Row, TopBar } from "./placeDetail.styles";
 
-const review = {
-  username: "John Doe",
-  rating: 4,
-  date: "20 Mar 2022",
-  reviewText:
-    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-  profilePicture:
-    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-  likes: 202,
-  dislikes: 2,
-};
+const reviews = [
+  {
+    id: 1,
+    username: "John Doe",
+    rating: 4,
+    date: "20 Mar 2022",
+    reviewText:
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    profilePicture:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    likes: 202,
+    dislikes: 2,
+  },
+  {
+    id: 2,
+    username: "Alihan Türkeri",
+    rating: 1,
+    date: "31 Mar 2022",
+    reviewText: "Nedim Çelik beni dolandırdı.",
+    profilePicture:
+      "https://cdn.memorial.com.tr/files/2018/8/ab3d54ce-b6f5-428f-94af-d757be212720.png",
+    likes: 999,
+    dislikes: 0,
+  },
+];
 
 export const PlaceDetailScreen = ({ route, navigation }) => {
   const { place } = route.params;
@@ -73,8 +87,9 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
             <Text variant="label">All Ratings and Reviews</Text>
             <Text variant="error">Top Rated</Text>
           </Row>
-          <ReviewCard review={review} />
-          <ReviewCard review={review} />
+          {reviews.map((item) => (
+            <ReviewCard review={item} key={item.id} />
+          ))}
         </PlaceDetailContainer>
       </ScrollView>
     </SafeArea>

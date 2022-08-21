@@ -67,5 +67,5 @@ export const ReviewButtonToggled = styled(TouchableOpacity)`
 
 export const ButtonText = styled(Text)`
   text-align: center;
-  min-width: 25px;
+  min-width: 35px;
 `;

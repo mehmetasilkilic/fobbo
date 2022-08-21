@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { TouchableRipple } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
 
 import { Text } from "../../../components/typography/text.component";
@@ -21,6 +22,21 @@ import {
 export const ReviewCard = ({ review }) => {
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
+  const [loadMore, setLoadMore] = useState(false);
+  const [numOfLines, setNumOfLines] = useState(0);
+
+  const onTextLayout = useCallback(
+    (e) => {
+      if (numOfLines === 0) {
+        setNumOfLines(e.nativeEvent.lines.length);
+      }
+    },
+    [numOfLines]
+  );
+
+  const onLoadMoreToggle = () => {
+    setLoadMore(!loadMore);
+  };
 
   const rateArr = Array.from(new Array(review.rating));
   const rateArrMinus = Array.from(new Array(5 - review.rating));
@@ -41,7 +57,9 @@ export const ReviewCard = ({ review }) => {
         <Row>
           <Column>
             <Spacer position="bottom" size="small">
-              <Text variant="error">{review.username}</Text>
+              <Text variant="error" numberOfLines={1}>
+                {review.username}
+              </Text>
             </Spacer>
             <Text variant="caption">{review.date}</Text>
           </Column>
@@ -56,7 +74,20 @@ export const ReviewCard = ({ review }) => {
           </StarRow>
         </Row>
         <Spacer position="top" size="medium">
-          <Text variant="hint">{review.reviewText}</Text>
+          <Text
+            variant="hint"
+            numberOfLines={numOfLines === 0 ? null : loadMore ? numOfLines : 3}
+            onTextLayout={onTextLayout}
+          >
+            {review.reviewText}
+          </Text>
+          {numOfLines > 3 && (
+            <TouchableRipple onPress={onLoadMoreToggle}>
+              <Text variant="error">
+                {loadMore ? "Load Less" : "Load More"}
+              </Text>
+            </TouchableRipple>
+          )}
         </Spacer>
         <Spacer position="top" size="medium">
           <ButtonRow>
@@ -77,7 +108,13 @@ export const ReviewCard = ({ review }) => {
                   />
                 </Spacer>
                 <ButtonText variant={liked ? "whiteButton" : "error"}>
-                  {liked ? review.likes + 1 : review.likes}
+                  {review.likes > 999
+                    ? "999+"
+                    : liked && review.likes < 999
+                    ? review.likes + 1
+                    : liked && review.likes === 999
+                    ? review.likes + "+"
+                    : review.likes}
                 </ButtonText>
               </LikeButton>
             </Spacer>
@@ -97,7 +134,13 @@ export const ReviewCard = ({ review }) => {
                 />
               </Spacer>
               <ButtonText variant={disliked ? "whiteButton" : "error"}>
-                {disliked ? review.dislikes + 1 : review.dislikes}
+                {review.dislikes > 999
+                  ? "999+"
+                  : disliked && review.dislikes < 999
+                  ? review.dislikes + 1
+                  : disliked && review.dislikes === 999
+                  ? review.dislikes + "+"
+                  : review.dislikes}
               </ButtonText>
             </DislikeButton>
           </ButtonRow>

@@ -1,4 +1,4 @@
-import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import styled from "styled-components/native";
 
 import { Text } from "../../../components/typography/text.component";
@@ -44,14 +44,25 @@ export const ButtonRow = styled.View`
   align-items: flex-start;
 `;
 
-export const ReviewButton = styled(Pressable)`
+export const ReviewButton = styled(TouchableOpacity)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: ${(props) => props.theme.space[1]};
   border-radius: 5px;
   border-width: 1px;
-  border-color: ${(props) => props.theme.colors.ui.error};
+  border-color: ${(props) => props.theme.colors.brand.primary};
+`;
+
+export const ReviewButtonToggled = styled(TouchableOpacity)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${(props) => props.theme.space[1]};
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: ${(props) => props.theme.colors.brand.primary};
+  background-color: ${(props) => props.theme.colors.brand.primary};
 `;
 
 export const ButtonText = styled(Text)`

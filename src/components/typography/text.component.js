@@ -48,6 +48,11 @@ const error = (theme) => `
     font-size: ${theme.fontSizes.button};
 `;
 
+const whiteButton = (theme) => `
+    color: ${theme.colors.text.inverse};
+    font-size: ${theme.fontSizes.button};
+`;
+
 const lightError = (theme) => `
     color: ${theme.colors.brand.secondary};
     font-size: ${theme.fontSizes.caption};
@@ -81,6 +86,7 @@ const variants = {
   subTitle,
   captionWhite,
   label,
+  whiteButton,
   boldLabel,
   lightError,
   caption,

@@ -1,10 +1,11 @@
-import { View, ScrollView, TouchableOpacity } from "react-native";
+import { View, ScrollView, TouchableOpacity, Pressable } from "react-native";
 import { SliderBox } from "react-native-image-slider-box";
 import { AntDesign } from "@expo/vector-icons";
 
 import { FootTrafficChart } from "../components/footTrafficChart.component";
 import { PlaceDetailHeader } from "../components/placeDetailHeader.component";
 import { ReviewCard } from "../components/reviewCard.component";
+import { CommentForm } from "../components/commentForm.component";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
@@ -16,6 +17,7 @@ import {
   Row,
   TopBar,
   SafeAreaDetail,
+  RowCentered,
 } from "./placeDetail.styles";
 
 const reviews = [
@@ -95,6 +97,12 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
           {reviews.map((item) => (
             <ReviewCard review={item} key={item.id} />
           ))}
+          <Pressable>
+            <RowCentered>
+              <Text variant="error">See All Reviews</Text>
+            </RowCentered>
+          </Pressable>
+          <CommentForm />
         </PlaceDetailContainer>
       </ScrollView>
     </SafeAreaDetail>

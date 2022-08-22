@@ -27,6 +27,15 @@ export const Row = styled.View`
   border-bottom-color: ${(props) => props.theme.colors.ui.disabled};
 `;
 
+export const RowCentered = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: ${(props) => props.theme.space[2]};
+  border-bottom-width: 1px;
+  border-bottom-color: ${(props) => props.theme.colors.ui.disabled};
+`;
+
 export const Types = styled.View`
   flex-direction: row;
 `;

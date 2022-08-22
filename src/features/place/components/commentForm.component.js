@@ -35,13 +35,13 @@ export const CommentForm = () => {
         <Row>
           <Text variant="error">Rate the place</Text>
           <StarRow>
-            {starArr.map((star, index) => (
+            {starArr.map((star) => (
               <TouchableOpacity onPress={() => setRate(star.value)}>
                 <AntDesign
                   name={star.value <= rate ? "star" : "staro"}
                   size={16}
                   color="#9C1F19"
-                  key={index}
+                  key={star.value}
                 />
               </TouchableOpacity>
             ))}

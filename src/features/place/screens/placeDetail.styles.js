@@ -1,4 +1,11 @@
 import styled from "styled-components/native";
+import { StatusBar, SafeAreaView } from "react-native";
+
+export const SafeAreaDetail = styled(SafeAreaView)`
+  flex: 1;
+  background-color: ${(props) => props.theme.colors.brand.primary};
+  ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight}px`}
+`;
 
 export const PlaceDetailContainer = styled.View`
   background-color: ${(props) => props.theme.colors.ui.quaternary};

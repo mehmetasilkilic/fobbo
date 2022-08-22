@@ -6,12 +6,17 @@ import { FootTrafficChart } from "../components/footTrafficChart.component";
 import { PlaceDetailHeader } from "../components/placeDetailHeader.component";
 import { ReviewCard } from "../components/reviewCard.component";
 
-import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Favourite } from "../../../components/favourites/favourite.component";
 
-import { PlaceDetailContainer, Types, Row, TopBar } from "./placeDetail.styles";
+import {
+  PlaceDetailContainer,
+  Types,
+  Row,
+  TopBar,
+  SafeAreaDetail,
+} from "./placeDetail.styles";
 
 const reviews = [
   {
@@ -51,7 +56,7 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
   };
 
   return (
-    <SafeArea>
+    <SafeAreaDetail>
       <TopBar>
         <View>
           <TouchableOpacity onPress={() => navigation.pop()}>
@@ -92,6 +97,6 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
           ))}
         </PlaceDetailContainer>
       </ScrollView>
-    </SafeArea>
+    </SafeAreaDetail>
   );
 };

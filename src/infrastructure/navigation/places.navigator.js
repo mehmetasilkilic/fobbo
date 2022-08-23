@@ -15,7 +15,6 @@ export const PlacesNavigator = () => {
     <PlaceStack.Navigator
       screenOptions={{
         headerShown: false,
-        gestureEnabled: true,
         ...TransitionPresets.ModalSlideFromBottomIOS,
       }}
     >

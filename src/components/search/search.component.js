@@ -1,12 +1,9 @@
 import { useContext, useState, useEffect } from "react";
-import styled from "styled-components/native";
-import { Searchbar } from "react-native-paper";
+import { AntDesign } from "@expo/vector-icons";
 
 import { LocationContext } from "../../services/location/location.context";
 
-const SearchContainer = styled.View`
-  padding: ${(props) => props.theme.space[2]};
-`;
+import { SearchContainer, SearchAll, Filter } from "./search.styles";
 
 export const Search = () => {
   const { keyword, search } = useContext(LocationContext);
@@ -18,7 +15,7 @@ export const Search = () => {
 
   return (
     <SearchContainer>
-      <Searchbar
+      <SearchAll
         placeholder="Search for a location"
         value={searchKeyword}
         onSubmitEditing={() => {
@@ -28,6 +25,9 @@ export const Search = () => {
           setSearchKeyword(text);
         }}
       />
+      <Filter>
+        <AntDesign name="filter" size={24} color={"white"} />
+      </Filter>
     </SearchContainer>
   );
 };

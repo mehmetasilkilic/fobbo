@@ -1,9 +1,11 @@
 import { useContext, useState, useEffect } from "react";
 import { AntDesign } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native";
 
 import { LocationContext } from "../../services/location/location.context";
 
-import { SearchContainer, SearchAll, Filter } from "./search.styles";
+import { SearchContainer, SearchAll } from "./search.styles";
+import { Spacer } from "../spacer/spacer.component";
 
 export const Search = () => {
   const { keyword, search } = useContext(LocationContext);
@@ -25,9 +27,11 @@ export const Search = () => {
           setSearchKeyword(text);
         }}
       />
-      <Filter>
-        <AntDesign name="filter" size={24} color={"white"} />
-      </Filter>
+      <Spacer position="right" size="medium">
+        <TouchableOpacity>
+          <AntDesign name="filter" size={24} color={"white"} />
+        </TouchableOpacity>
+      </Spacer>
     </SearchContainer>
   );
 };

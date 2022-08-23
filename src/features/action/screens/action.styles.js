@@ -10,7 +10,7 @@ export const TopBar = styled.View`
   padding-top: ${(props) => props.theme.space[1]};
   flex-direction: row;
   background-color: ${(props) => props.theme.colors.brand.primary};
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 `;
 

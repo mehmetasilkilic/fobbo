@@ -21,15 +21,10 @@ const data = [
 export const Action = () => (
   <SafeArea>
     <TopBar>
-      <Row>
-        <TouchableOpacity>
-          <AntDesign name="enviromento" size={24} color={"white"} />
-        </TouchableOpacity>
-        <Text variant="whiteButton">Ataköy 9. Kısım, Uğur Mumcu Bulvarı</Text>
-      </Row>
       <TouchableOpacity>
-        <AntDesign name="filter" size={24} color={"white"} />
+        <AntDesign name="enviromento" size={24} color={"white"} />
       </TouchableOpacity>
+      <Text variant="whiteButton">Ataköy 9. Kısım, Uğur Mumcu Bulvarı</Text>
     </TopBar>
     <Search />
     <ActionContainer>

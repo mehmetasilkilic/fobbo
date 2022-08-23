@@ -21,19 +21,19 @@ const data = [
 
 export const Action = () => (
   <SafeArea>
-    <ActionContainer>
-      <TopBar>
-        <Row>
-          <TouchableOpacity>
-            <AntDesign name="enviromento" size={24} color={"white"} />
-          </TouchableOpacity>
-          <Text variant="whiteButton">Ataköy 9. Kısım, Uğur Mumcu Bulvarı</Text>
-        </Row>
+    <TopBar>
+      <Row>
         <TouchableOpacity>
-          <AntDesign name="filter" size={24} color={"white"} />
+          <AntDesign name="enviromento" size={24} color={"white"} />
         </TouchableOpacity>
-      </TopBar>
-      <Search />
+        <Text variant="whiteButton">Ataköy 9. Kısım, Uğur Mumcu Bulvarı</Text>
+      </Row>
+      <TouchableOpacity>
+        <AntDesign name="filter" size={24} color={"white"} />
+      </TouchableOpacity>
+    </TopBar>
+    <Search />
+    <ActionContainer>
       <SliderContainer>
         <ImageSlider images={data} />
       </SliderContainer>

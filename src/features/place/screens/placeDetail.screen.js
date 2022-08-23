@@ -16,9 +16,9 @@ import {
   Types,
   Row,
   TopBar,
-  SafeAreaDetail,
   RowCentered,
 } from "./placeDetail.styles";
+import { SafeArea } from "../../../components/utils/safeArea.component";
 
 const reviews = [
   {
@@ -50,7 +50,7 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
   const { place } = route.params;
 
   return (
-    <SafeAreaDetail>
+    <SafeArea>
       <TopBar>
         <View>
           <TouchableOpacity onPress={() => navigation.pop()}>
@@ -91,6 +91,6 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
           <CommentForm />
         </PlaceDetailContainer>
       </ScrollView>
-    </SafeAreaDetail>
+    </SafeArea>
   );
 };

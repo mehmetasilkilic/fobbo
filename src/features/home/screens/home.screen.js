@@ -1,33 +1,25 @@
 import { useContext } from "react";
-import { Image, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Loading } from "../../../components/loading/loading.component";
 import { Search } from "../../../components/search/search.component";
 import { HorizontalPlaceList } from "../components/horizontalPlaceList.component";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
 import { PlacesContext } from "../../../services/places/places.context";
 import { CategoriesList } from "../components/categoriesList.component";
 import { AdvertisementList } from "../components/advertisementList.component";
 import { SmallPlaceList } from "../components/smallPlaceList.component";
-import styled from "styled-components";
-import { Spacer } from "../../../components/spacer/spacer.component";
+
+import {
+  HomeContainer,
+  AdvertisementImageWrapper,
+  AdvertisementImage,
+} from "./home.styles";
 
 export const Home = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
-
-  const AdvertisementImageWrapper = styled.View`
-    padding-right: ${(props) => props.theme.space[2]};
-    padding-left: ${(props) => props.theme.space[2]};
-    padding-bottom: ${(props) => props.theme.space[2]};
-    border-radius: 5px;
-  `;
-
-  const AdvertisementImage = styled.Image`
-    padding: ${(props) => props.theme.space[2]};
-    height: 200px;
-    border-radius: 5px;
-  `;
 
   const categoryDummyData = [
     {
@@ -104,25 +96,27 @@ export const Home = ({ navigation }) => {
   return (
     <SafeArea>
       <Search />
-      {isLoading && <Loading />}
-      <ScrollView>
-        <CategoriesList data={categoryDummyData} />
-        <HorizontalPlaceList
-          data={topTenPlaces}
-          onNavigate={navigation.navigate}
-        />
-        <AdvertisementList data={advertisementDummyData} />
-        <SmallPlaceList data={places} onNavigate={navigation.navigate} />
-        <AdvertisementImageWrapper>
-          <AdvertisementImage
-            source={{
-              uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
-            }}
+      <HomeContainer>
+        {isLoading && <Loading />}
+        <ScrollView>
+          <CategoriesList data={categoryDummyData} />
+          <HorizontalPlaceList
+            data={topTenPlaces}
+            onNavigate={navigation.navigate}
           />
-        </AdvertisementImageWrapper>
-        <SmallPlaceList data={places} onNavigate={navigation.navigate} />
-        <Spacer position="bottom" size="extraLarge" />
-      </ScrollView>
+          <AdvertisementList data={advertisementDummyData} />
+          <SmallPlaceList data={places} onNavigate={navigation.navigate} />
+          <AdvertisementImageWrapper>
+            <AdvertisementImage
+              source={{
+                uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
+              }}
+            />
+          </AdvertisementImageWrapper>
+          <SmallPlaceList data={places} onNavigate={navigation.navigate} />
+          <Spacer position="bottom" size="extraLarge" />
+        </ScrollView>
+      </HomeContainer>
     </SafeArea>
   );
 };

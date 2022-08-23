@@ -10,7 +10,7 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 
 import { PlacesContext } from "../../../services/places/places.context";
 
-import { PlacesList } from "./places.styles";
+import { PlacesList, PlacesContainer } from "./places.styles";
 
 export const PlacesScreen = ({ navigation }) => {
   const { places, isLoading } = useContext(PlacesContext);
@@ -20,25 +20,27 @@ export const PlacesScreen = ({ navigation }) => {
       <SafeArea>
         {isLoading && <Loading />}
         <Search />
-        <PlacesList
-          data={places}
-          renderItem={({ item }) => {
-            return (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate("PlaceDetail", {
-                    place: item,
-                  })
-                }
-              >
-                <Spacer position="bottom" size="medium">
-                  <PlaceInfoCard place={item} cardStyle="vertical" />
-                </Spacer>
-              </TouchableOpacity>
-            );
-          }}
-          keyExtractor={(item) => item.name}
-        />
+        <PlacesContainer>
+          <PlacesList
+            data={places}
+            renderItem={({ item }) => {
+              return (
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate("PlaceDetail", {
+                      place: item,
+                    })
+                  }
+                >
+                  <Spacer position="bottom" size="medium">
+                    <PlaceInfoCard place={item} cardStyle="vertical" />
+                  </Spacer>
+                </TouchableOpacity>
+              );
+            }}
+            keyExtractor={(item) => item.name}
+          />
+        </PlacesContainer>
       </SafeArea>
     </>
   );

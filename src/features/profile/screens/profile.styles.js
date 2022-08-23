@@ -1,5 +1,10 @@
 import styled from "styled-components/native";
 
+export const ProfileContainer = styled.View`
+  flex: 1;
+  background-color: ${(props) => props.theme.colors.ui.tertiary};
+`;
+
 export const AccountInfo = styled.View`
   flex-direction: row;
   align-items: center;

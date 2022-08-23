@@ -1,5 +1,4 @@
 import { View, ScrollView, TouchableOpacity, Pressable } from "react-native";
-import { SliderBox } from "react-native-image-slider-box";
 import { AntDesign } from "@expo/vector-icons";
 
 import { FootTrafficChart } from "../components/footTrafficChart.component";
@@ -10,6 +9,7 @@ import { CommentForm } from "../components/commentForm.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Favourite } from "../../../components/favourites/favourite.component";
+import { ImageSlider } from "../../../components/imageSlider/imageSlider.component";
 
 import {
   PlaceDetailContainer,
@@ -49,14 +49,6 @@ const reviews = [
 export const PlaceDetailScreen = ({ route, navigation }) => {
   const { place } = route.params;
 
-  const dotStyle = {
-    width: 40,
-    height: 5,
-    borderRadius: 15,
-    padding: 0,
-    margin: 0,
-  };
-
   return (
     <SafeAreaDetail>
       <TopBar>
@@ -78,13 +70,7 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
         <PlaceDetailContainer>
           <PlaceDetailHeader place={place} />
           <Spacer position="bottom" size="medium">
-            <SliderBox
-              images={place.photos}
-              dotColor="#9C1F19"
-              inactiveDotColor="#FDDEBB"
-              dotStyle={dotStyle}
-              circleLoop
-            />
+            <ImageSlider images={place.photos} />
           </Spacer>
           <Spacer position="left" size="medium">
             <Text variant="label">Foot Traffic</Text>

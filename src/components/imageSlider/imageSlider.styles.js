@@ -3,20 +3,21 @@ import { ScrollView, Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height * 0.3;
 
 export const SliderContainer = styled.View`
-  width: ${width};
-  height: 200px;
+  width: ${width}px;
+  height: ${height}px;
 `;
 
 export const Slider = styled(ScrollView)`
-  width: ${width};
-  height: 200px;
+  width: ${width}px;
+  height: ${height}px;
 `;
 
 export const SliderImage = styled.Image`
-  width: ${width};
-  height: 200px;
+  width: ${width}px;
+  height: ${height}px;
 `;
 
 export const DotContainer = styled.View`

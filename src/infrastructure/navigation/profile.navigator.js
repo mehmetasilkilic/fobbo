@@ -15,18 +15,11 @@ export const ProfileNavigator = () => {
     <ProfileStack.Navigator
       screenOptions={{
         headerShown: false,
-        gestureEnabled: true,
         ...TransitionPresets.SlideFromRightIOS,
       }}
     >
       <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} />
-      <ProfileStack.Screen
-        name="Favourites"
-        component={FavouritesScreen}
-        options={{
-          headerShown: true,
-        }}
-      />
+      <ProfileStack.Screen name="Favourites" component={FavouritesScreen} />
     </ProfileStack.Navigator>
   );
 };

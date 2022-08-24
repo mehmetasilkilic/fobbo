@@ -1,4 +1,11 @@
 import styled from "styled-components/native";
+import { StatusBar, SafeAreaView } from "react-native";
+
+export const SafeAreaDetail = styled(SafeAreaView)`
+  flex: 1;
+  background-color: ${(props) => props.theme.colors.brand.primary};
+  ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight}px`}
+`;
 
 export const ActionContainer = styled.View`
   flex: 1;
@@ -15,6 +22,8 @@ export const TopBar = styled.View`
 
 export const SliderContainer = styled.View`
   margin: ${(props) => props.theme.space[2]};
+  margin-top: ${(props) => props.theme.space[2]};
   border-radius: 5px;
   overflow: hidden;
 `;
+

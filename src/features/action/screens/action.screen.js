@@ -1,13 +1,19 @@
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-import { SafeArea } from "../../../components/utils/safeArea.component";
 import { ImageSlider } from "../../../components/imageSlider/imageSlider.component";
+import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 
 import { Buttons } from "../components/buttons.component";
 
-import { SliderContainer, TopBar, ActionContainer } from "./action.styles";
+import {
+  SliderContainer,
+  TopBar,
+  ActionContainer,
+  SafeAreaDetail,
+} from "./action.styles";
 
 const data = [
   "https://images.unsplash.com/photo-1481833761820-0509d3217039?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
@@ -17,11 +23,17 @@ const data = [
   "https://images.unsplash.com/photo-1575444758702-4a6b9222336e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
 ];
 
-export const Action = () => (
-  <SafeArea>
+export const Action = ({ navigation }) => (
+  <SafeAreaDetail>
+    <ExpoStatusBar style="light" />
     <TopBar>
       <TouchableOpacity>
-        <AntDesign name="enviromento" size={24} color={"white"} />
+        <AntDesign
+          name="enviromento"
+          size={24}
+          color={"white"}
+          onPress={() => navigation.goBack()}
+        />
       </TouchableOpacity>
       <Text variant="whiteButton">Ataköy 9. Kısım, Uğur Mumcu Bulvarı</Text>
     </TopBar>
@@ -31,5 +43,5 @@ export const Action = () => (
       </SliderContainer>
       <Buttons />
     </ActionContainer>
-  </SafeArea>
+  </SafeAreaDetail>
 );

@@ -19,6 +19,7 @@ export const Search = () => {
     <SearchContainer>
       <SearchAll
         placeholder="Search for a location"
+        iconColor="#9C1F19"
         value={searchKeyword}
         onSubmitEditing={() => {
           search(searchKeyword);

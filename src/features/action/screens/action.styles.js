@@ -6,8 +6,7 @@ export const ActionContainer = styled.View`
 `;
 
 export const TopBar = styled.View`
-  padding-horizontal: ${(props) => props.theme.space[2]};
-  padding-top: ${(props) => props.theme.space[1]};
+  padding: ${(props) => props.theme.space[2]};
   flex-direction: row;
   background-color: ${(props) => props.theme.colors.brand.primary};
   justify-content: flex-start;

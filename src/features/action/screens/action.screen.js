@@ -26,7 +26,6 @@ export const Action = () => (
       </TouchableOpacity>
       <Text variant="whiteButton">Ataköy 9. Kısım, Uğur Mumcu Bulvarı</Text>
     </TopBar>
-    <Search />
     <ActionContainer>
       <SliderContainer>
         <ImageSlider images={data} />

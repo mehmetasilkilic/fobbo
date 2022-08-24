@@ -9,3 +9,17 @@ export const PlacesContainer = styled.View`
 export const PlacesList = styled(FlatList).attrs({
   contentContainerStyle: { padding: 10, paddingBottom: 80 },
 })``;
+
+export const Row = styled.View`
+  padding-horizontal: ${(props) => props.theme.space[2]};
+  padding-bottom: ${(props) => props.theme.space[2]};
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const InnerRow = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;

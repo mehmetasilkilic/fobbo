@@ -1,3 +1,4 @@
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { View, ScrollView, TouchableOpacity, Pressable } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -17,8 +18,8 @@ import {
   Row,
   TopBar,
   RowCentered,
+  SafeAreaDetail,
 } from "./placeDetail.styles";
-import { SafeArea } from "../../../components/utils/safeArea.component";
 
 const reviews = [
   {
@@ -50,7 +51,8 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
   const { place } = route.params;
 
   return (
-    <SafeArea>
+    <SafeAreaDetail>
+      <ExpoStatusBar style="light" />
       <TopBar>
         <View>
           <TouchableOpacity onPress={() => navigation.pop()}>
@@ -91,6 +93,6 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
           <CommentForm />
         </PlaceDetailContainer>
       </ScrollView>
-    </SafeArea>
+    </SafeAreaDetail>
   );
 };

@@ -13,12 +13,6 @@ export const TopBar = styled.View`
   align-items: center;
 `;
 
-export const Row = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 export const SliderContainer = styled.View`
   margin: ${(props) => props.theme.space[2]};
   border-radius: 5px;

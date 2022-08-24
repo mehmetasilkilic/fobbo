@@ -29,7 +29,7 @@ export const Search = () => {
       />
       <Spacer position="right" size="medium">
         <TouchableOpacity>
-          <AntDesign name="filter" size={24} color={"white"} />
+          <AntDesign name="filter" size={24} color={"#9C1F19"} />
         </TouchableOpacity>
       </Spacer>
     </SearchContainer>

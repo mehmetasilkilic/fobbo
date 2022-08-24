@@ -11,4 +11,5 @@ export const SearchContainer = styled.View`
 
 export const SearchAll = styled(Searchbar)`
   width: 89%;
+  height: 40px;
 `;

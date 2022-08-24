@@ -14,6 +14,13 @@ export const FavouritesList = styled(FlatList).attrs({
 export const TopBar = styled.View`
   padding: ${(props) => props.theme.space[2]};
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.theme.colors.ui.quaternary};
+`;
+
+export const Row = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;

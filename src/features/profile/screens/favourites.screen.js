@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -14,29 +14,51 @@ import {
   FavouritesList,
   FavouritesContainer,
   TopBar,
+  Row,
 } from "./favourites.styles";
 
 export const FavouritesScreen = ({ navigation }) => {
   const { favourites, isLoading } = useContext(FavouritesContext);
 
+  const [toggleAppearance, setToggleAppearance] = useState(false);
+
   return (
     <SafeArea>
       <FavouritesContainer>
         <TopBar>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.pop();
-            }}
-          >
-            <AntDesign name="left" size={24} color={"#262626"} />
-          </TouchableOpacity>
-          <Spacer position="left" size="medium">
-            <Text variant="body">Favourites</Text>
-          </Spacer>
+          <Row>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.pop();
+              }}
+            >
+              <AntDesign name="left" size={24} color={"#262626"} />
+            </TouchableOpacity>
+            <Spacer position="left" size="medium">
+              <Text variant="body">Favourites</Text>
+            </Spacer>
+          </Row>
+          <Row>
+            <Spacer position="right" size="medium">
+              <Text variant="caption">Appearance</Text>
+            </Spacer>
+            <TouchableOpacity
+              onPress={() => {
+                setToggleAppearance(!toggleAppearance);
+              }}
+            >
+              <AntDesign
+                name={toggleAppearance ? "appstore-o" : "laptop"}
+                size={24}
+                color={"#262626"}
+              />
+            </TouchableOpacity>
+          </Row>
         </TopBar>
         {isLoading && <Loading />}
         <FavouritesList
-          numColumns={2}
+          numColumns={toggleAppearance ? 1 : 2}
+          key={toggleAppearance ? 1 : 2}
           data={favourites}
           renderItem={({ item }) => {
             return (
@@ -48,7 +70,10 @@ export const FavouritesScreen = ({ navigation }) => {
                 }
               >
                 <Spacer position="bottom" size="medium">
-                  <PlaceInfoCard place={item} cardStyle="small" />
+                  <PlaceInfoCard
+                    place={item}
+                    cardStyle={toggleAppearance ? "vertical" : "small"}
+                  />
                 </Spacer>
               </TouchableOpacity>
             );

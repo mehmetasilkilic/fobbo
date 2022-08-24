@@ -10,7 +10,7 @@ const defaultTextStyles = (theme) => `
 `;
 
 const body = (theme) => `
-    font-size: ${theme.fontSizes.body};
+    font-size: ${theme.fontSizes.title};
 `;
 
 const title = (theme) => `

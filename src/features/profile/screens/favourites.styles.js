@@ -15,5 +15,5 @@ export const TopBar = styled.View`
   padding: ${(props) => props.theme.space[2]};
   flex-direction: row;
   align-items: center;
-  background-color: ${(props) => props.theme.colors.brand.primary};
+  background-color: ${(props) => props.theme.colors.ui.quaternary};
 `;

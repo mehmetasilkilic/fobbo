@@ -28,10 +28,10 @@ export const FavouritesScreen = ({ navigation }) => {
               navigation.pop();
             }}
           >
-            <AntDesign name="left" size={22} color={"white"} />
+            <AntDesign name="left" size={24} color={"#262626"} />
           </TouchableOpacity>
           <Spacer position="left" size="medium">
-            <Text variant="subTitle">Favourites</Text>
+            <Text variant="body">Favourites</Text>
           </Spacer>
         </TopBar>
         {isLoading && <Loading />}

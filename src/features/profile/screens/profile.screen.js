@@ -57,7 +57,7 @@ export const ProfileScreen = ({ navigation }) => (
                   </Spacer>
                   <Text variant="label">Favourites</Text>
                 </InlineRow>
-                <AntDesign name="right" size={16} color="black" />
+                <AntDesign name="right" size={16} color="#262626" />
               </RowNoBorder>
             </TouchableWithoutFeedback>
             {RowList.map((item) => (
@@ -77,7 +77,7 @@ export const ProfileScreen = ({ navigation }) => (
         <Info>
           <RowNoBorder>
             <Text variant="label">English</Text>
-            <AntDesign name="right" size={16} color="black" />
+            <AntDesign name="right" size={16} color="#262626" />
           </RowNoBorder>
         </Info>
         <RowNoBorder>

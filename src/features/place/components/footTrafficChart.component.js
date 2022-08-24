@@ -47,7 +47,7 @@ const chartConfig = {
   barRadius: 5,
   decimalPlaces: 0,
   color: (opacity = 1) => "#78A9FF",
-  labelColor: (opacity = 1) => "#000000",
+  labelColor: (opacity = 1) => "#262626",
 
   style: {
     borderRadius: 16,

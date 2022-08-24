@@ -46,14 +46,14 @@ const tabBarItemStyle = {
 };
 
 const tabBarActionButtonStyle = {
-  width: 70,
-  height: 90,
+  width: 60,
+  height: 80,
   transform: [{ translateY: -10 }],
-  shadowColor: "#000",
+  shadowColor: "#262626",
   shadowOpacity: 0.06,
   shadowOffset: {
-    width: 10,
-    height: 10,
+    width: 0,
+    height: 0,
   },
 };
 
@@ -84,13 +84,15 @@ export const AppNavigator = () => {
     position: "absolute",
     margin: 10,
     borderRadius: 5,
-    height: 70,
-    shadowColor: "#000000",
+    height: 60,
+    shadowColor: "#262626",
     shadowOpacity: 0.06,
     shadowOffset: {
-      width: 10,
-      height: 10,
+      width: 0,
+      height: 0,
     },
+    elevation: 3,
+    backgroundColor: "#ffffff",
   };
 
   return (

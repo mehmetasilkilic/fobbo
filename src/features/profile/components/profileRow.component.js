@@ -13,6 +13,6 @@ export const ProfileRow = ({ label, color, icon }) => (
       </Spacer>
       <Text variant="label">{label}</Text>
     </InlineRow>
-    <AntDesign name="right" size={16} color="black" />
+    <AntDesign name="right" size={16} color="#262626" />
   </Row>
 );

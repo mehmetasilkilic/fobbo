@@ -18,7 +18,7 @@ export const SmallPlaceList = ({ data, onNavigate }) => {
         <Text variant="boldLabel">Most Popular</Text>
         <InlineRow>
           <Text variant="error">26 Places </Text>
-          <AntDesign name="doubleright" size={10} color="#D0421B" />
+          <AntDesign name="doubleright" size={10} color="#9C1F19" />
         </InlineRow>
       </Row>
       <SmallPlaceListContainer>

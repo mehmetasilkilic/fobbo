@@ -13,7 +13,7 @@ export const HorizontalPlaceList = ({ data, onNavigate }) => (
       <Text variant="boldLabel">Trending this week</Text>
       <InlineRow>
         <Text variant="error">View all </Text>
-        <AntDesign name="doubleright" size={10} color="#D0421B" />
+        <AntDesign name="doubleright" size={10} color="#9C1F19" />
       </InlineRow>
     </Row>
     <PlacesFlatList

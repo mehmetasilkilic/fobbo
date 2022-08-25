@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { Welcome } from "../../preview/welcome/screens/welcome.screen";
 import { Register } from "../../preview/register/screens/register.screen";
+import { Onboarding } from "../../preview/onboarding/screens/onboarding.screen";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export const PreviewNavigator = () => {
       <Stack.Navigator screenOptions={screenOptions}>
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Onboarding" component={Onboarding} />
       </Stack.Navigator>
     </NavigationContainer>
   );

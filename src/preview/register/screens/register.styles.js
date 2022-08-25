@@ -1,38 +1,31 @@
-import { TouchableOpacity, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
-const ButtonWidth = Dimensions.get("window").width - 20;
-const ButtonWidthHalf = (Dimensions.get("window").width - 30) / 2;
+const Width = Dimensions.get("window").width - 20;
 
 export const RegisterContainer = styled.View`
   flex: 1;
   background-color: ${(props) => props.theme.colors.ui.error};
   justify-content: center;
+  padding: ${(props) => props.theme.space[2]};
   align-items: center;
 `;
 
-export const Row = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const ButtonBig = styled(TouchableOpacity)`
-  padding-vertical: ${(props) => props.theme.space[2]};
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
-  border-radius: 5px;
-  width: ${ButtonWidth}px;
-  flex-direction: row;
+export const MidRow = styled.View`
+  width: ${Width}px;
+  border-bottom-width: 1px;
+  border-bottom-color: ${(props) => props.theme.colors.ui.disabled};
   justify-content: center;
   align-items: center;
+  margin-bottom: ${(props) => props.theme.space[4]};
 `;
 
-export const ButtonSmall = styled(TouchableOpacity)`
-  padding-vertical: ${(props) => props.theme.space[2]};
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
-  border-radius: 5px;
-  width: ${ButtonWidthHalf}px;
-  flex-direction: row;
+export const OrContainer = styled.View`
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background-color: ${(props) => props.theme.colors.text.primary};
   justify-content: center;
   align-items: center;
 `;

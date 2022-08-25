@@ -1,32 +1,22 @@
+import { TouchableOpacity } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
-import {
-  RegisterContainer,
-  Row,
-  ButtonBig,
-  ButtonSmall,
-} from "./register.styles";
+import { RegisterOptions } from "../components/registerOptions.component";
 
-export const Register = ({ navigation }) => (
-  <SafeArea>
-    <RegisterContainer>
-      <Row>
-        <Spacer position="right" size="medium">
-          <ButtonSmall>
-            <Text>Facebook</Text>
-          </ButtonSmall>
-        </Spacer>
-        <ButtonSmall>
-          <Text>Google</Text>
-        </ButtonSmall>
-      </Row>
-      <Spacer position="top" size="medium">
-        <ButtonBig onPress={() => navigation.navigate("Onboarding")}>
-          <Text>Continue as a guest</Text>
-        </ButtonBig>
-      </Spacer>
-    </RegisterContainer>
-  </SafeArea>
-);
+import { RegisterContainer } from "./register.styles";
+
+export const Register = ({ navigation }) => {
+  const nav = () => navigation.navigate("Onboarding");
+
+  return (
+    <SafeArea>
+      <RegisterContainer>
+        <RegisterOptions onTouch={nav} />
+      </RegisterContainer>
+    </SafeArea>
+  );
+};

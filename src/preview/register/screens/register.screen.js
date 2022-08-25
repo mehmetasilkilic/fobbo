@@ -9,6 +9,7 @@ import { RegisterOptions } from "../components/registerOptions.component";
 
 import { RegisterContainer, MidRow, OrContainer } from "./register.styles";
 import { Agreements } from "../components/agreements.component";
+import { RegisterForm } from "../components/registerForm.component";
 
 export const Register = ({ navigation }) => {
   const nav = () => navigation.navigate("Onboarding");
@@ -16,6 +17,7 @@ export const Register = ({ navigation }) => {
   return (
     <SafeArea>
       <RegisterContainer>
+        <RegisterForm />
         <MidRow>
           <OrContainer>
             <Text variant="whiteButton">OR</Text>

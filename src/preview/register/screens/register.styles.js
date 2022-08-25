@@ -17,7 +17,7 @@ export const MidRow = styled.View`
   border-bottom-color: ${(props) => props.theme.colors.ui.disabled};
   justify-content: center;
   align-items: center;
-  margin-bottom: ${(props) => props.theme.space[4]};
+  margin-vertical: ${(props) => props.theme.space[4]};
 `;
 
 export const OrContainer = styled.View`

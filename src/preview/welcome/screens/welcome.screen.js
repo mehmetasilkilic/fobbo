@@ -1,16 +1,18 @@
-import { Text } from "react-native";
 import { SafeArea } from "../../../components/utils/safeArea.component";
+import { Text } from "../../../components/typography/text.component";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
-export const Welcome = () => (
+import { WelcomeContainer, StartButton } from "./welcome.styles";
+
+export const Welcome = ({ navigation }) => (
   <SafeArea>
-    <Text>WELCOME</Text>
-    <Text>WELCOME</Text>
-    <Text>WELCOME</Text>
-    <Text>WELCOME</Text>
-    <Text>WELCOME</Text>
-    <Text>WELCOME</Text>
-    <Text>WELCOME</Text>
-    <Text>WELCOME</Text>
-    <Text>WELCOME</Text>
+    <WelcomeContainer>
+      <Text>Fobbo</Text>
+      <StartButton onPress={() => navigation.navigate("Register")}>
+        <Spacer position="left" size="medium">
+          <Text variant="subTitle">Get Started</Text>
+        </Spacer>
+      </StartButton>
+    </WelcomeContainer>
   </SafeArea>
 );

@@ -10,9 +10,15 @@ export const WelcomeContainer = styled.View`
   align-items: center;
 `;
 
-export const StartButton = styled(TouchableOpacity)`
+export const AuthContainer = styled.View`
   position: absolute;
   bottom: ${(props) => props.theme.space[2]};
+  justify-content: center;
+  align-items: center;
+`;
+
+export const StartButton = styled(TouchableOpacity)`
+  
   padding-vertical: ${(props) => props.theme.space[2]};
   background-color: ${(props) => props.theme.colors.brand.primary};
   border-radius: 5px;

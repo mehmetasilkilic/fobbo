@@ -24,10 +24,5 @@ export const RegisterOptions = ({ onTouch }) => (
         <Text>Google</Text>
       </ButtonSmall>
     </Row>
-    {/* <Spacer position="top" size="medium">
-      <TouchableOpacity onPress={onTouch}>
-        <Text variant="whiteButton">Continue as a guest</Text>
-      </TouchableOpacity>
-    </Spacer> */}
   </View>
 );

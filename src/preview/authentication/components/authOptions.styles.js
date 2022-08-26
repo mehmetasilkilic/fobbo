@@ -14,19 +14,11 @@ export const Row = styled.View`
   align-items: center;
 `;
 
-export const ButtonBig = styled(TouchableOpacity)`
-  padding-vertical: ${(props) => props.theme.space[2]};
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
-  border-radius: 5px;
-  width: ${ButtonWidth}px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const ButtonSmall = styled(TouchableOpacity)`
   padding-vertical: ${(props) => props.theme.space[2]};
   background-color: ${(props) => props.theme.colors.ui.quaternary};
+  border-width: 1px;
+  border-color: ${(props) => props.theme.colors.ui.tertiary};
   border-radius: 5px;
   width: ${ButtonWidthHalf}px;
   flex-direction: row;

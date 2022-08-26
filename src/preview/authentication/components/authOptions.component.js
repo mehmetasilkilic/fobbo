@@ -26,14 +26,17 @@ export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => (
     </Row>
     {page === "register" ? (
       <Spacer position="top" size="medium">
-        <TouchableOpacity onPress={goLogin}>
-          <Text variant="whiteButton">Do you have an account?</Text>
-        </TouchableOpacity>
+        <Row>
+          <Text variant="caption">Dou you have an account?</Text>
+          <TouchableOpacity onPress={goLogin}>
+            <Text variant="error">Login</Text>
+          </TouchableOpacity>
+        </Row>
       </Spacer>
     ) : (
       <Spacer position="top" size="medium">
         <TouchableOpacity onPress={goRegister}>
-          <Text variant="whiteButton">Don't have an account?</Text>
+          <Text variant="error">Don't have an account?</Text>
         </TouchableOpacity>
       </Spacer>
     )}

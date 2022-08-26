@@ -29,7 +29,7 @@ export const RegisterForm = () => {
         <Input placeholder="password" />
       </Spacer>
       <ButtonBig>
-        <Text>Register</Text>
+        <Text variant="subTitle">Register</Text>
       </ButtonBig>
     </View>
   );

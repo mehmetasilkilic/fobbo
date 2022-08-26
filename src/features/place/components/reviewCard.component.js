@@ -65,11 +65,11 @@ export const ReviewCard = ({ review }) => {
           </Column>
           <StarRow>
             {rateArr.map((a, index) => (
-              <AntDesign name="star" size={16} color="#9C1F19" key={index} />
+              <AntDesign name="star" size={16} color="#f00062" key={index} />
             ))}
             {rateArrMinus &&
               rateArrMinus.map((a, index) => (
-                <AntDesign name="staro" size={16} color="#9C1F19" key={index} />
+                <AntDesign name="staro" size={16} color="#f00062" key={index} />
               ))}
           </StarRow>
         </Row>
@@ -104,7 +104,7 @@ export const ReviewCard = ({ review }) => {
                   <AntDesign
                     name="like2"
                     size={16}
-                    color={liked ? "#FFFFFF" : "#9C1F19"}
+                    color={liked ? "#FFFFFF" : "#f00062"}
                   />
                 </Spacer>
                 <ButtonText variant={liked ? "whiteButton" : "error"}>
@@ -130,7 +130,7 @@ export const ReviewCard = ({ review }) => {
                 <AntDesign
                   name="dislike2"
                   size={16}
-                  color={disliked ? "#FFFFFF" : "#9C1F19"}
+                  color={disliked ? "#FFFFFF" : "#f00062"}
                 />
               </Spacer>
               <ButtonText variant={disliked ? "whiteButton" : "error"}>

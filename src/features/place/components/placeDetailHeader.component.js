@@ -49,7 +49,7 @@ export const PlaceDetailHeader = ({ place }) => {
         </Types>
       </Spacer>
       <Spacer position="bottom" size="small">
-        <Text variant="lightError">{place.address}</Text>
+        <Text variant="lightBrand">{place.address}</Text>
       </Spacer>
       <IfOpen>
         <SvgXml xml={success} width={18} height={18} />

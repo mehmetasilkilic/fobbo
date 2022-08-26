@@ -12,32 +12,39 @@ export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => (
       <Spacer position="right" size="medium">
         <ButtonSmall>
           <Spacer position="right" size="medium">
-            <AntDesign name="facebook-square" size={20} color={"#262626"} />
+            <AntDesign name="facebook-square" size={18} color={"#262626"} />
           </Spacer>
-          <Text>Facebook</Text>
+          <Text variant="label">Facebook</Text>
         </ButtonSmall>
       </Spacer>
       <ButtonSmall onPress={onTouch}>
         <Spacer position="right" size="medium">
-          <AntDesign name="google" size={20} color={"#262626"} />
+          <AntDesign name="google" size={18} color={"#262626"} />
         </Spacer>
-        <Text>Google</Text>
+        <Text variant="label">Google</Text>
       </ButtonSmall>
     </Row>
     {page === "register" ? (
       <Spacer position="top" size="medium">
         <Row>
-          <Text variant="caption">Dou you have an account?</Text>
+          <Spacer position="right" size="medium">
+            <Text variant="label">Dou you have an account?</Text>
+          </Spacer>
           <TouchableOpacity onPress={goLogin}>
-            <Text variant="error">Login</Text>
+            <Text variant="brand">Login</Text>
           </TouchableOpacity>
         </Row>
       </Spacer>
     ) : (
       <Spacer position="top" size="medium">
-        <TouchableOpacity onPress={goRegister}>
-          <Text variant="error">Don't have an account?</Text>
-        </TouchableOpacity>
+        <Row>
+          <Spacer position="right" size="medium">
+            <Text variant="label">Don't have an account?</Text>
+          </Spacer>
+          <TouchableOpacity onPress={goRegister}>
+            <Text variant="brand">Register</Text>
+          </TouchableOpacity>
+        </Row>
       </Spacer>
     )}
   </AuthOptionsContainer>

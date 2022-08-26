@@ -37,7 +37,7 @@ export const PlacesScreen = ({ navigation }) => {
               <AntDesign
                 name={toggleAppearance ? "appstore-o" : "laptop"}
                 size={24}
-                color={"#9C1F19"}
+                color={"#f00062"}
               />
             </TouchableOpacity>
           </InnerRow>

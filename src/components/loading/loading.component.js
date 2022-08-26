@@ -13,6 +13,6 @@ const LoadingCircle = styled(ActivityIndicator)`
 
 export const Loading = () => (
   <LoadingContainer>
-    <LoadingCircle size={50} animating={true} color="#9C1F19" />
+    <LoadingCircle size={50} animating={true} color="#f00062" />
   </LoadingContainer>
 );

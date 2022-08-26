@@ -23,6 +23,13 @@ const titleMedium = (theme) => `
     color: ${theme.colors.text.inverse};
 `;
 
+const titleBrandMedium = (theme) => `
+    font-size: ${theme.fontSizes.h5};
+    line-height: ${theme.fontSizes.h5};
+    font-weight: ${theme.fontWeights.bold};
+    color: ${theme.colors.text.brand};
+`;
+
 const titleSmall = (theme) => `
     font-size: ${theme.fontSizes.body};
     color: ${theme.colors.text.inverse};
@@ -52,7 +59,17 @@ const whiteButton = (theme) => `
     font-size: ${theme.fontSizes.button};
 `;
 
-const lightError = (theme) => `
+const brand = (theme) => `
+    color: ${theme.colors.text.brand};
+    font-size: ${theme.fontSizes.body};
+`;
+
+const brandSmall = (theme) => `
+    color: ${theme.colors.text.brand};
+    font-size: ${theme.fontSizes.caption};
+`;
+
+const lightBrand = (theme) => `
     color: ${theme.colors.text.secondary};
     font-size: ${theme.fontSizes.caption};
 `;
@@ -70,7 +87,6 @@ const captionWhite = (theme) => `
 
 const label = (theme) => `
     font-size: ${theme.fontSizes.body};
-    font-weight: ${theme.fontWeights.medium};
 `;
 
 const boldLabel = (theme) => `
@@ -81,17 +97,20 @@ const boldLabel = (theme) => `
 const variants = {
   titleBig,
   titleMedium,
+  titleBrandMedium,
   titleSmall,
   titleBlackSmall,
-  captionWhite,
-  label,
-  whiteButton,
-  boldLabel,
-  lightError,
-  caption,
+  hint,
   success,
   error,
-  hint,
+  brand,
+  brandSmall,
+  lightBrand,
+  whiteButton,
+  caption,
+  captionWhite,
+  label,
+  boldLabel,
 };
 
 export const Text = styled.Text`

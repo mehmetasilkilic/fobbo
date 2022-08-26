@@ -19,7 +19,7 @@ export const Search = () => {
     <SearchContainer>
       <SearchAll
         placeholder="Search for a location"
-        iconColor="#9C1F19"
+        iconColor="#f00062"
         value={searchKeyword}
         onSubmitEditing={() => {
           search(searchKeyword);
@@ -30,7 +30,7 @@ export const Search = () => {
       />
       <Spacer position="right" size="medium">
         <TouchableOpacity>
-          <AntDesign name="filter" size={24} color={"#9C1F19"} />
+          <AntDesign name="filter" size={24} color={"#f00062"} />
         </TouchableOpacity>
       </Spacer>
     </SearchContainer>

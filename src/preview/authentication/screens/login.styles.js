@@ -5,7 +5,7 @@ const Width = Dimensions.get("window").width - 20;
 
 export const LoginContainer = styled.View`
   flex: 1;
-  background-color: ${(props) => props.theme.colors.ui.error};
+  background-color: ${(props) => props.theme.colors.bg.primary};
   padding: ${(props) => props.theme.space[2]};
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@ export const LoginContainer = styled.View`
 export const MidRow = styled.View`
   width: ${Width}px;
   border-bottom-width: 1px;
-  border-bottom-color: ${(props) => props.theme.colors.ui.disabled};
+  border-bottom-color: ${(props) => props.theme.colors.text.disabled};
   justify-content: center;
   align-items: center;
   margin-vertical: ${(props) => props.theme.space[4]};

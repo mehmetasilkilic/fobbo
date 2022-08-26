@@ -13,7 +13,7 @@ export const LoginForm = () => {
     <View>
       <TitleContainer>
         <Spacer position="bottom" size="medium">
-          <Text variant="titleMedium">Login</Text>
+          <Text variant="titleBrandMedium">Login</Text>
         </Spacer>
       </TitleContainer>
       <Spacer position="bottom" size="medium">
@@ -23,7 +23,7 @@ export const LoginForm = () => {
         <Input placeholder="password" />
       </Spacer>
       <ButtonBig>
-        <Text>Login</Text>
+        <Text variant="titleSmall">Login</Text>
       </ButtonBig>
     </View>
   );

@@ -26,7 +26,7 @@ const currentTime = new Date().getHours();
 const currentBar = currentTime - 8;
 
 const blueBar = (opacity = 1) => "#78A9FF";
-const redBar = (opacity = 1) => "#9C1F19";
+const redBar = (opacity = 1) => "#f00062";
 
 const data = {
   labels,

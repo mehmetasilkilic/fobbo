@@ -13,7 +13,7 @@ export const RegisterForm = () => {
     <View>
       <TitleContainer>
         <Spacer position="bottom" size="medium">
-          <Text variant="titleMedium">Register</Text>
+          <Text variant="titleBrandMedium">Register</Text>
         </Spacer>
       </TitleContainer>
       <Spacer position="bottom" size="medium">

@@ -16,7 +16,7 @@ import { LocationContextProvider } from "./src/services/location/location.contex
 import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 
 export default function App() {
-  const user = null;
+  const user = "null";
 
   const [oswaldLoaded] = useOswald({ Oswald_400Regular });
   const [latoLoaded] = useLato({ Lato_400Regular });

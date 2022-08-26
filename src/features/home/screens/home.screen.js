@@ -97,25 +97,28 @@ export const Home = ({ navigation }) => {
     <SafeArea>
       <Search />
       <HomeContainer>
-        {isLoading && <Loading />}
-        <ScrollView>
-          <CategoriesList data={categoryDummyData} />
-          <HorizontalPlaceList
-            data={topTenPlaces}
-            onNavigate={navigation.navigate}
-          />
-          <AdvertisementList data={advertisementDummyData} />
-          <SmallPlaceList data={places} onNavigate={navigation.navigate} />
-          <AdvertisementImageWrapper>
-            <AdvertisementImage
-              source={{
-                uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
-              }}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <ScrollView>
+            <CategoriesList data={categoryDummyData} />
+            <HorizontalPlaceList
+              data={topTenPlaces}
+              onNavigate={navigation.navigate}
             />
-          </AdvertisementImageWrapper>
-          <SmallPlaceList data={places} onNavigate={navigation.navigate} />
-          <Spacer position="bottom" size="extraLarge" />
-        </ScrollView>
+            <AdvertisementList data={advertisementDummyData} />
+            <SmallPlaceList data={places} onNavigate={navigation.navigate} />
+            <AdvertisementImageWrapper>
+              <AdvertisementImage
+                source={{
+                  uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
+                }}
+              />
+            </AdvertisementImageWrapper>
+            <SmallPlaceList data={places} onNavigate={navigation.navigate} />
+            <Spacer position="bottom" size="extraLarge" />
+          </ScrollView>
+        )}
       </HomeContainer>
     </SafeArea>
   );

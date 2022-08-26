@@ -1,17 +1,17 @@
-import { TouchableOpacity } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Text } from "../../../components/typography/text.component";
-import { Spacer } from "../../../components/spacer/spacer.component";
 
 import { RegisterOptions } from "../components/registerOptions.component";
-
-import { RegisterContainer, MidRow, OrContainer } from "./register.styles";
 import { Agreements } from "../components/agreements.component";
 import { RegisterForm } from "../components/registerForm.component";
 
-export const Register = ({ navigation }) => {
+import {
+  RegisterContainer,
+  MidRow,
+  OrContainer,
+} from "./authentication.styles";
+
+export const Authentication = ({ navigation }) => {
   const nav = () => navigation.navigate("Onboarding");
 
   return (

@@ -1,13 +1,13 @@
-import { View } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
-import { Row, ButtonSmall } from "./registerOptions.styles";
+import { AuthOptionsContainer, Row, ButtonSmall } from "./authOptions.styles";
 
-export const RegisterOptions = ({ onTouch }) => (
-  <View>
+export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => (
+  <AuthOptionsContainer>
     <Row>
       <Spacer position="right" size="medium">
         <ButtonSmall>
@@ -24,5 +24,18 @@ export const RegisterOptions = ({ onTouch }) => (
         <Text>Google</Text>
       </ButtonSmall>
     </Row>
-  </View>
+    {page === "register" ? (
+      <Spacer position="top" size="medium">
+        <TouchableOpacity onPress={goLogin}>
+          <Text variant="whiteButton">Do you have an account?</Text>
+        </TouchableOpacity>
+      </Spacer>
+    ) : (
+      <Spacer position="top" size="medium">
+        <TouchableOpacity onPress={goRegister}>
+          <Text variant="whiteButton">Don't have an account?</Text>
+        </TouchableOpacity>
+      </Spacer>
+    )}
+  </AuthOptionsContainer>
 );

@@ -18,7 +18,7 @@ export const Welcome = ({ navigation }) => (
         </Spacer>
         <StartButton onPress={() => navigation.navigate("Register")}>
           <Spacer position="left" size="medium">
-            <Text variant="subTitle">Get Started</Text>
+            <Text variant="subTitle">Register</Text>
           </Spacer>
         </StartButton>
         <Spacer position="top" size="medium">

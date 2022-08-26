@@ -4,6 +4,10 @@ import styled from "styled-components/native";
 const ButtonWidth = Dimensions.get("window").width - 20;
 const ButtonWidthHalf = (Dimensions.get("window").width - 30) / 2;
 
+export const AuthOptionsContainer = styled.View`
+  align-items: center;
+`;
+
 export const Row = styled.View`
   flex-direction: row;
   justify-content: space-between;

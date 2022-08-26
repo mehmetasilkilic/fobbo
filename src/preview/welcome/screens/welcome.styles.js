@@ -18,7 +18,7 @@ export const AuthContainer = styled.View`
 `;
 
 export const StartButton = styled(TouchableOpacity)`
-  
+  align-items: center;
   padding-vertical: ${(props) => props.theme.space[2]};
   background-color: ${(props) => props.theme.colors.brand.primary};
   border-radius: 5px;

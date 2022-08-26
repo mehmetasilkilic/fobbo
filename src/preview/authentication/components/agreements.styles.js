@@ -3,8 +3,6 @@ import styled from "styled-components/native";
 import { Text } from "../../../components/typography/text.component";
 
 export const AgreementsContainer = styled.View`
-  position: absolute;
-  bottom: ${(props) => props.theme.space[3]};
   align-items: center;
 `;
 

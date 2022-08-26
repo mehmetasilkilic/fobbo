@@ -1,4 +1,4 @@
-import { TouchableOpacity } from "react-native";
+import { View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import { Text } from "../../../components/typography/text.component";
@@ -7,7 +7,7 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Row, ButtonSmall } from "./registerOptions.styles";
 
 export const RegisterOptions = ({ onTouch }) => (
-  <>
+  <View>
     <Row>
       <Spacer position="right" size="medium">
         <ButtonSmall>
@@ -17,17 +17,17 @@ export const RegisterOptions = ({ onTouch }) => (
           <Text>Facebook</Text>
         </ButtonSmall>
       </Spacer>
-      <ButtonSmall>
+      <ButtonSmall onPress={onTouch}>
         <Spacer position="right" size="medium">
           <AntDesign name="google" size={20} color={"#262626"} />
         </Spacer>
         <Text>Google</Text>
       </ButtonSmall>
     </Row>
-    <Spacer position="top" size="medium">
+    {/* <Spacer position="top" size="medium">
       <TouchableOpacity onPress={onTouch}>
         <Text variant="whiteButton">Continue as a guest</Text>
       </TouchableOpacity>
-    </Spacer>
-  </>
+    </Spacer> */}
+  </View>
 );

@@ -6,7 +6,7 @@ const Width = Dimensions.get("window").width - 20;
 export const RegisterContainer = styled.View`
   flex: 1;
   background-color: ${(props) => props.theme.colors.ui.error};
-  justify-content: center;
+  justify-content: space-between;
   padding: ${(props) => props.theme.space[2]};
   align-items: center;
 `;

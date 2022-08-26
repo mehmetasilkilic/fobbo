@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { View } from "react-native";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
@@ -9,7 +10,7 @@ export const RegisterForm = () => {
   const [text, setText] = useState("");
 
   return (
-    <>
+    <View>
       <TitleContainer>
         <Spacer position="bottom" size="medium">
           <Text variant="titleMedium">Register</Text>
@@ -30,6 +31,6 @@ export const RegisterForm = () => {
       <ButtonBig>
         <Text>Register</Text>
       </ButtonBig>
-    </>
+    </View>
   );
 };

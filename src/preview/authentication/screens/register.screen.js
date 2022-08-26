@@ -16,7 +16,7 @@ export const Register = ({ navigation }) => {
   return (
     <SafeArea>
       <RegisterContainer>
-        <Text variant="title">Welcome to Fobbo</Text>
+        <Text variant="titleBig">Welcome to Fobbo</Text>
         <View>
           <RegisterForm />
           <MidRow>

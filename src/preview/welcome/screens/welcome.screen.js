@@ -18,12 +18,12 @@ export const Welcome = ({ navigation }) => (
         </Spacer>
         <StartButton onPress={() => navigation.navigate("Register")}>
           <Spacer position="left" size="medium">
-            <Text variant="subTitle">Register</Text>
+            <Text variant="titleSmall">Register</Text>
           </Spacer>
         </StartButton>
         <Spacer position="top" size="medium">
           <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-            <Text variant="label">Do you have an account?</Text>
+            <Text variant="caption">Do you have an account?</Text>
           </TouchableOpacity>
         </Spacer>
       </AuthContainer>

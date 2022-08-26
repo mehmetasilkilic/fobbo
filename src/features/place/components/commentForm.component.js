@@ -59,7 +59,7 @@ export const CommentForm = () => {
         </TextAreaContainer>
       </Spacer>
       <SubmitButton>
-        <Text variant="subTitle">Submit Comment</Text>
+        <Text variant="titleSmall">Submit Comment</Text>
       </SubmitButton>
     </CommentFormContainer>
   );

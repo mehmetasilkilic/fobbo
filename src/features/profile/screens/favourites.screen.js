@@ -35,7 +35,7 @@ export const FavouritesScreen = ({ navigation }) => {
               <AntDesign name="left" size={24} color={"#262626"} />
             </TouchableOpacity>
             <Spacer position="left" size="medium">
-              <Text variant="body">Favourites</Text>
+              <Text variant="titleBlackSmall">Favourites</Text>
             </Spacer>
           </Row>
           <Row>

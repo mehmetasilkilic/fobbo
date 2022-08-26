@@ -17,7 +17,7 @@ export const Buttons = () => (
             uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
           }}
         />
-        <Label variant="title">Cafe</Label>
+        <Label variant="titleBig">Cafe</Label>
       </ContainerLarge>
       <Column>
         <ContainerMedium>

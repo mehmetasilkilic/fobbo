@@ -9,11 +9,7 @@ const defaultTextStyles = (theme) => `
   margin-bottom: 0px;
 `;
 
-const body = (theme) => `
-    font-size: ${theme.fontSizes.title};
-`;
-
-const title = (theme) => `
+const titleBig = (theme) => `
     font-size: ${theme.fontSizes.h4};
     line-height: ${theme.fontSizes.h4};
     font-weight: ${theme.fontWeights.bold};
@@ -27,15 +23,18 @@ const titleMedium = (theme) => `
     color: ${theme.colors.text.inverse};
 `;
 
-const subTitle = (theme) => `
+const titleSmall = (theme) => `
     font-size: ${theme.fontSizes.body};
     color: ${theme.colors.text.inverse};
+`;
+
+const titleBlackSmall = (theme) => `
+    font-size: ${theme.fontSizes.title};
 `;
 
 const hint = (theme) => `
     font-size: ${theme.fontSizes.button};
     color: ${theme.colors.text.disabled};
-
 `;
 
 const success = (theme) => `
@@ -54,18 +53,18 @@ const whiteButton = (theme) => `
 `;
 
 const lightError = (theme) => `
-    color: ${theme.colors.brand.secondary};
+    color: ${theme.colors.text.secondary};
     font-size: ${theme.fontSizes.caption};
 `;
 
 const caption = (theme) => `
-    font-size: ${theme.fontSizes.caption};
     color: ${theme.colors.text.disabled};
+    font-size: ${theme.fontSizes.caption};
 `;
 
 const captionWhite = (theme) => `
-    font-size: ${theme.fontSizes.caption};
     color: ${theme.colors.text.inverse};
+    font-size: ${theme.fontSizes.caption};
     font-weight: ${theme.fontWeights.bold};
 `;
 
@@ -80,10 +79,10 @@ const boldLabel = (theme) => `
 `;
 
 const variants = {
-  body,
-  title,
+  titleBig,
   titleMedium,
-  subTitle,
+  titleSmall,
+  titleBlackSmall,
   captionWhite,
   label,
   whiteButton,
@@ -101,5 +100,5 @@ export const Text = styled.Text`
 `;
 
 Text.defaultProps = {
-  variant: "body",
+  variant: "titleBlackSmall",
 };

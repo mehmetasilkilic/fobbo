@@ -29,7 +29,7 @@ export const Location = ({ navigation }) => (
         <Spacer position="right" size="medium">
           <AntDesign name="enviromento" size={20} color="#ffffff" />
         </Spacer>
-        <Text variant="subTitle">USE CURRENT LOCATION</Text>
+        <Text variant="titleSmall">USE CURRENT LOCATION</Text>
       </Button>
       <Spacer position="top" size="medium">
         <TouchableOpacity>

@@ -20,7 +20,6 @@ export const Types = styled.View`
 `;
 
 export const Title = styled(Text)`
-  color: ${(props) => props.theme.colors.text.secondary};
   max-width: 80%;
 `;
 

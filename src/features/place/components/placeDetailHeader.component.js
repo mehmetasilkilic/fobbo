@@ -25,7 +25,7 @@ export const PlaceDetailHeader = ({ place }) => {
     <HeaderContainer>
       <Spacer position="bottom" size="large">
         <Row>
-          <Title variant="title">{place.name}</Title>
+          <Title variant="titleBig">{place.name}</Title>
           <RatingContainer>
             <RatingContainerTop>
               <SvgXml xml={star} width={18} height={18} />
@@ -41,7 +41,7 @@ export const PlaceDetailHeader = ({ place }) => {
       <Spacer position="bottom" size="small">
         <Types>
           {place.types.slice(0, typeCount).map((item, index) => (
-            <Text key={index} variant="subTitle">
+            <Text key={index} variant="titleSmall">
               {item.charAt(0).toUpperCase() + item.slice(1)}
               {index < typeCount - 1 ? ", " : ""}
             </Text>

@@ -3,7 +3,7 @@ import { FlatList } from "react-native";
 
 export const FavouritesContainer = styled.View`
   flex-grow: 1;
-  background-color: ${(props) => props.theme.colors.ui.tertiary};
+  background-color: ${(props) => props.theme.colors.bg.secondary};
   padding-bottom: 30px;
 `;
 

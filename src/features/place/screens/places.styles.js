@@ -3,7 +3,7 @@ import { FlatList } from "react-native";
 
 export const PlacesContainer = styled.View`
   flex: 1;
-  background-color: ${(props) => props.theme.colors.ui.tertiary};
+  background-color: ${(props) => props.theme.colors.bg.secondary};
 `;
 
 export const PlacesList = styled(FlatList).attrs({

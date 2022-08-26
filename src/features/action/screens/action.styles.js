@@ -9,7 +9,7 @@ export const SafeAreaDetail = styled(SafeAreaView)`
 
 export const ActionContainer = styled.View`
   flex: 1;
-  background-color: ${(props) => props.theme.colors.ui.tertiary};
+  background-color: ${(props) => props.theme.colors.bg.secondary};
 `;
 
 export const TopBar = styled.View`

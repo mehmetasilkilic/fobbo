@@ -6,11 +6,11 @@ export const colors = {
   },
   ui: {
     primary: "#9C1F19",
-    secondary: "#757575",
-    tertiary: "#F1F1F1",
+    secondary: "#FDDEBB",
+    tertiary: "##9C4C48",
     quaternary: "#FFFFFF",
     disabled: "#DEDEDE",
-    error: "#9C1F19",
+    error: "#F44336",
     success: "#138000",
   },
   bg: {
@@ -22,7 +22,7 @@ export const colors = {
     secondary: "#E5E5E5",
     disabled: "#9C9C9C",
     inverse: "#FFFFFF",
-    error: "#9C1F19",
+    error: "#F44336",
     success: "#138000",
   },
 };

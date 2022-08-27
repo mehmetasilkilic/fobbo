@@ -1,5 +1,8 @@
-import { useContext } from "react";
+import { useEffect } from "react";
 import { ScrollView } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+
+import { fetchPlaces } from "../../../store/places/places.slice";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Loading } from "../../../components/loading/loading.component";
@@ -7,7 +10,6 @@ import { Search } from "../../../components/search/search.component";
 import { HorizontalPlaceList } from "../components/horizontalPlaceList.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
-import { PlacesContext } from "../../../services/places/places.context";
 import { CategoriesList } from "../components/categoriesList.component";
 import { AdvertisementList } from "../components/advertisementList.component";
 import { SmallPlaceList } from "../components/smallPlaceList.component";
@@ -19,7 +21,14 @@ import {
 } from "./home.styles";
 
 export const Home = ({ navigation }) => {
-  const { places, isLoading } = useContext(PlacesContext);
+  const dispatch = useDispatch();
+  const places = useSelector((state) => state.places.places);
+  const isLoading = useSelector((state) => state.places.loading);
+  const location = useSelector((state) => state.location.location);
+
+  useEffect(() => {
+    dispatch(fetchPlaces(location));
+  }, [dispatch, location]);
 
   const categoryDummyData = [
     {

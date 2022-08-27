@@ -1,6 +1,9 @@
-import { useContext, useState } from "react";
+import { useState, useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useDispatch, useSelector } from "react-redux";
+
+import { fetchPlaces } from "../../../store/places/places.slice";
 
 import { Text } from "../../../components/typography/text.component";
 import { SafeArea } from "../../../components/utils/safeArea.component";
@@ -10,12 +13,15 @@ import { Search } from "../../../components/search/search.component";
 import { Loading } from "../../../components/loading/loading.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
-import { PlacesContext } from "../../../services/places/places.context";
-
 import { PlacesList, PlacesContainer, Row, InnerRow } from "./places.styles";
 
 export const PlacesScreen = ({ navigation }) => {
-  const { places, isLoading } = useContext(PlacesContext);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPlaces());
+  }, []);
+  const places = useSelector((state) => state.places.places);
+  const isLoading = false; //useSelector((state) => state.places.loading);
   const [toggleAppearance, setToggleAppearance] = useState(false);
 
   return (

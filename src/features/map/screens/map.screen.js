@@ -1,9 +1,9 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import MapView from "react-native-maps";
 import styled from "styled-components/native";
 
-import { LocationContext } from "../../../services/location/location.context";
-import { PlacesContext } from "../../../services/places/places.context";
+import { fetchPlaces } from "../../../store/places/places.slice";
 
 import { Search } from "../components/search.component";
 import { MapCallout } from "../components/mapCallout.component";
@@ -14,8 +14,13 @@ const Map = styled(MapView)`
 `;
 
 export const MapScreen = ({ navigation }) => {
-  const { location } = useContext(LocationContext);
-  const { places = [] } = useContext(PlacesContext);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPlaces());
+  }, []);
+  const places = useSelector((state) => state.places.places);
+
+  const location = useSelector((state) => state.location.location);
 
   const [latDelta, setLatDelta] = useState(0);
 

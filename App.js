@@ -1,5 +1,6 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
 
 import {
   useFonts as useOswald,
@@ -11,9 +12,8 @@ import { theme } from "./src/infrastructure/theme";
 import { Navigation } from "./src/infrastructure/navigation";
 import { Preview } from "./src/infrastructure/preview";
 
-import { PlacesContextProvider } from "./src/services/places/places.context";
-import { LocationContextProvider } from "./src/services/location/location.context";
 import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
+import { store } from "./src/store/store";
 
 export default function App() {
   const user = "null";
@@ -27,15 +27,13 @@ export default function App() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <Provider store={store}>
         <FavouritesContextProvider>
-          <LocationContextProvider>
-            <PlacesContextProvider>
-              {!user ? <Preview /> : <Navigation />}
-            </PlacesContextProvider>
-          </LocationContextProvider>
+          <ThemeProvider theme={theme}>
+            {!user ? <Preview /> : <Navigation />}
+          </ThemeProvider>
         </FavouritesContextProvider>
-      </ThemeProvider>
+      </Provider>
       <ExpoStatusBar style="auto" />
     </>
   );

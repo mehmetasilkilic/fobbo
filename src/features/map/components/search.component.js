@@ -1,16 +1,15 @@
-import { useContext, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { LocationContext } from "../../../services/location/location.context";
+import {
+  fetchLocation,
+  setKeyword,
+} from "../../../store/location/location.slice";
 
 import { SearchContainer, SearchMap } from "./search.styles";
 
 export const Search = () => {
-  const { keyword, search } = useContext(LocationContext);
-  const [searchKeyword, setSearchKeyword] = useState(keyword);
-
-  useEffect(() => {
-    setSearchKeyword(keyword);
-  }, [keyword]);
+  const dispatch = useDispatch();
+  const keyword = useSelector((state) => state.location.keyword);
 
   return (
     <SearchContainer>
@@ -18,12 +17,11 @@ export const Search = () => {
         placeholder="Search for a location"
         icon="map"
         iconColor="#f00062"
-        value={searchKeyword}
         onSubmitEditing={() => {
-          search(searchKeyword);
+          dispatch(fetchLocation(keyword));
         }}
         onChangeText={(text) => {
-          setSearchKeyword(text);
+          dispatch(setKeyword(text));
         }}
       />
     </SearchContainer>

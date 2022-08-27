@@ -1,31 +1,26 @@
-import { useContext, useState, useEffect } from "react";
-import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { AntDesign } from "@expo/vector-icons";
 
-import { LocationContext } from "../../services/location/location.context";
+import { fetchLocation, setKeyword } from "../../store/location/location.slice";
 
 import { SearchContainer, SearchAll } from "./search.styles";
 import { Spacer } from "../spacer/spacer.component";
 
 export const Search = () => {
-  const { keyword, search } = useContext(LocationContext);
-  const [searchKeyword, setSearchKeyword] = useState(keyword);
-
-  useEffect(() => {
-    setSearchKeyword(keyword);
-  }, [keyword]);
+  const dispatch = useDispatch();
+  const keyword = useSelector((state) => state.location.keyword);
 
   return (
     <SearchContainer>
       <SearchAll
         placeholder="Search for a location"
         iconColor="#f00062"
-        value={searchKeyword}
         onSubmitEditing={() => {
-          search(searchKeyword);
+          dispatch(fetchLocation(keyword));
         }}
         onChangeText={(text) => {
-          setSearchKeyword(text);
+          dispatch(setKeyword(text));
         }}
       />
       <Spacer position="right" size="medium">

@@ -29,10 +29,10 @@ export const Welcome = ({ navigation }) => (
         <Spacer position="top" size="medium">
           <Row>
             <Spacer position="right" size="medium">
-              <Text variant="label">Don't have an account?</Text>
+              <Text variant="label">Dou you have an account?</Text>
             </Spacer>
             <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-              <Text variant="brand">Register</Text>
+              <Text variant="brand">Login</Text>
             </TouchableOpacity>
           </Row>
         </Spacer>

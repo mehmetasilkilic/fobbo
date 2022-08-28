@@ -3,7 +3,7 @@ import restApiClient from "./client";
 export async function login(data) {
   try {
     if (data) {
-      const endpoint = "https://fobbo.app/api";
+      const endpoint = "https://fobbo.app/api/token";
       const response = await restApiClient.post(
         endpoint,
         {

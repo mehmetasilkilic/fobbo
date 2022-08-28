@@ -1,9 +1,12 @@
-import { useContext } from "react";
 import { TouchableOpacity } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/native";
 import { AntDesign } from "@expo/vector-icons";
 
-import { FavouritesContext } from "../../services/favourites/favourites.context";
+import {
+  addFavourite,
+  removeFavourite,
+} from "../../store/favourites/favourites.slice";
 
 const CardStyle = styled(TouchableOpacity)`
   position: absolute;
@@ -15,17 +18,19 @@ const CardStyle = styled(TouchableOpacity)`
 const DetailStyle = styled(TouchableOpacity)``;
 
 export const Favourite = ({ place, styleVariable }) => {
-  const FavouriteButton = styleVariable === "card" ? CardStyle : DetailStyle;
+  const dispatch = useDispatch();
+  const favourites = useSelector((state) => state.favourites.favourites);
 
-  const { favourites, addToFavourites, removeFromFavourites } =
-    useContext(FavouritesContext);
+  const FavouriteButton = styleVariable === "card" ? CardStyle : DetailStyle;
 
   const isFavourite = favourites.find((item) => item.placeId === place.placeId);
 
   return (
     <FavouriteButton
       onPress={() =>
-        !isFavourite ? addToFavourites(place) : removeFromFavourites(place)
+        !isFavourite
+          ? dispatch(addFavourite(place))
+          : dispatch(removeFavourite(place))
       }
     >
       <AntDesign

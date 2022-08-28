@@ -12,7 +12,6 @@ import { theme } from "./src/infrastructure/theme";
 import { Navigation } from "./src/infrastructure/navigation";
 import { Preview } from "./src/infrastructure/preview";
 
-import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 import { store } from "./src/store/store";
 
 export default function App() {
@@ -28,11 +27,9 @@ export default function App() {
   return (
     <>
       <Provider store={store}>
-        <FavouritesContextProvider>
-          <ThemeProvider theme={theme}>
-            {!user ? <Preview /> : <Navigation />}
-          </ThemeProvider>
-        </FavouritesContextProvider>
+        <ThemeProvider theme={theme}>
+          {!user ? <Preview /> : <Navigation />}
+        </ThemeProvider>
       </Provider>
       <ExpoStatusBar style="auto" />
     </>

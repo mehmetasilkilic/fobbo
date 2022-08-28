@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -8,8 +9,6 @@ import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 
-import { FavouritesContext } from "../../../services/favourites/favourites.context";
-
 import {
   FavouritesList,
   FavouritesContainer,
@@ -18,7 +17,8 @@ import {
 } from "./favourites.styles";
 
 export const FavouritesScreen = ({ navigation }) => {
-  const { favourites, isLoading } = useContext(FavouritesContext);
+  const favourites = useSelector((state) => state.favourites.favourites);
+  const isLoading = false;
 
   const [toggleAppearance, setToggleAppearance] = useState(false);
 

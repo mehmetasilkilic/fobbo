@@ -15,7 +15,8 @@ import { Preview } from "./src/infrastructure/preview";
 import { store } from "./src/store/store";
 
 export default function App() {
-  const user = "null";
+  const user = null;
+  // const user = "null";
 
   const [oswaldLoaded] = useOswald({ Oswald_400Regular });
   const [latoLoaded] = useLato({ Lato_400Regular });

@@ -32,10 +32,24 @@ export const login = createAsyncThunk("user/login", async (formData) => {
   return response?.payload?.user;
 });
 
+export const register = createAsyncThunk("user/register", async (formData) => {
+  console.log("formData", formData);
+
+  const res = await authService.register({
+    name: formData.name,
+    email: formData.email,
+    password: formData.password,
+    device_name: "iphone11",
+  });
+  const response = res.data;
+  setAccessToken(response);
+});
+
 const userSlice = createSlice({
   name: "user",
   initialState,
   extraReducers: (builder) => {
+    // login
     builder.addCase(login.pending, (state) => {
       return { ...state, loading: true };
     });
@@ -48,6 +62,16 @@ const userSlice = createSlice({
       };
     });
     builder.addCase(login.rejected, (state, action) => {
+      return { ...state, loading: false, error: action.error };
+    });
+    // register
+    builder.addCase(register.pending, (state) => {
+      return { ...state, loading: true };
+    });
+    builder.addCase(register.fulfilled, (state, action) => {
+      return { ...state, loading: false, error: action.error };
+    });
+    builder.addCase(register.rejected, (state, action) => {
       return { ...state, loading: false, error: action.error };
     });
   },

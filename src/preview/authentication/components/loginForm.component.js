@@ -6,8 +6,9 @@ import { login } from "../../../store/user/user.slice";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
+import { Button } from "../../../components/button/button.component";
 
-import { Input, TitleContainer, ButtonBig } from "./loginForm.styles";
+import { Input, TitleContainer } from "./loginForm.styles";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -73,9 +74,7 @@ export const LoginForm = () => {
         />
         {errors.password && <Text variant="error">This is required.</Text>}
       </Spacer>
-      <ButtonBig onPress={handleSubmit(onSubmit)}>
-        <Text variant="titleSmall">Login</Text>
-      </ButtonBig>
+      <Button text="Login" onTouch={handleSubmit(onSubmit)} />
     </View>
   );
 };

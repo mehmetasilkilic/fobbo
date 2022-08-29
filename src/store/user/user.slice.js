@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { setAccessToken } from "../../utils/setAccessToken";
 
 import { authService } from "../../services";
 
@@ -8,17 +8,6 @@ const initialState = {
   currentUser: null,
   loading: false,
   error: null,
-};
-
-const setAccessToken = async (value) => {
-  try {
-    await AsyncStorage.setItem(
-      "accessToken",
-      value?.payload?.access_token ?? null
-    );
-  } catch (e) {
-    // save error
-  }
 };
 
 export const login = createAsyncThunk("user/login", async (formData) => {

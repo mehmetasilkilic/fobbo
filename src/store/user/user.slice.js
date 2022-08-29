@@ -43,6 +43,7 @@ export const register = createAsyncThunk("user/register", async (formData) => {
   });
   const response = res.data;
   setAccessToken(response);
+  return response?.payload?.user;
 });
 
 const userSlice = createSlice({
@@ -69,7 +70,12 @@ const userSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(register.fulfilled, (state, action) => {
-      return { ...state, loading: false, error: action.error };
+      return {
+        ...state,
+        loading: false,
+        currentUser: action.payload,
+        error: action.error,
+      };
     });
     builder.addCase(register.rejected, (state, action) => {
       return { ...state, loading: false, error: action.error };

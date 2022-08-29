@@ -15,7 +15,6 @@ export async function login(data) {
           },
         }
       );
-      console.log("response", response?.data);
       return response;
     } else {
       return {

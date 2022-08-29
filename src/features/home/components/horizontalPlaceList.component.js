@@ -24,12 +24,14 @@ export const HorizontalPlaceList = ({ data, onNavigate }) => (
         return (
           <Spacer position="left" size="medium">
             <TouchableOpacity
-              onPress={() =>
-                onNavigate("Places", {
-                  screen: "PlaceDetail",
-                  params: { place: item },
-                })
-              }
+              onPress={() => {
+                onNavigate("Places");
+                setTimeout(() => {
+                  onNavigate("PlaceDetail", {
+                    place: item,
+                  });
+                }, 1);
+              }}
             >
               <PlaceInfoCard place={item} cardStyle="horizontal" />
             </TouchableOpacity>

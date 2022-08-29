@@ -4,12 +4,8 @@ import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
-import {
-  AuthContainer,
-  Row,
-  WelcomeContainer,
-  StartButton,
-} from "./welcome.styles";
+import { AuthContainer, Row, WelcomeContainer } from "./welcome.styles";
+import { Button } from "../../../components/button/button.component";
 
 export const Welcome = ({ navigation }) => (
   <SafeArea>
@@ -21,11 +17,10 @@ export const Welcome = ({ navigation }) => (
             <Text variant="brand">Continue as a guest</Text>
           </TouchableOpacity>
         </Spacer>
-        <StartButton onPress={() => navigation.navigate("Register")}>
-          <Spacer position="left" size="medium">
-            <Text variant="titleSmall">Register</Text>
-          </Spacer>
-        </StartButton>
+        <Button
+          onTouch={() => navigation.navigate("Register")}
+          text="Register"
+        />
         <Spacer position="top" size="medium">
           <Row>
             <Spacer position="right" size="medium">

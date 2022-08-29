@@ -1,4 +1,4 @@
-import { TouchableOpacity, TextInput, Dimensions } from "react-native";
+import { TextInput, Dimensions } from "react-native";
 import styled from "styled-components/native";
 
 const ButtonWidth = Dimensions.get("window").width - 20;
@@ -17,14 +17,4 @@ export const Input = styled(TextInput)`
   border-radius: 5px;
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.ui.tertiary};
-`;
-
-export const ButtonBig = styled(TouchableOpacity)`
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: ${ButtonWidth}px;
-  background-color: ${(props) => props.theme.colors.ui.primary};
-  padding-vertical: ${(props) => props.theme.space[2]};
-  border-radius: 5px;
 `;

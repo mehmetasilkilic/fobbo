@@ -1,14 +1,12 @@
-import { useState } from "react";
 import { View } from "react-native";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
+import { Button } from "../../../components/button/button.component";
 
-import { Input, TitleContainer, ButtonBig } from "./registerForm.styles";
+import { Input, TitleContainer } from "./registerForm.styles";
 
 export const RegisterForm = () => {
-  const [text, setText] = useState("");
-
   return (
     <View>
       <TitleContainer>
@@ -28,9 +26,7 @@ export const RegisterForm = () => {
       <Spacer position="bottom" size="medium">
         <Input placeholder="password" />
       </Spacer>
-      <ButtonBig>
-        <Text variant="titleSmall">Register</Text>
-      </ButtonBig>
+      <Button text="Submit" />
     </View>
   );
 };

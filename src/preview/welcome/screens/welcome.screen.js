@@ -3,9 +3,9 @@ import { TouchableOpacity } from "react-native";
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { Button } from "../../../components/button/button.component";
 
 import { AuthContainer, Row, WelcomeContainer } from "./welcome.styles";
-import { Button } from "../../../components/button/button.component";
 
 export const Welcome = ({ navigation }) => (
   <SafeArea>

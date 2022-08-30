@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 
 import { login } from "../../../store/user/user.slice";
@@ -10,8 +10,17 @@ import { Button } from "../../../components/button/button.component";
 
 import { Input, TitleContainer } from "./loginForm.styles";
 
-export const LoginForm = () => {
+export const LoginForm = ({ errorToast }) => {
   const dispatch = useDispatch();
+  const error = useSelector((state) => state.user.error);
+
+  const onSubmit = (formData) => {
+    dispatch(login(formData));
+  };
+
+  setTimeout(() => {
+    if (error) errorToast();
+  }, 0);
 
   const {
     control,
@@ -24,10 +33,6 @@ export const LoginForm = () => {
       device_name: "",
     },
   });
-
-  const onSubmit = (formData) => {
-    dispatch(login(formData));
-  };
 
   return (
     <View>

@@ -7,11 +7,14 @@ import {
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign } from "@expo/vector-icons";
 
-import { Home } from "../../features/home/screens/home.screen";
-import { PlacesNavigator } from "./places.navigator";
 import { Action } from "../../features/action/screens/action.screen";
-import { MapScreen } from "../../features/map/screens/map.screen";
-import { ProfileNavigator } from "./profile.navigator";
+
+import {
+  FadeHomeScreen,
+  FadePlacesScreen,
+  FadeMapScreen,
+  FadeProfileScreen,
+} from "./animatedScreens";
 
 import navLogo from "../../../assets/nav-logo.png";
 
@@ -98,10 +101,10 @@ export const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={screenOptions}>
-        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Home" component={FadeHomeScreen} />
         <Tab.Screen
           name="Places"
-          component={PlacesNavigator}
+          component={FadePlacesScreen}
           options={({ route }) => {
             getPlacesHeaderTitle(route);
             placesTab === "PlaceDetail"
@@ -110,10 +113,10 @@ export const AppNavigator = () => {
           }}
         />
         <Tab.Screen name="Action" component={Action} />
-        <Tab.Screen name="Map" component={MapScreen} />
+        <Tab.Screen name="Map" component={FadeMapScreen} />
         <Tab.Screen
           name="Profile"
-          component={ProfileNavigator}
+          component={FadeProfileScreen}
           options={({ route }) => {
             getProfileHeaderTitle(route);
             profileTab === "Favourites"

@@ -42,14 +42,11 @@ const userSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(login.fulfilled, (state, action) => {
-      return {
-        ...state,
-        loading: false,
-        currentUser: action.payload,
-        error: "",
-      };
+      console.log("fulfilled");
+      return { ...state, loading: false, currentUser: action.payload };
     });
     builder.addCase(login.rejected, (state, action) => {
+      console.log("rejected");
       return { ...state, loading: false, error: action.error };
     });
     // register
@@ -57,12 +54,7 @@ const userSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(register.fulfilled, (state, action) => {
-      return {
-        ...state,
-        loading: false,
-        currentUser: action.payload,
-        error: action.error,
-      };
+      return { ...state, loading: false, currentUser: action.payload };
     });
     builder.addCase(register.rejected, (state, action) => {
       return { ...state, loading: false, error: action.error };

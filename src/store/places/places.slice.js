@@ -6,7 +6,7 @@ import { places } from "../../services";
 const initialState = {
   loading: false,
   places: [],
-  error: "",
+  error: null,
 };
 
 export const fetchPlaces = createAsyncThunk("places/fetchPlaces", async () => {
@@ -24,7 +24,7 @@ const placesSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(fetchPlaces.fulfilled, (state, action) => {
-      return { ...state, loading: false, places: action.payload, error: "" };
+      return { ...state, loading: false, places: action.payload };
     });
     builder.addCase(fetchPlaces.rejected, (state, action) => {
       return { ...state, loading: false, error: action.error };

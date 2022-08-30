@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-import { placesRequest, placesTransform } from "./places.service";
+import camelize from "camelize";
 
 import { places } from "../../services";
 
@@ -13,8 +12,8 @@ const initialState = {
 export const fetchPlaces = createAsyncThunk("places/fetchPlaces", async () => {
   // const locationString = `${loc.lat},${loc.lng}`;
   const result = await places.getPlaceList();
-  // const res = await placesTransform(result);
-  return result?.data?.payload?.places?.data;
+  const res = camelize(result?.data?.payload?.places?.data);
+  return res;
 });
 
 const placesSlice = createSlice({

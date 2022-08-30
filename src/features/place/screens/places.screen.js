@@ -20,6 +20,7 @@ export const PlacesScreen = ({ navigation }) => {
   useEffect(() => {
     dispatch(fetchPlaces());
   }, []);
+
   const places = useSelector((state) => state.places.places);
   const isLoading = false; //useSelector((state) => state.places.loading);
   const [toggleAppearance, setToggleAppearance] = useState(false);

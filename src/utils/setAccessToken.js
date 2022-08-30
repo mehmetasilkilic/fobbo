@@ -7,6 +7,6 @@ export const setAccessToken = async (value) => {
       value?.payload?.access_token ?? null
     );
   } catch (e) {
-    // save error
+    console.log("failed to set access token", e);
   }
 };

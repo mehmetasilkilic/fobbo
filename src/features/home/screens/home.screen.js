@@ -27,8 +27,8 @@ export const Home = ({ navigation }) => {
   const location = useSelector((state) => state.location.location);
 
   useEffect(() => {
-    dispatch(fetchPlaces(location));
-  }, [dispatch, location]);
+    dispatch(fetchPlaces());
+  }, []);
 
   const categoryDummyData = [
     {

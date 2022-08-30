@@ -8,14 +8,13 @@ const getAccessToken = async () => {
       return value;
     }
   } catch (e) {
-    // error reading value
+    console.log("failed to get access token", e);
   }
 };
 
 axios.interceptors.request.use(
   async (config) => {
-    const accessToken = getAccessToken();
-
+    const accessToken = await getAccessToken();
     if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken}`;
     }

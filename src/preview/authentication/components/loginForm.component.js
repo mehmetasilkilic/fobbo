@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 
-import { login } from "../../../store/user/user.slice";
+import { login } from "../../../store/user/user.service";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";

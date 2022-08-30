@@ -23,7 +23,6 @@ export const TopBar = styled.View`
 export const SliderContainer = styled.View`
   margin: ${(props) => props.theme.space[2]};
   margin-top: ${(props) => props.theme.space[2]};
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   overflow: hidden;
 `;
-

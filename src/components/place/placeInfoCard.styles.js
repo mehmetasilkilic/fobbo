@@ -59,7 +59,7 @@ export const IsOpenContainer = styled.View`
   align-items: center;
   background-color: ${(props) => props.theme.colors.ui.success};
   height: 25px;
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   padding: ${(props) => props.theme.space[1]};
 `;
 
@@ -73,7 +73,7 @@ export const IsCloseContainer = styled.View`
   align-items: center;
   background-color: ${(props) => props.theme.colors.ui.error};
   height: 25px;
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   padding: ${(props) => props.theme.space[1]};
 `;
 
@@ -87,7 +87,7 @@ export const RatingContainerBig = styled.View`
   align-items: center;
   background-color: ${(props) => props.theme.colors.ui.success};
   height: 25px;
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   padding: ${(props) => props.theme.space[1]};
 `;
 
@@ -101,6 +101,6 @@ export const RatingContainerSmall = styled.View`
   align-items: center;
   background-color: ${(props) => props.theme.colors.ui.success};
   height: 25px;
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   padding: ${(props) => props.theme.space[1]};
 `;

@@ -9,11 +9,11 @@ export const AdvertisementImageWrapper = styled.View`
   padding-right: ${(props) => props.theme.space[2]};
   padding-left: ${(props) => props.theme.space[2]};
   padding-bottom: ${(props) => props.theme.space[2]};
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]}; ;
 `;
 
 export const AdvertisementImage = styled.Image`
   padding: ${(props) => props.theme.space[2]};
   height: 200px;
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]}; ;
 `;

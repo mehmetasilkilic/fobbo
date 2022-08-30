@@ -7,6 +7,6 @@ export const StartButton = styled(TouchableOpacity)`
   align-items: center;
   padding-vertical: ${(props) => props.theme.space[2]};
   background-color: ${(props) => props.theme.colors.brand.primary};
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   width: ${ButtonWidth}px;
 `;

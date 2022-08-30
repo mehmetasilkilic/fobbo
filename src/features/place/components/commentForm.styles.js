@@ -27,7 +27,7 @@ export const SubmitButton = styled(TouchableOpacity)`
   align-items: center;
   justify-content: center;
   padding: ${(props) => props.theme.space[1]};
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.brand.primary};
   background-color: ${(props) => props.theme.colors.brand.primary};
@@ -38,7 +38,7 @@ export const TextAreaContainer = styled.View`
   height: 100px;
   border-color: ${(props) => props.theme.colors.brand.primary};
   border-width: 1px;
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]}; ;
 `;
 
 export const TextArea = styled(TextInput)`

@@ -19,7 +19,7 @@ export const ButtonSmall = styled(TouchableOpacity)`
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.ui.tertiary};
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   width: ${ButtonWidthHalf}px;
   flex-direction: row;
   justify-content: center;

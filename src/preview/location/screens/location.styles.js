@@ -14,7 +14,7 @@ export const Button = styled(TouchableOpacity)`
   margin-top: 40px;
   padding-vertical: ${(props) => props.theme.space[2]};
   background-color: ${(props) => props.theme.colors.ui.primary};
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   width: ${ButtonWidth}px;
   flex-direction: row;
   justify-content: center;

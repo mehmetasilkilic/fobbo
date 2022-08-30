@@ -31,7 +31,6 @@ export async function login(data) {
 export async function register(data) {
   try {
     if (data) {
-      console.log("data", data);
       const endpoint = "https://fobbo.app/api/register";
       const response = await restApiClient.post(
         endpoint,

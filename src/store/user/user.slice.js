@@ -22,8 +22,6 @@ export const login = createAsyncThunk("user/login", async (formData) => {
 });
 
 export const register = createAsyncThunk("user/register", async (formData) => {
-  console.log("formData", formData);
-
   const res = await authService.register({
     name: formData.name,
     email: formData.email,

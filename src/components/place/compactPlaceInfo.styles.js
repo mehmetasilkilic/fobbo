@@ -8,13 +8,13 @@ export const Item = styled.View`
 `;
 
 export const CompactImage = styled.Image`
-  border-radius: 10px;
+  border-radius: ${(props) => props.theme.space[2]};
   width: 120px;
   height: 100px;
 `;
 
 export const CompactWebView = styled(WebView)`
-  border-radius: 10px;
+  border-radius: ${(props) => props.theme.space[2]};
   width: 120px;
   height: 100px;
 `;

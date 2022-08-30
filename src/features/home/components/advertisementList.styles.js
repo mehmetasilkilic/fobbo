@@ -10,7 +10,7 @@ export const AdvertisementFlatList = styled(FlatList)`
 `;
 
 export const CompactImage = styled.Image`
-  border-radius: 5px;
+  border-radius: ${(props) => props.theme.space[1]};
   width: 160px;
   height: 200px;
 `;

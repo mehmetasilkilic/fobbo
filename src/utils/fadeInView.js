@@ -13,12 +13,14 @@ export const FadeInView = (props, { navigation }) => {
   useFocusEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
+      delay: 100,
       duration: 500,
       useNativeDriver: true,
     }).start();
     return () => {
       Animated.timing(fadeAnim, {
         toValue: 0,
+        delay: 100,
         duration: 250,
         useNativeDriver: true,
       }).start();

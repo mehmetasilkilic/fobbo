@@ -7,12 +7,24 @@ const LoadingContainer = styled.View`
   left: 50%;
 `;
 
-const LoadingCircle = styled(ActivityIndicator)`
+const LoadingCircleBig = styled(ActivityIndicator)`
   margin-left: -25px;
 `;
 
-export const Loading = () => (
-  <LoadingContainer>
-    <LoadingCircle size={50} animating={true} color="#f00062" />
-  </LoadingContainer>
-);
+const LoadingCircleSmall = styled(ActivityIndicator)`
+  margin-left: -13px;
+`;
+
+export const Loading = ({ variant }) => {
+  const LoadingCircle =
+    variant === "button" ? LoadingCircleSmall : LoadingCircleBig;
+  return (
+    <LoadingContainer>
+      <LoadingCircle
+        size={variant === "button" ? 26 : 50}
+        animating={true}
+        color={variant === "button" ? "#ffffff" : "#f00062"}
+      />
+    </LoadingContainer>
+  );
+};

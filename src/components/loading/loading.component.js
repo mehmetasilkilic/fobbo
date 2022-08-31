@@ -1,9 +1,15 @@
 import styled from "styled-components/native";
 import { ActivityIndicator } from "react-native-paper";
 
-const LoadingContainer = styled.View`
+const LoadingContainerBig = styled.View`
   position: absolute;
   top: 50%;
+  left: 50%;
+`;
+
+const LoadingContainerSmall = styled.View`
+  position: absolute;
+  top: 35%;
   left: 50%;
 `;
 
@@ -16,8 +22,12 @@ const LoadingCircleSmall = styled(ActivityIndicator)`
 `;
 
 export const Loading = ({ variant }) => {
+  const LoadingContainer =
+    variant === "button" ? LoadingContainerSmall : LoadingContainerBig;
+
   const LoadingCircle =
     variant === "button" ? LoadingCircleSmall : LoadingCircleBig;
+
   return (
     <LoadingContainer>
       <LoadingCircle

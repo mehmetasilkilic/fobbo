@@ -1,9 +1,9 @@
-import { FadeInView } from "../../utils/fadeInView";
+import { FadeInView } from "../../../utils/fadeInView";
 
-import { Home } from "../../features/home/screens/home.screen";
-import { PlacesNavigator } from "./places.navigator";
-import { MapScreen } from "../../features/map/screens/map.screen";
-import { ProfileNavigator } from "./profile.navigator";
+import { Home } from "../../../features/home/screens/home.screen";
+import { PlacesNavigator } from "../places.navigator";
+import { MapScreen } from "../../../features/map/screens/map.screen";
+import { ProfileNavigator } from "../profile.navigator";
 
 export const FadeHomeScreen = (props, { navigation }) => (
   <FadeInView>

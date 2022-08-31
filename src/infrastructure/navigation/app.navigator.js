@@ -14,7 +14,7 @@ import {
   FadePlacesScreen,
   FadeMapScreen,
   FadeProfileScreen,
-} from "./animatedScreens";
+} from "./utils/animatedScreens";
 
 import navLogo from "../../../assets/nav-logo.png";
 

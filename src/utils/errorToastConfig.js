@@ -1,7 +1,7 @@
 import { ErrorToast } from "react-native-toast-message";
 
 const errorToastStyle = {
-  borderLeftColor: "#F44336",
+  borderLeftColor: "#ffffff",
 };
 
 const errorToastTextStyle = {

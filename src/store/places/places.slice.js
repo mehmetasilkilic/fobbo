@@ -9,12 +9,15 @@ const initialState = {
   error: null,
 };
 
-export const fetchPlaces = createAsyncThunk("places/fetchPlaces", async () => {
-  // const locationString = `${loc.lat},${loc.lng}`;
-  const result = await places.getPlaceList();
-  const res = camelize(result?.data?.payload?.places?.data);
-  return res;
-});
+export const fetchPlaces = createAsyncThunk(
+  "places/fetchPlaces",
+  async (pageNo) => {
+    // const locationString = `${loc.lat},${loc.lng}`;
+    const result = await places.getPlaceList(pageNo);
+    const res = camelize(result?.data?.payload?.places?.data);
+    return res;
+  }
+);
 
 const placesSlice = createSlice({
   name: "places",
@@ -24,7 +27,11 @@ const placesSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(fetchPlaces.fulfilled, (state, action) => {
-      return { ...state, loading: false, places: action.payload };
+      return {
+        ...state,
+        loading: false,
+        places: [...state.places, ...action.payload],
+      };
     });
     builder.addCase(fetchPlaces.rejected, (state, action) => {
       return { ...state, loading: false, error: action.error };

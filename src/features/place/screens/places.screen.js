@@ -16,13 +16,20 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { PlacesList, PlacesContainer, Row, InnerRow } from "./places.styles";
 
 export const PlacesScreen = ({ navigation }) => {
+  const [currentPage, setCurrentPage] = useState(2);
+
+  const loadMoreItem = () => {
+    setCurrentPage(currentPage + 1);
+    // dispatch(fetchPlaces(currentPage));
+  };
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchPlaces());
-  }, []);
+    dispatch(fetchPlaces(currentPage));
+  }, [currentPage]);
 
   const places = useSelector((state) => state.places.places);
-  const isLoading = false; //useSelector((state) => state.places.loading);
+  const isLoading = useSelector((state) => state.places.loading);
   const [toggleAppearance, setToggleAppearance] = useState(false);
 
   return (
@@ -51,6 +58,9 @@ export const PlacesScreen = ({ navigation }) => {
         </Row>
         <PlacesContainer>
           <PlacesList
+            onEndReached={loadMoreItem}
+            onEndReachedThreshold={0.9}
+            ListFooterComponent={isLoading ? <Loading /> : ""} //variant="button"
             keyboardShouldPersistTaps="handled"
             numColumns={toggleAppearance ? 1 : 2}
             key={toggleAppearance ? 1 : 2}
@@ -73,7 +83,7 @@ export const PlacesScreen = ({ navigation }) => {
                 </TouchableOpacity>
               );
             }}
-            keyExtractor={(item) => item.name}
+            keyExtractor={(item) => item.id}
           />
         </PlacesContainer>
       </SafeArea>

@@ -18,7 +18,8 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
   const error = useSelector((state) => state.user.error);
 
   const onSubmit = (formData) => {
-    dispatch(login(formData));
+    // dispatch(login(formData));
+    console.log(formData);
   };
 
   setTimeout(() => {
@@ -34,8 +35,6 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
   } = useForm({
     defaultValues: {
       email: "",
-      password: "",
-      device_name: "",
     },
   });
 

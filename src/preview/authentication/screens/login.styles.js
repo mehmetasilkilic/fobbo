@@ -21,6 +21,12 @@ export const TopBar = styled.View`
   justify-content: space-between;
 `;
 
+export const Column = styled.View`
+  position: absolute;
+  top: 200px;
+  align-items: center;
+`;
+
 export const Title = styled.View`
   flex-direction: row;
   justify-content: center;

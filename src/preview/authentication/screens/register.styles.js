@@ -24,6 +24,7 @@ export const TopBar = styled.View`
 export const Column = styled.View`
   position: absolute;
   top: 200px;
+  align-items: center;
 `;
 
 export const Title = styled.View`

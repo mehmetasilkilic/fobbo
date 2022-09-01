@@ -18,6 +18,7 @@ import {
   OrContainer,
   TopBar,
   Title,
+  Column,
 } from "./login.styles";
 
 export const Login = ({ navigation }) => {
@@ -52,17 +53,19 @@ export const Login = ({ navigation }) => {
               </Text>
             </TopBar>
           </TopBackground>
-          <LoginForm errorToast={showToast} />
-          <MidRow>
-            <OrContainer>
-              <Text variant="whiteButton">OR</Text>
-            </OrContainer>
-          </MidRow>
-          <AuthOptions
-            onTouch={nav}
-            goLogin={goLogin}
-            goRegister={goRegister}
-          />
+          <Column>
+            <LoginForm errorToast={showToast} />
+            <MidRow>
+              <OrContainer>
+                <Text variant="whiteButton">OR</Text>
+              </OrContainer>
+            </MidRow>
+            <AuthOptions
+              onTouch={nav}
+              goLogin={goLogin}
+              goRegister={goRegister}
+            />
+          </Column>
         </LoginContainer>
       </ScrollView>
       <Toast config={errorToastConfig} />

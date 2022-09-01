@@ -1,11 +1,9 @@
 import restApiClient from "./client";
 
 export async function getPlaceList() {
-  const endpoint = "https://fobbo.app/api/places?page=1";
-  const response = await restApiClient.get(endpoint, {
-    headers: {
-      "Content-Type": "application/json",
-    },
+  const response = await restApiClient({
+    url: "/places?page=1",
+    method: "get",
   });
   return response;
 }

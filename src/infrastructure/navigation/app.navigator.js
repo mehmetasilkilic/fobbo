@@ -45,7 +45,7 @@ const tabBarStyleHidden = {
 };
 
 const tabBarItemStyle = {
-  borderRadius: 5,
+  borderRadius: 10,
 };
 
 const tabBarActionButtonStyle = {
@@ -86,7 +86,7 @@ export const AppNavigator = () => {
     display: displayMode,
     position: "absolute",
     margin: 10,
-    borderRadius: 5,
+    borderRadius: 10,
     height: 60,
     shadowColor: "#262626",
     shadowOpacity: 0.06,

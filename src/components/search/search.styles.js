@@ -10,6 +10,7 @@ export const SearchContainer = styled.View`
 `;
 
 export const SearchAll = styled(Searchbar)`
+  border-radius: ${(props) => props.theme.space[2]};
   width: 89%;
   height: 40px;
 `;

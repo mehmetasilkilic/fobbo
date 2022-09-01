@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 import { TouchableOpacity } from "react-native";
+import * as Device from "expo-device";
 
 import { login } from "../../../store/user/user.service";
 
@@ -15,6 +16,7 @@ export const LoginForm = ({ errorToast, goForgetPassword }) => {
   const error = useSelector((state) => state.user.error);
 
   const onSubmit = (formData) => {
+    formData.device_name = `${Device.brand}-${Device.modelName}`;
     dispatch(login(formData));
   };
 

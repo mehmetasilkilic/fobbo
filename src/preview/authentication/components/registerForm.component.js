@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
+import * as Device from "expo-device";
 
 import { register } from "../../../store/user/user.service";
 
@@ -16,6 +17,7 @@ export const RegisterForm = ({ errorToast }) => {
   const error = useSelector((state) => state.user.error);
 
   const onSubmit = (formData) => {
+    formData.device_name = `${Device.brand}-${Device.modelName}`;
     dispatch(register(formData));
   };
 

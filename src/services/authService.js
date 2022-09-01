@@ -1,9 +1,6 @@
 import restApiClient from "./client";
 
 export async function login(data) {
-  //
-  data.device_name = "iphone3gs";
-  //
   const response = await restApiClient({
     url: "/token",
     method: "post",
@@ -13,9 +10,6 @@ export async function login(data) {
 }
 
 export async function register(data) {
-  //
-  data.device_name = "iphone3gs";
-  //
   const response = await restApiClient({
     url: "/register",
     method: "post",

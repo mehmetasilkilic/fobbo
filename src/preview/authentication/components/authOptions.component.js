@@ -12,16 +12,16 @@ export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => (
       <Spacer position="right" size="medium">
         <ButtonSmall>
           <Spacer position="right" size="medium">
-            <AntDesign name="facebook-square" size={18} color={"#262626"} />
+            <AntDesign name="facebook-square" size={18} color={"#ffffff"} />
           </Spacer>
-          <Text variant="label">Facebook</Text>
+          <Text variant="titleSmall">Facebook</Text>
         </ButtonSmall>
       </Spacer>
       <ButtonSmall onPress={onTouch}>
         <Spacer position="right" size="medium">
-          <AntDesign name="google" size={18} color={"#262626"} />
+          <AntDesign name="google" size={18} color={"#ffffff"} />
         </Spacer>
-        <Text variant="label">Google</Text>
+        <Text variant="titleSmall">Google</Text>
       </ButtonSmall>
     </Row>
     {page === "register" ? (

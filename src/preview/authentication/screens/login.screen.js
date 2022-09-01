@@ -1,18 +1,24 @@
-import { View } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import Toast from "react-native-toast-message";
+import { ScrollView } from "react-native";
 
 import { removeError } from "../../../store/user/user.slice";
 
 import { Text } from "../../../components/typography/text.component";
-import { SafeArea } from "../../../components/utils/safeArea.component";
 
 import { AuthOptions } from "../components/authOptions.component";
 import { LoginForm } from "../components/loginForm.component";
 
 import { errorToastConfig } from "../../../utils/errorToastConfig";
 
-import { LoginContainer, MidRow, OrContainer } from "./login.styles";
+import {
+  TopBackground,
+  LoginContainer,
+  MidRow,
+  OrContainer,
+  TopBar,
+  Title,
+} from "./login.styles";
 
 export const Login = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -32,9 +38,20 @@ export const Login = ({ navigation }) => {
   };
 
   return (
-    <SafeArea>
-      <LoginContainer>
-        <View>
+    <>
+      <ScrollView alwaysBounceVertical={false}>
+        <LoginContainer>
+          <TopBackground>
+            <TopBar>
+              <Title>
+                <Text variant="titleMedium">fobbo</Text>
+              </Title>
+              <Text variant="titleMedium">Login</Text>
+              <Text variant="titleSmall">
+                Sign in to discover amazing places around you
+              </Text>
+            </TopBar>
+          </TopBackground>
           <LoginForm errorToast={showToast} />
           <MidRow>
             <OrContainer>
@@ -46,9 +63,9 @@ export const Login = ({ navigation }) => {
             goLogin={goLogin}
             goRegister={goRegister}
           />
-        </View>
-      </LoginContainer>
+        </LoginContainer>
+      </ScrollView>
       <Toast config={errorToastConfig} />
-    </SafeArea>
+    </>
   );
 };

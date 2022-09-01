@@ -49,7 +49,7 @@ export const ReviewButton = styled(TouchableOpacity)`
   align-items: center;
   justify-content: space-between;
   padding: ${(props) => props.theme.space[1]};
-  border-radius: ${(props) => props.theme.space[1]};
+  border-radius: ${(props) => props.theme.space[2]};
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.brand.primary};
 `;
@@ -59,7 +59,7 @@ export const ReviewButtonToggled = styled(TouchableOpacity)`
   align-items: center;
   justify-content: space-between;
   padding: ${(props) => props.theme.space[1]};
-  border-radius: ${(props) => props.theme.space[1]};
+  border-radius: ${(props) => props.theme.space[2]};
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.brand.primary};
   background-color: ${(props) => props.theme.colors.brand.primary};

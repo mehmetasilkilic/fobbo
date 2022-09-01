@@ -21,35 +21,35 @@ export const Column = styled.View`
 export const ContainerLarge = styled.View`
   width: ${cardWidthHalf}px;
   height: 160px;
-  border-radius: ${(props) => props.theme.space[1]}; ;
+  border-radius: ${(props) => props.theme.space[2]}; ;
 `;
 
 export const ContainerMedium = styled.View`
   width: ${cardWidthHalf}px;
   height: 75px;
-  border-radius: ${(props) => props.theme.space[1]}; ;
+  border-radius: ${(props) => props.theme.space[2]}; ;
 `;
 
 export const ContainerSmall = styled.View`
-  border-radius: ${(props) => props.theme.space[1]}; ;
+  border-radius: ${(props) => props.theme.space[2]}; ;
 `;
 
 export const PictureLarge = styled.Image`
   width: ${cardWidthHalf}px;
   height: 160px;
-  border-radius: ${(props) => props.theme.space[1]}; ;
+  border-radius: ${(props) => props.theme.space[2]}; ;
 `;
 
 export const PictureMedium = styled.Image`
   width: ${cardWidthHalf}px;
   height: 75px;
-  border-radius: ${(props) => props.theme.space[1]}; ;
+  border-radius: ${(props) => props.theme.space[2]}; ;
 `;
 
 export const PictureSmall = styled.Image`
   width: ${cardWidthHalf}px;
   height: 40px;
-  border-radius: ${(props) => props.theme.space[1]}; ;
+  border-radius: ${(props) => props.theme.space[2]}; ;
 `;
 
 export const Label = styled(Text)`

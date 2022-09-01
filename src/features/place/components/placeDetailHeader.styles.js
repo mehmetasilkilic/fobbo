@@ -24,7 +24,7 @@ export const Title = styled(Text)`
 `;
 
 export const RatingContainer = styled.View`
-  border-radius: ${(props) => props.theme.space[1]}; ;
+  border-radius: ${(props) => props.theme.space[2]}; ;
 `;
 
 export const RatingContainerTop = styled.View`
@@ -33,7 +33,7 @@ export const RatingContainerTop = styled.View`
   align-items: center;
   background-color: ${(props) => props.theme.colors.brand.secondary};
   width: 65px;
-  border-top-left-radius: ${(props) => props.theme.space[1]};
+  border-top-left-radius: ${(props) => props.theme.space[2]};
   padding: ${(props) => props.theme.space[1]};
 `;
 
@@ -43,7 +43,7 @@ export const RatingContainerBottom = styled.View`
   align-items: center;
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   width: 65px;
-  border-bottom-right-radius: ${(props) => props.theme.space[1]};
+  border-bottom-right-radius: ${(props) => props.theme.space[2]};
   padding: ${(props) => props.theme.space[1]};
 `;
 
@@ -55,6 +55,6 @@ export const IfOpen = styled.View`
   color: ${(props) => props.theme.colors.ui.success};
   width: 90px;
   height: 25px;
-  border-bottom-right-radius: ${(props) => props.theme.space[1]};
-  border-top-left-radius: ${(props) => props.theme.space[1]}; ;
+  border-bottom-right-radius: ${(props) => props.theme.space[2]};
+  border-top-left-radius: ${(props) => props.theme.space[2]}; ;
 `;

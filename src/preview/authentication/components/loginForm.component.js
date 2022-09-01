@@ -1,6 +1,6 @@
-import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
+import { TouchableOpacity } from "react-native";
 
 import { login } from "../../../store/user/user.service";
 
@@ -8,7 +8,7 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Button } from "../../../components/button/button.component";
 
-import { Input, TitleContainer } from "./loginForm.styles";
+import { LoginFormContainer, Input } from "./loginForm.styles";
 
 export const LoginForm = ({ errorToast }) => {
   const dispatch = useDispatch();
@@ -19,7 +19,9 @@ export const LoginForm = ({ errorToast }) => {
   };
 
   setTimeout(() => {
-    if (error) errorToast();
+    if (error) {
+      errorToast();
+    }
   }, 0);
 
   const {
@@ -35,12 +37,7 @@ export const LoginForm = ({ errorToast }) => {
   });
 
   return (
-    <View>
-      <TitleContainer>
-        <Spacer position="bottom" size="medium">
-          <Text variant="titleBrandMedium">Login</Text>
-        </Spacer>
-      </TitleContainer>
+    <LoginFormContainer>
       <Spacer position="bottom" size="medium">
         <Controller
           control={control}
@@ -68,7 +65,7 @@ export const LoginForm = ({ errorToast }) => {
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
-              secureTextEntry={true}
+              secureTextEntry
               placeholder="password"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -80,6 +77,11 @@ export const LoginForm = ({ errorToast }) => {
         {errors.password && <Text variant="error">This is required.</Text>}
       </Spacer>
       <Button text="Login" onTouch={handleSubmit(onSubmit)} />
-    </View>
+      <TouchableOpacity>
+        <Spacer position="top" size="medium">
+          <Text variant="brand">Forgot Password?</Text>
+        </Spacer>
+      </TouchableOpacity>
+    </LoginFormContainer>
   );
 };

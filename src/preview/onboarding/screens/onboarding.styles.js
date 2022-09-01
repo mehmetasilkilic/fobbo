@@ -13,9 +13,9 @@ export const SkipButton = styled(TouchableOpacity)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-radius: ${(props) => props.theme.space[1]};
+  border-radius: ${(props) => props.theme.space[2]};
   width: 70px;
-  border-radius: ${(props) => props.theme.space[1]};
+  border-radius: ${(props) => props.theme.space[2]};
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.brand.primary};
 `;

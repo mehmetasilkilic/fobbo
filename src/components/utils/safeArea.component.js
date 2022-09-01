@@ -6,3 +6,9 @@ export const SafeArea = styled(SafeAreaView)`
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight}px`}
 `;
+
+export const SafeAreaBrand = styled(SafeAreaView)`
+  flex: 1;
+  background-color: ${(props) => props.theme.colors.ui.primary};
+  ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight}px`}
+`;

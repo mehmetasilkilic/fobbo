@@ -88,7 +88,7 @@ export const RegisterForm = ({ errorToast }) => {
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
-              secureTextEntry={true}
+              secureTextEntry
               placeholder="password"
               onBlur={onBlur}
               onChangeText={onChange}

@@ -1,18 +1,42 @@
 import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
-const Width = Dimensions.get("window").width - 20;
+const Width = Dimensions.get("window").width;
+const Height = Dimensions.get("window").height;
+
+export const TopBackground = styled.View`
+  width: ${Width}px;
+  height: ${Height * 0.35}px;
+  background-color: ${(props) => props.theme.colors.ui.primary};
+  position: absolute;
+  top: 0;
+  border-bottom-left-radius: ${(props) => props.theme.space[2]};
+  border-bottom-right-radius: ${(props) => props.theme.space[2]};
+`;
+
+export const TopBar = styled.View`
+  margin-top: 30px;
+  height: ${Height * 0.2}px;
+  padding: ${(props) => props.theme.space[2]};
+  justify-content: space-between;
+`;
+
+export const Title = styled.View`
+  flex-direction: row;
+  justify-content: center;
+`;
 
 export const LoginContainer = styled.View`
   flex: 1;
-  background-color: ${(props) => props.theme.colors.bg.primary};
+  height: ${Height}px;
+  background-color: ${(props) => props.theme.colors.bg.tertiary};
   padding: ${(props) => props.theme.space[2]};
   justify-content: center;
   align-items: center;
 `;
 
 export const MidRow = styled.View`
-  width: ${Width}px;
+  width: ${Width - 20}px;
   border-bottom-width: 1px;
   border-bottom-color: ${(props) => props.theme.colors.text.disabled};
   justify-content: center;

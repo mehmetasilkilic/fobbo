@@ -1,20 +1,20 @@
 import { TextInput, Dimensions } from "react-native";
 import styled from "styled-components/native";
 
-const ButtonWidth = Dimensions.get("window").width - 20;
+const InputWidth = Dimensions.get("window").width - 40;
 
-export const TitleContainer = styled.View`
-  width: ${ButtonWidth}px;
-  flex-direction: row;
-  justify-content: flex-start;
+export const LoginFormContainer = styled.View`
+  margin: ${(props) => props.theme.space[2]};
+  padding: ${(props) => props.theme.space[2]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
+  border-radius: ${(props) => props.theme.space[2]};
+  align-items: center;
 `;
 
 export const Input = styled(TextInput)`
-  width: ${ButtonWidth}px;
-  background-color: ${(props) => props.theme.colors.bg.primary};
+  width: ${InputWidth}px;
+  background-color: ${(props) => props.theme.colors.bg.tertiary};
   padding-horizontal: ${(props) => props.theme.space[2]};
-  padding-vertical: ${(props) => props.theme.space[1]};
-  border-radius: ${(props) => props.theme.space[1]};
-  border-width: 1px;
-  border-color: ${(props) => props.theme.colors.ui.tertiary};
+  height: 40px;
+  border-radius: ${(props) => props.theme.space[2]};
 `;

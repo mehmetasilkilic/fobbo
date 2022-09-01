@@ -14,6 +14,7 @@ import { theme } from "./src/infrastructure/theme";
 import { Navigation } from "./src/infrastructure/navigation";
 
 export default function App() {
+  const user = false;
   const [oswaldLoaded] = useOswald({ Oswald_400Regular });
   const [latoLoaded] = useLato({ Lato_400Regular });
 
@@ -28,7 +29,7 @@ export default function App() {
           <Navigation />
         </ThemeProvider>
       </Provider>
-      <ExpoStatusBar style="auto" />
+      <ExpoStatusBar style={user ? "auto" : "light"} />
     </>
   );
 }

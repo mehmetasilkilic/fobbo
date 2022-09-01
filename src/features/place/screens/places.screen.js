@@ -51,6 +51,7 @@ export const PlacesScreen = ({ navigation }) => {
         </Row>
         <PlacesContainer>
           <PlacesList
+            keyboardShouldPersistTaps="handled"
             numColumns={toggleAppearance ? 1 : 2}
             key={toggleAppearance ? 1 : 2}
             data={places}

@@ -11,6 +11,7 @@ import {
 
 export const CategoriesList = ({ data }) => (
   <CategoriesFlatList
+    keyboardShouldPersistTaps="handled"
     data={data}
     horizontal
     showsHorizontalScrollIndicator={false}

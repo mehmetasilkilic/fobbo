@@ -109,7 +109,7 @@ export const Home = ({ navigation }) => {
         {isLoading ? (
           <Loading />
         ) : (
-          <ScrollView>
+          <ScrollView keyboardShouldPersistTaps="handled">
             <CategoriesList data={categoryDummyData} />
             <HorizontalPlaceList
               data={topTenPlaces}

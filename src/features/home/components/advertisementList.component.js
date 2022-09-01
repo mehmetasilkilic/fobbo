@@ -9,6 +9,7 @@ import {
 
 export const AdvertisementList = ({ data }) => (
   <AdvertisementFlatList
+    keyboardShouldPersistTaps="handled"
     data={data}
     horizontal
     showsHorizontalScrollIndicator={false}

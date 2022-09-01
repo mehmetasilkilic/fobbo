@@ -17,6 +17,7 @@ export const HorizontalPlaceList = ({ data, onNavigate }) => (
       </InlineRow>
     </Row>
     <PlacesFlatList
+      keyboardShouldPersistTaps="handled"
       data={data}
       horizontal
       showsHorizontalScrollIndicator={false}

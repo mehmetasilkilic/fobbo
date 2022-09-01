@@ -8,9 +8,12 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Button } from "../../../components/button/button.component";
 
-import { LoginFormContainer, Input } from "./loginForm.styles";
+import {
+  ForgetPasswordFormContainer,
+  Input,
+} from "./forgetPasswordForm.styles";
 
-export const LoginForm = ({ errorToast, goForgetPassword }) => {
+export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.user.error);
 
@@ -37,7 +40,7 @@ export const LoginForm = ({ errorToast, goForgetPassword }) => {
   });
 
   return (
-    <LoginFormContainer>
+    <ForgetPasswordFormContainer>
       <Spacer position="bottom" size="medium">
         <Controller
           control={control}
@@ -57,31 +60,12 @@ export const LoginForm = ({ errorToast, goForgetPassword }) => {
         />
         {errors.email && <Text variant="error">This is required.</Text>}
       </Spacer>
-      <Spacer position="bottom" size="medium">
-        <Controller
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Input
-              secureTextEntry
-              placeholder="password"
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-          name="password"
-        />
-        {errors.password && <Text variant="error">This is required.</Text>}
-      </Spacer>
-      <Button text="Login" onTouch={handleSubmit(onSubmit)} />
+      <Button text="Submit" onTouch={handleSubmit(onSubmit)} />
       <Spacer position="top" size="medium">
-        <TouchableOpacity onPress={goForgetPassword}>
-          <Text variant="brand">Forgot Password?</Text>
+        <TouchableOpacity onPress={goLogin}>
+          <Text variant="brand">Go to Login Page</Text>
         </TouchableOpacity>
       </Spacer>
-    </LoginFormContainer>
+    </ForgetPasswordFormContainer>
   );
 };

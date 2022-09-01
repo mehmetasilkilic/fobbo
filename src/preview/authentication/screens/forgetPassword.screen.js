@@ -6,28 +6,22 @@ import { removeError } from "../../../store/user/user.slice";
 
 import { Text } from "../../../components/typography/text.component";
 
-import { AuthOptions } from "../components/authOptions.component";
-import { LoginForm } from "../components/loginForm.component";
+import { ForgetPasswordForm } from "../components/forgetPasswordForm.component";
 
 import { errorToastConfig } from "../../../utils/errorToastConfig";
 
 import {
   TopBackground,
-  LoginContainer,
-  MidRow,
-  OrContainer,
+  ForgetPasswordContainer,
   TopBar,
   Title,
   Column,
-} from "./login.styles";
+} from "./forgetPassword.styles";
 
-export const Login = ({ navigation }) => {
+export const ForgetPassword = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  const nav = () => navigation.navigate("Onboarding");
   const goLogin = () => navigation.navigate("Login");
-  const goRegister = () => navigation.navigate("Register");
-  const goForgetPassword = () => navigation.navigate("ForgetPassword");
 
   const error = useSelector((state) => state.user.error);
   const showToast = () => {
@@ -45,35 +39,22 @@ export const Login = ({ navigation }) => {
         alwaysBounceVertical={false}
         keyboardShouldPersistTaps="handled"
       >
-        <LoginContainer>
+        <ForgetPasswordContainer>
           <TopBackground>
             <TopBar>
               <Title>
                 <Text variant="titleMedium">fobbo</Text>
               </Title>
-              <Text variant="titleMedium">Login</Text>
+              <Text variant="titleMedium">Recover Your Password</Text>
               <Text variant="titleSmall">
-                Sign in to discover amazing places around you
+                We will send a new password to your email.
               </Text>
             </TopBar>
           </TopBackground>
           <Column>
-            <LoginForm
-              errorToast={showToast}
-              goForgetPassword={goForgetPassword}
-            />
-            <MidRow>
-              <OrContainer>
-                <Text variant="whiteButton">OR</Text>
-              </OrContainer>
-            </MidRow>
-            <AuthOptions
-              onTouch={nav}
-              goLogin={goLogin}
-              goRegister={goRegister}
-            />
+            <ForgetPasswordForm errorToast={showToast} goLogin={goLogin} />
           </Column>
-        </LoginContainer>
+        </ForgetPasswordContainer>
       </ScrollView>
       <Toast config={errorToastConfig} />
     </>

@@ -7,6 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Welcome } from "../../preview/welcome/screens/welcome.screen";
 import { Register } from "../../preview/authentication/screens/register.screen";
 import { Login } from "../../preview/authentication/screens/login.screen";
+import { ForgetPassword } from "../../preview/authentication/screens/forgetPassword.screen";
 import { Onboarding } from "../../preview/onboarding/screens/onboarding.screen";
 import { Location } from "../../preview/location/screens/location.screen";
 
@@ -26,6 +27,7 @@ export const AuthNavigator = () => {
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Location" component={Location} />
       </Stack.Navigator>

@@ -1,19 +1,25 @@
-import { View } from "react-native";
+import { ScrollView } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import Toast from "react-native-toast-message";
 
 import { removeError } from "../../../store/user/user.slice";
 
 import { Text } from "../../../components/typography/text.component";
-import { SafeArea } from "../../../components/utils/safeArea.component";
 
 import { AuthOptions } from "../components/authOptions.component";
-import { Agreements } from "../components/agreements.component";
 import { RegisterForm } from "../components/registerForm.component";
 
 import { errorToastConfig } from "../../../utils/errorToastConfig";
 
-import { RegisterContainer, MidRow, OrContainer } from "./register.styles";
+import {
+  TopBackground,
+  RegisterContainer,
+  MidRow,
+  OrContainer,
+  TopBar,
+  Title,
+  Column,
+} from "./register.styles";
 
 export const Register = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -32,21 +38,32 @@ export const Register = ({ navigation }) => {
   };
 
   return (
-    <SafeArea>
-      <RegisterContainer>
-        <Text variant="titleBig">Welcome to Fobbo</Text>
-        <View>
-          <RegisterForm errorToast={showToast} />
-          <MidRow>
-            <OrContainer>
-              <Text variant="whiteButton">OR</Text>
-            </OrContainer>
-          </MidRow>
-          <AuthOptions onTouch={nav} goLogin={goLogin} page="register" />
-        </View>
-        <Agreements />
-      </RegisterContainer>
+    <>
+      <ScrollView alwaysBounceVertical={false}>
+        <RegisterContainer>
+          <TopBackground>
+            <TopBar>
+              <Title>
+                <Text variant="titleMedium">fobbo</Text>
+              </Title>
+              <Text variant="titleMedium">Register</Text>
+              <Text variant="titleSmall">
+                Sign up to discover amazing places around you
+              </Text>
+            </TopBar>
+          </TopBackground>
+          <Column>
+            <RegisterForm errorToast={showToast} />
+            <MidRow>
+              <OrContainer>
+                <Text variant="whiteButton">OR</Text>
+              </OrContainer>
+            </MidRow>
+            <AuthOptions onTouch={nav} goLogin={goLogin} page="register" />
+          </Column>
+        </RegisterContainer>
+      </ScrollView>
       <Toast config={errorToastConfig} />
-    </SafeArea>
+    </>
   );
 };

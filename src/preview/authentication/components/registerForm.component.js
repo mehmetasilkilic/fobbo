@@ -1,4 +1,3 @@
-import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 
@@ -8,7 +7,9 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Button } from "../../../components/button/button.component";
 
-import { Input, TitleContainer } from "./registerForm.styles";
+import { Agreements } from "../components/agreements.component";
+
+import { RegisterFormContainer, Input } from "./registerForm.styles";
 
 export const RegisterForm = ({ errorToast }) => {
   const dispatch = useDispatch();
@@ -19,7 +20,9 @@ export const RegisterForm = ({ errorToast }) => {
   };
 
   setTimeout(() => {
-    if (error) errorToast();
+    if (error) {
+      errorToast();
+    }
   }, 0);
 
   const {
@@ -36,12 +39,7 @@ export const RegisterForm = ({ errorToast }) => {
   });
 
   return (
-    <View>
-      <TitleContainer>
-        <Spacer position="bottom" size="medium">
-          <Text variant="titleBrandMedium">Register</Text>
-        </Spacer>
-      </TitleContainer>
+    <RegisterFormContainer>
       <Spacer position="bottom" size="medium">
         <Controller
           control={control}
@@ -103,6 +101,9 @@ export const RegisterForm = ({ errorToast }) => {
         <Input placeholder="password" />
       </Spacer>
       <Button text="Submit" onTouch={handleSubmit(onSubmit)} />
-    </View>
+      <Spacer position="top" size="medium">
+        <Agreements />
+      </Spacer>
+    </RegisterFormContainer>
   );
 };

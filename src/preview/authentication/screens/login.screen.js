@@ -40,7 +40,10 @@ export const Login = ({ navigation }) => {
 
   return (
     <>
-      <ScrollView alwaysBounceVertical={false}>
+      <ScrollView
+        alwaysBounceVertical={false}
+        keyboardShouldPersistTaps="handled"
+      >
         <LoginContainer>
           <TopBackground>
             <TopBar>

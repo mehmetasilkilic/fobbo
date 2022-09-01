@@ -39,7 +39,10 @@ export const Register = ({ navigation }) => {
 
   return (
     <>
-      <ScrollView alwaysBounceVertical={false}>
+      <ScrollView
+        alwaysBounceVertical={false}
+        keyboardShouldPersistTaps="handled"
+      >
         <RegisterContainer>
           <TopBackground>
             <TopBar>

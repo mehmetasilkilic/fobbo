@@ -11,11 +11,13 @@ export const PlaceCardHorizontal = styled(Card)`
   width: ${cardWidthHorizontal}px;
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   overflow: hidden;
+  border-radius: ${(props) => props.theme.space[2]};
 `;
 
 export const PlaceCardVertical = styled(Card)`
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   overflow: hidden;
+  border-radius: ${(props) => props.theme.space[2]};
 `;
 
 export const PlaceCardSmall = styled(Card)`
@@ -23,6 +25,7 @@ export const PlaceCardSmall = styled(Card)`
   background-color: ${(props) => props.theme.colors.ui.quaternary};
   margin-right: ${(props) => props.theme.space[2]};
   overflow: hidden;
+  border-radius: ${(props) => props.theme.space[2]};
 `;
 
 export const PlaceCardCoverBig = styled(Card.Cover)`

@@ -1,4 +1,3 @@
-import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 
@@ -14,7 +13,6 @@ import { theme } from "./src/infrastructure/theme";
 import { Navigation } from "./src/infrastructure/navigation";
 
 export default function App() {
-  const user = false;
   const [oswaldLoaded] = useOswald({ Oswald_400Regular });
   const [latoLoaded] = useLato({ Lato_400Regular });
 
@@ -23,13 +21,10 @@ export default function App() {
   }
 
   return (
-    <>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <Navigation />
-        </ThemeProvider>
-      </Provider>
-      <ExpoStatusBar style={user ? "auto" : "light"} />
-    </>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Navigation />
+      </ThemeProvider>
+    </Provider>
   );
 }

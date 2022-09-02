@@ -1,12 +1,14 @@
 import { ScrollView, Pressable } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../../../store/user/user.slice";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
+
+import { ProfileRow } from "../components/profileRow.component";
 
 import {
   AccountInfo,
@@ -17,10 +19,11 @@ import {
   RowNoBorder,
   ProfileContainer,
 } from "./profile.styles";
-import { ProfileRow } from "../components/profileRow.component";
 
 export const ProfileScreen = ({ navigation }) => {
   const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.user.currentUser);
+
   const RowList = [
     {
       id: 1,
@@ -74,9 +77,9 @@ export const ProfileScreen = ({ navigation }) => {
               </Spacer>
               <Column>
                 <Spacer position="bottom" size="small">
-                  <Text variant="label">John Doe</Text>
+                  <Text variant="label">{userInfo.name}</Text>
                 </Spacer>
-                <Text variant="caption">johndoe@gmail.com</Text>
+                <Text variant="caption">{userInfo.email}</Text>
               </Column>
             </AccountInfo>
           </Spacer>

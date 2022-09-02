@@ -48,10 +48,10 @@ export const ProfileScreen = ({ navigation }) => {
     },
     {
       id: 4,
-      label: "Login settings",
+      label: "Change Password",
       color: "black",
       icon: "lock1",
-      onTouch: "",
+      onTouch: () => navigation.navigate("ChangePassword"),
     },
     {
       id: 5,

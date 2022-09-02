@@ -121,6 +121,8 @@ export const AppNavigator = () => {
             getProfileHeaderTitle(route);
             profileTab === "Favourites"
               ? setDisplayMode("none")
+              : profileTab === "ChangePassword"
+              ? setDisplayMode("none")
               : placesTab === "PlaceDetail"
               ? setDisplayMode("none")
               : setDisplayMode("flex");

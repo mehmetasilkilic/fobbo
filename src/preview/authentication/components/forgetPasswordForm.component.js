@@ -35,6 +35,8 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
   } = useForm({
     defaultValues: {
       email: "",
+      code: "",
+      password: "",
     },
   });
 
@@ -58,6 +60,47 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
           name="email"
         />
         {errors.email && <Text variant="error">This is required.</Text>}
+      </Spacer>
+      <Spacer position="bottom" size="medium">
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <Input
+              type="text"
+              placeholder="code"
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="code"
+        />
+        {errors.code && <Text variant="error">This is required.</Text>}
+      </Spacer>
+      <Spacer position="bottom" size="medium">
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <Input
+              secureTextEntry
+              placeholder="password"
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="password"
+        />
+        {errors.password && <Text variant="error">This is required.</Text>}
+      </Spacer>
+      <Spacer position="bottom" size="medium">
+        <Input placeholder="password" />
       </Spacer>
       <Button text="Submit" onTouch={handleSubmit(onSubmit)} />
       <Spacer position="top" size="medium">

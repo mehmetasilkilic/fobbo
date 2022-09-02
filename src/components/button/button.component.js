@@ -14,7 +14,7 @@ export const Button = ({ onTouch, text }) => {
       {isLoading ? (
         <>
           <Text variant="brand">.</Text>
-          <Loading variant="button" />
+          <Loading size="button" color="#ffffff" />
         </>
       ) : (
         <Text variant="titleSmall">{text}</Text>

@@ -35,7 +35,7 @@ export const PlacesScreen = ({ navigation }) => {
   return (
     <>
       <SafeArea>
-        {isLoading && <Loading />}
+        {isLoading && <Loading color="#f00062" />}
         <Search />
         <Row>
           <Text variant="label">Trending</Text>
@@ -60,7 +60,9 @@ export const PlacesScreen = ({ navigation }) => {
           <PlacesList
             onEndReached={loadMoreItem}
             onEndReachedThreshold={0.9}
-            ListFooterComponent={isLoading ? <Loading /> : ""} //variant="button"
+            ListFooterComponent={
+              isLoading ? <Loading size="button" color="#f00062" /> : ""
+            }
             keyboardShouldPersistTaps="handled"
             numColumns={toggleAppearance ? 1 : 2}
             key={toggleAppearance ? 1 : 2}

@@ -7,7 +7,7 @@ export const PlacesContainer = styled.View`
 `;
 
 export const PlacesList = styled(FlatList).attrs({
-  contentContainerStyle: { padding: 10, paddingBottom: 150 },
+  contentContainerStyle: { padding: 10, paddingBottom: 120 },
 })``;
 
 export const Row = styled.View`

@@ -21,19 +21,19 @@ const LoadingCircleSmall = styled(ActivityIndicator)`
   margin-left: -13px;
 `;
 
-export const Loading = ({ variant }) => {
+export const Loading = ({ size, color }) => {
   const LoadingContainer =
-    variant === "button" ? LoadingContainerSmall : LoadingContainerBig;
+    size === "button" ? LoadingContainerSmall : LoadingContainerBig;
 
   const LoadingCircle =
-    variant === "button" ? LoadingCircleSmall : LoadingCircleBig;
+    size === "button" ? LoadingCircleSmall : LoadingCircleBig;
 
   return (
     <LoadingContainer>
       <LoadingCircle
-        size={variant === "button" ? 26 : 50}
+        size={size === "button" ? 26 : 50}
         animating={true}
-        color={variant === "button" ? "#ffffff" : "#f00062"}
+        color={color}
       />
     </LoadingContainer>
   );

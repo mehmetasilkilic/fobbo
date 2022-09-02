@@ -107,7 +107,7 @@ export const Home = ({ navigation }) => {
       <Search />
       <HomeContainer>
         {isLoading ? (
-          <Loading />
+          <Loading color="#f00062" />
         ) : (
           <ScrollView keyboardShouldPersistTaps="handled">
             <CategoriesList data={categoryDummyData} />

@@ -55,7 +55,7 @@ export const FavouritesScreen = ({ navigation }) => {
             </TouchableOpacity>
           </Row>
         </TopBar>
-        {isLoading && <Loading />}
+        {isLoading && <Loading color="#f00062" />}
         <FavouritesList
           numColumns={toggleAppearance ? 1 : 2}
           key={toggleAppearance ? 1 : 2}

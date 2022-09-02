@@ -35,7 +35,7 @@ const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
   Home: "home",
-  Places: "appstore-o",
+  Places: "search1",
   Map: "enviromento",
   Profile: "user",
 };

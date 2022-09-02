@@ -3,8 +3,6 @@ import styled from "styled-components/native";
 
 export const CategoriesFlatList = styled(FlatList)`
   flex-grow: 0;
-  border-top-width: 1px;
-  border-top-color: ${(props) => props.theme.colors.ui.disabled};
   padding-vertical: ${(props) => props.theme.space[2]};
 `;
 

@@ -22,15 +22,15 @@ export const Favourite = ({ place, styleVariable }) => {
   const favourites = useSelector((state) => state.favourites.favourites);
 
   const FavouriteButton = styleVariable === "card" ? CardStyle : DetailStyle;
-
-  const isFavourite = favourites.find((item) => item.placeId === place.placeId);
+  const isFavourite = favourites.find((item) => item.id === place.id);
+  console.log("iss", isFavourite);
 
   return (
     <FavouriteButton
       onPress={() =>
         !isFavourite
-          ? dispatch(addFavourite(place))
-          : dispatch(removeFavourite(place))
+          ? dispatch(addFavourite(place.id))
+          : dispatch(removeFavourite(place.id))
       }
     >
       <AntDesign

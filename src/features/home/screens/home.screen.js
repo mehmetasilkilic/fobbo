@@ -29,7 +29,7 @@ export const Home = ({ navigation }) => {
   const location = useSelector((state) => state.location.location);
 
   const formData = {
-    name: "bayer",
+    name: "",
     id: null,
   };
 
@@ -39,8 +39,6 @@ export const Home = ({ navigation }) => {
     );
   }, []);
   
-  console.log(trendingPlaces);
-
   const categoryDummyData = [
     {
       name: "Bar",

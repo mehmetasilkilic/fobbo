@@ -29,7 +29,6 @@ export const Register = ({ navigation }) => {
 
   const error = useSelector((state) => state.user.error);
   const showToast = () => {
-    console.log("text", error);
     Toast.show({
       type: "error",
       text1: error,

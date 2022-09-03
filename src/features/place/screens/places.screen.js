@@ -27,7 +27,7 @@ export const PlacesScreen = ({ navigation }) => {
   };
 
   const formData = {
-    name: "bayer",
+    name: "",
     id: null,
   };
 
@@ -36,7 +36,7 @@ export const PlacesScreen = ({ navigation }) => {
       fetchPlaces(buildQuery(formData) + `&include=images&page=${currentPage}`)
     );
   }, [currentPage]);
-  console.log(buildQuery(formData) + `&include=images&page=${currentPage}`);
+
   const places = useSelector((state) => state.places.places);
   const isLoading = useSelector((state) => state.places.loading);
   const [toggleAppearance, setToggleAppearance] = useState(false);

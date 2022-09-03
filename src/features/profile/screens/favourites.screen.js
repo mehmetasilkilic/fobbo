@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+
+import { fetchFavourites } from "../../../store/favourites/favourites.slice";
 
 import { PlaceInfoCard } from "../../../components/place/placeInfoCard.components";
 import { Loading } from "../../../components/loading/loading.component";
@@ -17,10 +19,17 @@ import {
 } from "./favourites.styles";
 
 export const FavouritesScreen = ({ navigation }) => {
+  const [toggleAppearance, setToggleAppearance] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user.currentUser);
   const favourites = useSelector((state) => state.favourites.favourites);
   const isLoading = false;
 
-  const [toggleAppearance, setToggleAppearance] = useState(false);
+  useEffect(() => {
+    dispatch(fetchFavourites(user.id));
+  }, []);
 
   return (
     <SafeArea>

@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { ScrollView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchPlaces } from "../../../store/places/places.slice";
+import { fetchTrendingPlaces } from "../../../store/places/places.slice";
+
+import { buildQuery } from "../../../utils/buildQuery";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Loading } from "../../../components/loading/loading.component";
@@ -22,13 +24,22 @@ import {
 
 export const Home = ({ navigation }) => {
   const dispatch = useDispatch();
-  const places = useSelector((state) => state.places.places);
+  const trendingPlaces = useSelector((state) => state.places.trendingPlaces);
   const isLoading = useSelector((state) => state.places.loading);
   const location = useSelector((state) => state.location.location);
 
+  const formData = {
+    name: "bayer",
+    id: null,
+  };
+
   useEffect(() => {
-    dispatch(fetchPlaces(1));
+    dispatch(
+      fetchTrendingPlaces(buildQuery(formData) + "&include=images&page=1")
+    );
   }, []);
+  
+  console.log(trendingPlaces);
 
   const categoryDummyData = [
     {
@@ -100,7 +111,7 @@ export const Home = ({ navigation }) => {
     },
   ];
 
-  const topTenPlaces = places.slice(0, 10);
+  const topTenPlaces = trendingPlaces.slice(0, 10);
 
   return (
     <SafeArea>
@@ -116,7 +127,10 @@ export const Home = ({ navigation }) => {
               onNavigate={navigation.navigate}
             />
             <AdvertisementList data={advertisementDummyData} />
-            <SmallPlaceList data={places} onNavigate={navigation.navigate} />
+            <SmallPlaceList
+              data={trendingPlaces}
+              onNavigate={navigation.navigate}
+            />
             <AdvertisementImageWrapper>
               <AdvertisementImage
                 source={{
@@ -124,7 +138,10 @@ export const Home = ({ navigation }) => {
                 }}
               />
             </AdvertisementImageWrapper>
-            <SmallPlaceList data={places} onNavigate={navigation.navigate} />
+            <SmallPlaceList
+              data={trendingPlaces}
+              onNavigate={navigation.navigate}
+            />
             <Spacer position="bottom" size="extraLarge" />
           </ScrollView>
         )}

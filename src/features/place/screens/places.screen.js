@@ -4,6 +4,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchPlaces } from "../../../store/places/places.slice";
+import { buildQuery } from "../../../utils/buildQuery";
 
 import { Text } from "../../../components/typography/text.component";
 import { SafeArea } from "../../../components/utils/safeArea.component";
@@ -16,18 +17,26 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { PlacesList, PlacesContainer, Row, InnerRow } from "./places.styles";
 
 export const PlacesScreen = ({ navigation }) => {
-  const [currentPage, setCurrentPage] = useState(2);
+  const dispatch = useDispatch();
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   const loadMoreItem = () => {
     setCurrentPage(currentPage + 1);
     // dispatch(fetchPlaces(currentPage));
   };
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchPlaces(currentPage));
-  }, [currentPage]);
+  const formData = {
+    name: "bayer",
+    id: null,
+  };
 
+  useEffect(() => {
+    dispatch(
+      fetchPlaces(buildQuery(formData) + `&include=images&page=${currentPage}`)
+    );
+  }, [currentPage]);
+  console.log(buildQuery(formData) + `&include=images&page=${currentPage}`);
   const places = useSelector((state) => state.places.places);
   const isLoading = useSelector((state) => state.places.loading);
   const [toggleAppearance, setToggleAppearance] = useState(false);

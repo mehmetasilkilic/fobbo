@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 

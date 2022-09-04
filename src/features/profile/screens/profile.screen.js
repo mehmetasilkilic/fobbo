@@ -124,7 +124,7 @@ export const ProfileScreen = ({ navigation }) => {
               <Text variant="label">1.13.10</Text>
             </RowNoBorder>
           </Info>
-          <Spacer position="bottom" size="extraLarge" />
+          <Spacer position="bottom" size="large" />
         </ScrollView>
       </ProfileContainer>
     </SafeArea>

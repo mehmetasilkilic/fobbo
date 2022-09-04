@@ -38,7 +38,7 @@ export const Home = ({ navigation }) => {
       fetchTrendingPlaces(buildQuery(formData) + "&include=images&page=1")
     );
   }, []);
-  
+
   const categoryDummyData = [
     {
       name: "Bar",
@@ -140,7 +140,7 @@ export const Home = ({ navigation }) => {
               data={trendingPlaces}
               onNavigate={navigation.navigate}
             />
-            <Spacer position="bottom" size="extraLarge" />
+            <Spacer position="bottom" size="large" />
           </ScrollView>
         )}
       </HomeContainer>

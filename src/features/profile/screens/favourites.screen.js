@@ -89,7 +89,7 @@ export const FavouritesScreen = ({ navigation }) => {
           }}
           keyExtractor={(item) => item.name}
         />
-        <Spacer position="bottom" size="extraLarge" />
+        <Spacer position="bottom" size="large" />
       </FavouritesContainer>
     </SafeArea>
   );

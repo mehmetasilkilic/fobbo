@@ -5,7 +5,6 @@ export async function getFavourites(userId) {
     url: "/users?include=favorites&filter[id]=" + userId,
     method: "get",
   });
-  console.log("res", response.data.payload[0].favorites);
   return response;
 }
 

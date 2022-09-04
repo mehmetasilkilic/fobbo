@@ -84,10 +84,10 @@ export const AppNavigator = () => {
 
   tabBarStyle = {
     display: displayMode,
-    position: "absolute",
-    margin: 10,
-    borderRadius: 10,
-    height: 60,
+    // position: "absolute",
+    // margin: 10,
+    // borderRadius: 10,
+    // height: 60,
     shadowColor: "#262626",
     shadowOpacity: 0.06,
     shadowOffset: {

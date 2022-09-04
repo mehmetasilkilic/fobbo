@@ -28,9 +28,15 @@ export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
         url: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
       },
     ],
-    photos = [
-      "https://b.zmtcdn.com/data/pictures/9/18208549/318364ae4f19038b81e3ac5444cfd306.jpg",
-      "https://b.zmtcdn.com/data/pictures/9/18208549/bd9fc1778662e80d37fcde9b869be9d0.jpg",
+    images = [
+      {
+        id: 1,
+        url: "https://b.zmtcdn.com/data/pictures/9/18208549/318364ae4f19038b81e3ac5444cfd306.jpg",
+      },
+      {
+        id: 2,
+        url: "https://b.zmtcdn.com/data/pictures/9/18208549/318364ae4f19038b81e3ac5444cfd306.jpg",
+      },
     ],
     address = "Ataköy 9. Kısım, Uğur Mumcu Bulvarı , Hanımeli Çiçeği Sokak 1/2, 34158 Bakırköy/İstanbul",
     isOpenNow = true,
@@ -79,7 +85,14 @@ export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
           <Text variant="captionWhite">{place.rating}</Text>
         </Spacer>
       </RatingContainer>
-      <PlaceCardCover key={name} source={{ uri: photos[0] }} />
+      <PlaceCardCover
+        key={name}
+        source={{
+          uri: images[0]
+            ? images[0].url
+            : "https://via.placeholder.com/1920x1080.png/00ffcc?text=places+quas",
+        }}
+      />
       <Info>
         <Spacer position="bottom" size="medium">
           <Text numberOfLines={1} variant="label">

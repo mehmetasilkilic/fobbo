@@ -11,8 +11,7 @@ export const fetchFavourites = createAsyncThunk(
   "favourites/fetchFavourites",
   async (userId) => {
     const result = await favourites.getFavourites(userId);
-    console.log("ressss", result?.data?.payload?.favorites || []);
-    return result?.data?.payload?.favorites || [];
+    return result.data.payload[0].favorites;
   }
 );
 

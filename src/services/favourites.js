@@ -2,9 +2,10 @@ import restApiClient from "./client";
 
 export async function getFavourites(userId) {
   const response = await restApiClient({
-    url: `/users?filter[id]=${userId}&include=favorites`,
+    url: "/users?include=favorites&filter[id]=" + userId,
     method: "get",
   });
+  console.log("res", response.data.payload[0].favorites);
   return response;
 }
 

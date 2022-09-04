@@ -23,7 +23,6 @@ export const Favourite = ({ place, styleVariable }) => {
 
   const FavouriteButton = styleVariable === "card" ? CardStyle : DetailStyle;
   const isFavourite = favourites.find((item) => item.id === place.id);
-  console.log("iss", isFavourite);
 
   return (
     <FavouriteButton

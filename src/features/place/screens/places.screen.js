@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,8 +31,6 @@ export const PlacesScreen = ({ navigation }) => {
   const isLoading = useSelector((state) => state.places.loading);
   const lastPage = useSelector((state) => state.places.lastPage);
 
-  const didMountRef = useRef(false);
-
   const [toggleAppearance, setToggleAppearance] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [showMessage, setShowMessage] = useState(false);
@@ -45,8 +43,10 @@ export const PlacesScreen = ({ navigation }) => {
   };
 
   const toggleMessage = () => {
-    if (lastPage === currentPage) {
+    if (lastPage <= currentPage) {
       setShowMessage(true);
+    } else {
+      setShowMessage(false);
     }
   };
 
@@ -55,14 +55,12 @@ export const PlacesScreen = ({ navigation }) => {
   };
 
   useEffect(() => {
-    // checks if it is the first render so it won't clash with other useEffect
-    if (didMountRef.current) {
-      dispatch(removePlaces());
-      dispatch(fetchPlaces(buildQuery(formData) + "&include=images&page=1"));
-      toggleMessage();
-    } else {
-      didMountRef.current = true;
-    }
+    setCurrentPage(1);
+    setShowMessage(false);
+
+    dispatch(removePlaces());
+    dispatch(fetchPlaces(buildQuery(formData) + "&include=images&page=1"));
+    toggleMessage();
   }, [value]);
 
   const loadMoreItem = () => {
@@ -71,9 +69,14 @@ export const PlacesScreen = ({ navigation }) => {
   };
 
   useEffect(() => {
-    dispatch(
-      fetchPlaces(buildQuery(formData) + `&include=images&page=${currentPage}`)
-    );
+    if (currentPage <= lastPage && currentPage > 1) {
+      setShowMessage(false);
+      dispatch(
+        fetchPlaces(
+          buildQuery(formData) + `&include=images&page=${currentPage}`
+        )
+      );
+    }
   }, [currentPage]);
 
   return (
@@ -104,14 +107,14 @@ export const PlacesScreen = ({ navigation }) => {
           onEndReached={loadMoreItem}
           onEndReachedThreshold={0.9}
           ListFooterComponent={
-            showMessage ? (
+            isLoading ? (
+              <Loading size="button" color="#f00062" />
+            ) : showMessage ? (
               <MessageContianer>
                 <Text variant="error">
                   You have reached the end of the page
                 </Text>
               </MessageContianer>
-            ) : isLoading ? (
-              <Loading size="button" color="#f00062" />
             ) : (
               ""
             )

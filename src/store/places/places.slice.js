@@ -6,7 +6,7 @@ const initialState = {
   loading: false,
   placesList: [],
   trendingPlaces: [],
-  lastPage: null,
+  lastPage: 1,
   error: null,
 };
 
@@ -16,8 +16,7 @@ const placesSlice = createSlice({
   reducers: {
     removePlaces(state) {
       const placesList = [];
-      const message = null;
-      return { ...state, placesList, message };
+      return { ...state, placesList };
     },
   },
   extraReducers: (builder) => {

@@ -6,7 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import {
   addFavourite,
   removeFavourite,
-} from "../../store/favourites/favourites.slice";
+} from "../../store/favourites/favourites.service";
 
 const CardStyle = styled(TouchableOpacity)`
   position: absolute;

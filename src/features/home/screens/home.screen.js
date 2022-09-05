@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { ScrollView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchTrendingPlaces } from "../../../store/places/places.slice";
+import { fetchTrendingPlaces } from "../../../store/places/places.service";
 
 import { buildQuery } from "../../../utils/buildQuery";
 
@@ -30,7 +30,6 @@ export const Home = ({ navigation }) => {
 
   const formData = {
     name: "",
-    id: null,
   };
 
   useEffect(() => {

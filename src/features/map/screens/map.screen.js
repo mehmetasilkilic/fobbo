@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import MapView from "react-native-maps";
 import styled from "styled-components/native";
 
-import { fetchPlaces } from "../../../store/places/places.slice";
+import { fetchPlaces } from "../../../store/places/places.service";
 
 import { Search } from "../components/search.component";
 import { MapCallout } from "../components/mapCallout.component";

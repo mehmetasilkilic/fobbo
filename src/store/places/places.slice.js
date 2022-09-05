@@ -1,7 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import camelize from "camelize";
+import { createSlice } from "@reduxjs/toolkit";
 
-import { places } from "../../services";
+import { fetchPlaces, fetchTrendingPlaces } from "./places.service";
 
 const initialState = {
   loading: false,
@@ -9,24 +8,6 @@ const initialState = {
   trendingPlaces: [],
   error: null,
 };
-
-export const fetchPlaces = createAsyncThunk(
-  "places/fetchPlaces",
-  async (query) => {
-    const result = await places.getPlaceList(query);
-    const res = camelize(result?.data?.payload);
-    return res;
-  }
-);
-
-export const fetchTrendingPlaces = createAsyncThunk(
-  "places/fetchTrendingPlaces",
-  async (query) => {
-    const result = await places.getPlaceList(query);
-    const res = camelize(result?.data?.payload);
-    return res;
-  }
-);
 
 const placesSlice = createSlice({
   name: "places",
@@ -38,7 +19,7 @@ const placesSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // places filter
+    // fetch places + filtered
     builder.addCase(fetchPlaces.pending, (state) => {
       return { ...state, loading: true };
     });

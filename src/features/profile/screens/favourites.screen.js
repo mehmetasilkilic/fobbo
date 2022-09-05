@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-import { fetchFavourites } from "../../../store/favourites/favourites.slice";
+import { fetchFavourites } from "../../../store/favourites/favourites.service";
 
 import { PlaceInfoCard } from "../../../components/place/placeInfoCard.components";
 import { Loading } from "../../../components/loading/loading.component";

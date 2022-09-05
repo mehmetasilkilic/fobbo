@@ -4,7 +4,11 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useDebounce } from "use-debounce";
 
-import { fetchPlaces, removePlaces } from "../../../store/places/places.slice";
+import {
+  fetchPlaces,
+  removePlaces,
+} from "../../../store/places/places.service";
+
 import { buildQuery } from "../../../utils/buildQuery";
 
 import { Text } from "../../../components/typography/text.component";
@@ -19,11 +23,15 @@ import { PlacesList, PlacesContainer, Row, InnerRow } from "./places.styles";
 
 export const PlacesScreen = ({ navigation }) => {
   const dispatch = useDispatch();
+  const places = useSelector((state) => state.places.placesList);
+  const isLoading = useSelector((state) => state.places.loading);
 
   const didMountRef = useRef(false);
 
+  const [toggleAppearance, setToggleAppearance] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [name, setName] = useState("");
+  // useDebounce is to prevent sending a request on every letter type
   const [value] = useDebounce(name, 500);
 
   const formData = {
@@ -35,6 +43,7 @@ export const PlacesScreen = ({ navigation }) => {
   };
 
   useEffect(() => {
+    // checks if it is first render so it won't clash with other useEffect
     if (didMountRef.current) {
       dispatch(removePlaces());
       dispatch(fetchPlaces(buildQuery(formData) + "&include=images&page=1"));
@@ -52,10 +61,6 @@ export const PlacesScreen = ({ navigation }) => {
       fetchPlaces(buildQuery(formData) + `&include=images&page=${currentPage}`)
     );
   }, [currentPage]);
-
-  const places = useSelector((state) => state.places.placesList);
-  const isLoading = useSelector((state) => state.places.loading);
-  const [toggleAppearance, setToggleAppearance] = useState(false);
 
   return (
     <SafeArea>

@@ -5,7 +5,7 @@ import { places } from "../../services";
 
 const initialState = {
   loading: false,
-  places: [],
+  placesList: [],
   trendingPlaces: [],
   error: null,
 };
@@ -31,6 +31,12 @@ export const fetchTrendingPlaces = createAsyncThunk(
 const placesSlice = createSlice({
   name: "places",
   initialState,
+  reducers: {
+    removePlaces(state) {
+      const placesList = [];
+      return { ...state, placesList };
+    },
+  },
   extraReducers: (builder) => {
     // places filter
     builder.addCase(fetchPlaces.pending, (state) => {
@@ -40,7 +46,7 @@ const placesSlice = createSlice({
       return {
         ...state,
         loading: false,
-        places: [...state.places, ...action.payload],
+        placesList: [...state.placesList, ...action.payload],
       };
     });
     builder.addCase(fetchPlaces.rejected, (state, action) => {
@@ -64,3 +70,4 @@ const placesSlice = createSlice({
 });
 
 export default placesSlice.reducer;
+export const { removePlaces } = placesSlice.actions;

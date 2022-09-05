@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
+import { useDebounce } from "use-debounce";
 
-import { fetchPlaces } from "../../../store/places/places.slice";
+import { fetchPlaces, removePlaces } from "../../../store/places/places.slice";
 import { buildQuery } from "../../../utils/buildQuery";
 
 import { Text } from "../../../components/typography/text.component";
@@ -19,16 +20,31 @@ import { PlacesList, PlacesContainer, Row, InnerRow } from "./places.styles";
 export const PlacesScreen = ({ navigation }) => {
   const dispatch = useDispatch();
 
+  const didMountRef = useRef(false);
+
   const [currentPage, setCurrentPage] = useState(1);
+  const [name, setName] = useState("");
+  const [value] = useDebounce(name, 500);
+
+  const formData = {
+    name: name,
+  };
+
+  const onType = (text) => {
+    setName(text);
+  };
+
+  useEffect(() => {
+    if (didMountRef.current) {
+      dispatch(removePlaces());
+      dispatch(fetchPlaces(buildQuery(formData) + "&include=images&page=1"));
+    } else {
+      didMountRef.current = true;
+    }
+  }, [value]);
 
   const loadMoreItem = () => {
     setCurrentPage(currentPage + 1);
-    // dispatch(fetchPlaces(currentPage));
-  };
-
-  const formData = {
-    name: "",
-    id: null,
   };
 
   useEffect(() => {
@@ -37,14 +53,14 @@ export const PlacesScreen = ({ navigation }) => {
     );
   }, [currentPage]);
 
-  const places = useSelector((state) => state.places.places);
+  const places = useSelector((state) => state.places.placesList);
   const isLoading = useSelector((state) => state.places.loading);
   const [toggleAppearance, setToggleAppearance] = useState(false);
 
   return (
     <SafeArea>
       {isLoading && <Loading color="#f00062" />}
-      <Search />
+      <Search onType={onType} />
       <Row>
         <Text variant="label">Trending</Text>
         <InnerRow>

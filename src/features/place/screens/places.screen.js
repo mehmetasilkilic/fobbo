@@ -4,10 +4,8 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useDebounce } from "use-debounce";
 
-import {
-  fetchPlaces,
-  removePlaces,
-} from "../../../store/places/places.service";
+import { fetchPlaces } from "../../../store/places/places.service";
+import { removePlaces } from "../../../store/places/places.slice";
 
 import { buildQuery } from "../../../utils/buildQuery";
 
@@ -19,12 +17,19 @@ import { Search } from "../../../components/search/search.component";
 import { Loading } from "../../../components/loading/loading.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
-import { PlacesList, PlacesContainer, Row, InnerRow } from "./places.styles";
+import {
+  PlacesList,
+  PlacesContainer,
+  Row,
+  InnerRow,
+  MessageContianer,
+} from "./places.styles";
 
 export const PlacesScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places.placesList);
   const isLoading = useSelector((state) => state.places.loading);
+  const message = useSelector((state) => state.places.message);
 
   const didMountRef = useRef(false);
 
@@ -43,7 +48,7 @@ export const PlacesScreen = ({ navigation }) => {
   };
 
   useEffect(() => {
-    // checks if it is first render so it won't clash with other useEffect
+    // checks if it is the first render so it won't clash with other useEffect
     if (didMountRef.current) {
       dispatch(removePlaces());
       dispatch(fetchPlaces(buildQuery(formData) + "&include=images&page=1"));
@@ -90,7 +95,15 @@ export const PlacesScreen = ({ navigation }) => {
           onEndReached={loadMoreItem}
           onEndReachedThreshold={0.9}
           ListFooterComponent={
-            isLoading ? <Loading size="button" color="#f00062" /> : ""
+            message ? (
+              <MessageContianer>
+                <Text variant="error">{message}</Text>
+              </MessageContianer>
+            ) : isLoading ? (
+              <Loading size="button" color="#f00062" />
+            ) : (
+              ""
+            )
           }
           keyboardShouldPersistTaps="handled"
           numColumns={toggleAppearance ? 1 : 2}

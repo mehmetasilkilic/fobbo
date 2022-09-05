@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   placesList: [],
   trendingPlaces: [],
+  message: null,
   error: null,
 };
 
@@ -15,7 +16,8 @@ const placesSlice = createSlice({
   reducers: {
     removePlaces(state) {
       const placesList = [];
-      return { ...state, placesList };
+      const message = null;
+      return { ...state, placesList, message };
     },
   },
   extraReducers: (builder) => {
@@ -24,10 +26,16 @@ const placesSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(fetchPlaces.fulfilled, (state, action) => {
+      let message;
+      console.log(action.payload);
+      if (action.payload == false) {
+        message = "You have reached the end of the page";
+      }
       return {
         ...state,
         loading: false,
         placesList: [...state.placesList, ...action.payload],
+        message,
       };
     });
     builder.addCase(fetchPlaces.rejected, (state, action) => {

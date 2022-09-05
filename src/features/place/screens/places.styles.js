@@ -23,3 +23,9 @@ export const InnerRow = styled.View`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const MessageContianer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;

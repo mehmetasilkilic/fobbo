@@ -9,7 +9,7 @@ import { CommentForm } from "../components/commentForm.component";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
-import { Favourite } from "../../../components/favourites/favourite.component";
+import { Favorite } from "../../../components/favorites/favorite.component";
 import { ImageSlider } from "../../../components/imageSlider/imageSlider.component";
 
 import {
@@ -65,7 +65,7 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
               <AntDesign name="enviromento" size={24} color={"white"} />
             </TouchableOpacity>
           </Spacer>
-          <Favourite place={place} />
+          <Favorite place={place} />
         </Types>
       </TopBar>
       <ScrollView>

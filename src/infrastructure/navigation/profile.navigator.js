@@ -6,7 +6,7 @@ import {
 } from "@react-navigation/stack";
 
 import { ProfileScreen } from "../../features/profile/screens/profile.screen";
-import { FavouritesScreen } from "../../features/profile/screens/favourites.screen";
+import { FavoritesScreen } from "../../features/profile/screens/favorites.screen";
 import { ChangePassword } from "../../features/profile/screens/changePassword.screen";
 
 const ProfileStack = createStackNavigator();
@@ -20,7 +20,7 @@ export const ProfileNavigator = () => {
       }}
     >
       <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} />
-      <ProfileStack.Screen name="Favourites" component={FavouritesScreen} />
+      <ProfileStack.Screen name="Favorites" component={FavoritesScreen} />
       <ProfileStack.Screen name="ChangePassword" component={ChangePassword} />
     </ProfileStack.Navigator>
   );

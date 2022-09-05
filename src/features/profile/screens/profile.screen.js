@@ -30,7 +30,7 @@ export const ProfileScreen = ({ navigation }) => {
       label: "Contact",
       color: "red",
       icon: "phone",
-      onTouch: () => navigation.navigate("Favourites"),
+      onTouch: () => navigation.navigate("Favorites"),
     },
     {
       id: 2,
@@ -85,13 +85,13 @@ export const ProfileScreen = ({ navigation }) => {
           </Spacer>
           <Spacer position="top" size="medium">
             <Info>
-              <Pressable onPress={() => navigation.navigate("Favourites")}>
+              <Pressable onPress={() => navigation.navigate("Favorites")}>
                 <RowNoBorder>
                   <InlineRow>
                     <Spacer position="right" size="medium">
                       <AntDesign name="heart" size={26} color="red" />
                     </Spacer>
-                    <Text variant="label">Favourites</Text>
+                    <Text variant="label">Favorites</Text>
                   </InlineRow>
                   <AntDesign name="right" size={16} color="#262626" />
                 </RowNoBorder>

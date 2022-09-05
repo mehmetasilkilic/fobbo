@@ -2,7 +2,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 import { Spacer } from "../spacer/spacer.component";
 import { Text } from "../typography/text.component";
-import { Favourite } from "../favourites/favourite.component";
+import { Favorite } from "../favorites/favorite.component";
 
 import {
   PlaceCardHorizontal,
@@ -74,7 +74,7 @@ export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
 
   return (
     <PlaceCard elevation={5}>
-      <Favourite place={place} styleVariable="card" />
+      <Favorite place={place} styleVariable="card" />
       <IfOpen>
         {isOpenNow && <Text variant="captionWhite">OPEN</Text>}
         {!isOpenNow && <Text variant="captionWhite">CLOSED</Text>}

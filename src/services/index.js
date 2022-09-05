@@ -1,5 +1,5 @@
 import * as authService from "./authService";
 import * as places from "./places";
-import * as favourites from "./favourites";
+import * as favorites from "./favorites";
 
-export { authService, places, favourites };
+export { authService, places, favorites };

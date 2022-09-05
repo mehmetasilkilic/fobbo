@@ -1,27 +1,27 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { favourites } from "../../services";
+import { favorites } from "../../services";
 
-export const fetchFavourites = createAsyncThunk(
-  "favourites/fetchFavourites",
+export const fetchFavorites = createAsyncThunk(
+  "favorites/fetchFavorites",
   async (userId) => {
-    const result = await favourites.getFavourites(userId);
+    const result = await favorites.getFavorites(userId);
     return result.data.payload[0].favorites;
   }
 );
 
-export const addFavourite = createAsyncThunk(
-  "favourites/addFavourite",
+export const addFavorite = createAsyncThunk(
+  "favorites/addFavorite",
   async (placeId) => {
-    const result = await favourites.addToFavourites(placeId);
+    const result = await favorites.addToFavorites(placeId);
     return result?.data?.payload;
   }
 );
 
-export const removeFavourite = createAsyncThunk(
-  "favourites/removeFavourite",
+export const removeFavorite = createAsyncThunk(
+  "favorites/removeFavorite",
   async (placeId) => {
-    const result = await favourites.removeFromFavourites(placeId);
+    const result = await favorites.removeFromFavorites(placeId);
     return result?.data?.payload;
   }
 );

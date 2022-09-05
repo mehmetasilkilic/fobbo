@@ -119,7 +119,7 @@ export const AppNavigator = () => {
           component={FadeProfileScreen}
           options={({ route }) => {
             getProfileHeaderTitle(route);
-            profileTab === "Favourites"
+            profileTab === "Favorites"
               ? setDisplayMode("none")
               : profileTab === "ChangePassword"
               ? setDisplayMode("none")

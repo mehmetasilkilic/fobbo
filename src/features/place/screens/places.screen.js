@@ -29,18 +29,25 @@ export const PlacesScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places.placesList);
   const isLoading = useSelector((state) => state.places.loading);
-  const message = useSelector((state) => state.places.message);
+  const lastPage = useSelector((state) => state.places.lastPage);
 
   const didMountRef = useRef(false);
 
   const [toggleAppearance, setToggleAppearance] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showMessage, setShowMessage] = useState(false);
   const [name, setName] = useState("");
   // useDebounce is to prevent sending a request on every letter type
   const [value] = useDebounce(name, 500);
 
   const formData = {
     name: name,
+  };
+
+  const toggleMessage = () => {
+    if (lastPage === currentPage) {
+      setShowMessage(true);
+    }
   };
 
   const onType = (text) => {
@@ -52,6 +59,7 @@ export const PlacesScreen = ({ navigation }) => {
     if (didMountRef.current) {
       dispatch(removePlaces());
       dispatch(fetchPlaces(buildQuery(formData) + "&include=images&page=1"));
+      toggleMessage();
     } else {
       didMountRef.current = true;
     }
@@ -59,6 +67,7 @@ export const PlacesScreen = ({ navigation }) => {
 
   const loadMoreItem = () => {
     setCurrentPage(currentPage + 1);
+    toggleMessage();
   };
 
   useEffect(() => {
@@ -95,9 +104,11 @@ export const PlacesScreen = ({ navigation }) => {
           onEndReached={loadMoreItem}
           onEndReachedThreshold={0.9}
           ListFooterComponent={
-            message ? (
+            showMessage ? (
               <MessageContianer>
-                <Text variant="error">{message}</Text>
+                <Text variant="error">
+                  You have reached the end of the page
+                </Text>
               </MessageContianer>
             ) : isLoading ? (
               <Loading size="button" color="#f00062" />

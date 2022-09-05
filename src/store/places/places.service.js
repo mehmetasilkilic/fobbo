@@ -7,7 +7,7 @@ export const fetchPlaces = createAsyncThunk(
   "places/fetchPlaces",
   async (query) => {
     const result = await places.getPlaceList(query);
-    const res = camelize(result?.data?.payload);
+    const res = camelize(result?.data);
     return res;
   }
 );

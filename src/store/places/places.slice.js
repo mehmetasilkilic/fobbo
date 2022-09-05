@@ -6,7 +6,7 @@ const initialState = {
   loading: false,
   placesList: [],
   trendingPlaces: [],
-  message: null,
+  lastPage: null,
   error: null,
 };
 
@@ -26,15 +26,11 @@ const placesSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(fetchPlaces.fulfilled, (state, action) => {
-      let message;
-      if (action.payload == false) {
-        message = "You have reached the end of the page";
-      }
       return {
         ...state,
         loading: false,
-        placesList: [...state.placesList, ...action.payload],
-        message,
+        placesList: [...state.placesList, ...action.payload.payload],
+        lastPage: action.payload.meta.lastPage,
       };
     });
     builder.addCase(fetchPlaces.rejected, (state, action) => {

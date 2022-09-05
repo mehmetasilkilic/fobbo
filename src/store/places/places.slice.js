@@ -27,7 +27,6 @@ const placesSlice = createSlice({
     });
     builder.addCase(fetchPlaces.fulfilled, (state, action) => {
       let message;
-      console.log(action.payload);
       if (action.payload == false) {
         message = "You have reached the end of the page";
       }

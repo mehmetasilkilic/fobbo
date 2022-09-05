@@ -72,7 +72,7 @@ export const PlaceDetailScreen = ({ route, navigation }) => {
         <PlaceDetailContainer>
           <PlaceDetailHeader place={place} />
           <Spacer position="bottom" size="medium">
-            <ImageSlider images={place.photos} />
+            <ImageSlider images={place.images} />
           </Spacer>
           <Spacer position="left" size="medium">
             <Text variant="label">Foot Traffic</Text>

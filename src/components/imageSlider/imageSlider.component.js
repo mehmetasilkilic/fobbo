@@ -32,7 +32,7 @@ export const ImageSlider = ({ images }) => {
           <SliderImage
             key={index}
             source={{
-              uri: image,
+              uri: image.url,
             }}
           />
         ))}

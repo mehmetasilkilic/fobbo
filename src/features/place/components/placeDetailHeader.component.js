@@ -1,11 +1,7 @@
-import { SvgXml } from "react-native-svg";
+import { AntDesign } from "@expo/vector-icons";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
-
-import star from "../../../../assets/star";
-import success from "../../../../assets/success";
-import comment from "../../../../assets/comment";
 
 import {
   HeaderContainer,
@@ -19,7 +15,9 @@ import {
 } from "./placeDetailHeader.styles";
 
 export const PlaceDetailHeader = ({ place }) => {
-  const typeCount = place.types.length > 3 ? 3 : place.types.length;
+  const typeCount = 4; //place.types.length > 3 ? 3 : place.types.length;
+
+  const types = ["Restaurant", "Cafe"];
 
   return (
     <HeaderContainer>
@@ -28,11 +26,11 @@ export const PlaceDetailHeader = ({ place }) => {
           <Title variant="titleBig">{place.name}</Title>
           <RatingContainer>
             <RatingContainerTop>
-              <SvgXml xml={star} width={18} height={18} />
+              <AntDesign name="staro" size={16} color="#f00062" />
               <Text variant="error">{place.rating} / 5</Text>
             </RatingContainerTop>
             <RatingContainerBottom>
-              <SvgXml xml={comment} width={18} height={18} />
+              <AntDesign name="message1" size={16} color="#f00062" />
               <Text variant="error">200+</Text>
             </RatingContainerBottom>
           </RatingContainer>
@@ -40,7 +38,7 @@ export const PlaceDetailHeader = ({ place }) => {
       </Spacer>
       <Spacer position="bottom" size="small">
         <Types>
-          {place.types.slice(0, typeCount).map((item, index) => (
+          {types.slice(0, typeCount).map((item, index) => (
             <Text key={index} variant="titleSmall">
               {item.charAt(0).toUpperCase() + item.slice(1)}
               {index < typeCount - 1 ? ", " : ""}
@@ -52,7 +50,7 @@ export const PlaceDetailHeader = ({ place }) => {
         <Text variant="lightBrand">{place.address}</Text>
       </Spacer>
       <IfOpen>
-        <SvgXml xml={success} width={18} height={18} />
+        <AntDesign name="checkcircle" size={16} color="#138000" />
         <Text variant="success">Open now</Text>
       </IfOpen>
     </HeaderContainer>

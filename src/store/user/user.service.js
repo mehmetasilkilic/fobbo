@@ -31,3 +31,17 @@ export const register = createAsyncThunk(
     }
   }
 );
+
+export const loginOrRegister = createAsyncThunk(
+  "user/loginOrRegister",
+  async (formData, { rejectWithValue }) => {
+    try {
+      const res = await authService.loginOrRegister(formData);
+      const response = res.data;
+      setAccessToken(response);
+      return response?.payload?.user;
+    } catch (e) {
+      throw rejectWithValue(e.response.data.message);
+    }
+  }
+);

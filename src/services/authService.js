@@ -17,3 +17,12 @@ export async function register(data) {
   });
   return response;
 }
+
+export async function loginOrRegister(data) {
+  const response = await restApiClient({
+    url: "/register/facebook",
+    method: "post",
+    data: data,
+  });
+  return response;
+}

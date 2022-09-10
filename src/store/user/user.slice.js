@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { login, register } from "./user.service";
+import { login, register, loginOrRegister } from "./user.service";
 
 const initialState = {
   currentUser: null,
@@ -40,6 +40,16 @@ const userSlice = createSlice({
       return { ...state, loading: false, currentUser: action.payload };
     });
     builder.addCase(register.rejected, (state, action) => {
+      return { ...state, loading: false, error: action.payload };
+    });
+    // login or register with facebook
+    builder.addCase(loginOrRegister.pending, (state) => {
+      return { ...state, loading: true };
+    });
+    builder.addCase(loginOrRegister.fulfilled, (state, action) => {
+      return { ...state, loading: false, currentUser: action.payload };
+    });
+    builder.addCase(loginOrRegister.rejected, (state, action) => {
       return { ...state, loading: false, error: action.payload };
     });
   },

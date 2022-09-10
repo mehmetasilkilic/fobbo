@@ -21,7 +21,7 @@ export const Column = styled.View`
 export const ContainerLarge = styled.View`
   width: ${cardWidthHalf}px;
   height: 160px;
-  border-radius: ${(props) => props.theme.space[2]}; ;
+  border-radius: ${(props) => props.theme.space[2]};
 `;
 
 export const ContainerMedium = styled.View`

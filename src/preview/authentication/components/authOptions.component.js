@@ -1,6 +1,10 @@
 import { TouchableOpacity, Alert } from "react-native";
+import { useDispatch } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import * as Facebook from "expo-facebook";
+import * as Device from "expo-device";
+
+import { loginOrRegister } from "../../../store/user/user.service";
 
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -8,23 +12,23 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { AuthOptionsContainer, Row, ButtonSmall } from "./authOptions.styles";
 
 export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => {
+  const dispatch = useDispatch();
+
   const facebookLogin = async () => {
     try {
       await Facebook.initializeAsync({
         appId: "592408622537822",
       });
-      const { type, token, expirationDate, permissions, declinedPermissions } =
+      const res /* { type, token, expirationDate, permissions, declinedPermissions } */ =
         await Facebook.logInWithReadPermissionsAsync({
           permissions: ["public_profile", "email"],
         });
-      if (type === "success") {
-        // Get the user's name using Facebook's Graph API
-        const response = await fetch(
-          `https://graph.facebook.com/me?access_token=${token}&fields=id,name,email`
-        );
-        console.log("token", token);
-        console.log("response", await response.json());
-        Alert.alert("Logged in!", `Hi ${(await response.json()).name}!`);
+      if (res.type === "success") {
+        const formData = {
+          device_name: `${Device.brand}-${Device.modelName}`,
+          platform_token: res.token,
+        };
+        dispatch(loginOrRegister(formData));
       } else {
         // type === 'cancel'
       }

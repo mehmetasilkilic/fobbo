@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   Pressable,
   Modal,
-  Platform,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -26,7 +25,6 @@ import {
   Row,
   TopBar,
   RowCentered,
-  SafeAreaDetail,
 } from "./placeModal.styles";
 
 const reviews = [
@@ -55,57 +53,51 @@ const reviews = [
   },
 ];
 
-const isIos = Platform.OS === "ios";
-
-const Area = isIos ? SafeAreaDetail : ModalArea;
-
-export const PlaceModal = ({ closeModal, visible, data }) => {
-  return (
-    <Modal visible={visible} animationType={"slide"}>
-      <Area>
-        <ExpoStatusBar style="light" />
-        <TopBar>
-          <View>
-            <TouchableOpacity onPress={closeModal}>
-              <AntDesign name="down" size={24} color={"white"} />
+export const PlaceModal = ({ closeModal, visible, data }) => (
+  <Modal visible={visible} animationType={"slide"}>
+    <ModalArea>
+      <ExpoStatusBar style="light" />
+      <TopBar>
+        <View>
+          <TouchableOpacity onPress={closeModal}>
+            <AntDesign name="down" size={24} color={"white"} />
+          </TouchableOpacity>
+        </View>
+        <Types>
+          <Spacer position="right" size="large">
+            <TouchableOpacity>
+              <AntDesign name="enviromento" size={24} color={"white"} />
             </TouchableOpacity>
-          </View>
-          <Types>
-            <Spacer position="right" size="large">
-              <TouchableOpacity>
-                <AntDesign name="enviromento" size={24} color={"white"} />
-              </TouchableOpacity>
-            </Spacer>
-            <Favorite place={data} />
-          </Types>
-        </TopBar>
-        <ScrollView>
-          <PlaceDetailContainer>
-            <PlaceDetailHeader place={data} />
-            <Spacer position="bottom" size="medium">
-              {data.images && <ImageSlider images={data.images} />}
-            </Spacer>
-            <Spacer position="left" size="medium">
-              <Text variant="label">Foot Traffic</Text>
-            </Spacer>
-            <FootTrafficChart />
-            <Row>
-              <Text variant="label">All Ratings and Reviews</Text>
-              <Text variant="error">Top Rated</Text>
-            </Row>
-            {reviews.map((item) => (
-              <ReviewCard review={item} key={item.id} />
-            ))}
-            <Pressable>
-              <RowCentered>
-                <Text variant="error">See All Reviews</Text>
-              </RowCentered>
-            </Pressable>
-            <CommentForm />
-          </PlaceDetailContainer>
-        </ScrollView>
-      </Area>
-      <SafeAreaBottom />
-    </Modal>
-  );
-};
+          </Spacer>
+          <Favorite place={data} />
+        </Types>
+      </TopBar>
+      <ScrollView>
+        <PlaceDetailContainer>
+          <PlaceDetailHeader place={data} />
+          <Spacer position="bottom" size="medium">
+            {data.images && <ImageSlider images={data.images} />}
+          </Spacer>
+          <Spacer position="left" size="medium">
+            <Text variant="label">Foot Traffic</Text>
+          </Spacer>
+          <FootTrafficChart />
+          <Row>
+            <Text variant="label">All Ratings and Reviews</Text>
+            <Text variant="error">Top Rated</Text>
+          </Row>
+          {reviews.map((item) => (
+            <ReviewCard review={item} key={item.id} />
+          ))}
+          <Pressable>
+            <RowCentered>
+              <Text variant="error">See All Reviews</Text>
+            </RowCentered>
+          </Pressable>
+          <CommentForm />
+        </PlaceDetailContainer>
+      </ScrollView>
+    </ModalArea>
+    <SafeAreaBottom />
+  </Modal>
+);

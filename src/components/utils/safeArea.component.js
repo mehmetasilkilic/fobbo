@@ -20,5 +20,5 @@ export const SafeAreaBottom = styled(SafeAreaView)`
 
 export const ModalArea = styled(SafeAreaView)`
   flex: 1;
-  background-color: ${(props) => props.theme.colors.bg.primary};
+  background-color: ${(props) => props.theme.colors.ui.primary};
 `;

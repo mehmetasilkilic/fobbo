@@ -43,7 +43,7 @@ export const ChangePassword = ({ navigation }) => {
           <TopBackground>
             <TopBar>
               <Title>
-                <Text variant="titleMedium">fobbo</Text>
+                <Text variant="fobbo">fobbo</Text>
               </Title>
               <Text variant="titleMedium">Change Your Password</Text>
               <Text variant="titleSmall">

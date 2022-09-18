@@ -1125,6 +1125,11 @@
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/oswald/-/oswald-0.2.2.tgz#bb3dcd41914f593cdb27a0531a6f312f9e5ea8ee"
   integrity sha512-Gh/U8QeztHSjxHfayhNLqpdTSY6YTcplm0sI04Zia3LUSv66U3TItc1EzUWdSYBTb/BKBm88utUdJdwMtZ9a1Q==
 
+"@expo-google-fonts/poiret-one@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/poiret-one/-/poiret-one-0.2.2.tgz#f8110b852b63762f89a870005c65ac473a91e7a5"
+  integrity sha512-Jp4EwQ4mYG/n5rBZDa63NLoj5KPRhwGwWZgh8j6EK2ZFd0qd8afGVcF5vKuehErwBATajxEFp7fpgH/SoI744w==
+
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@expo/bunyan/-/bunyan-4.0.0.tgz#be0c1de943c7987a9fbd309ea0b1acd605890c7b"

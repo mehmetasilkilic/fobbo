@@ -48,7 +48,7 @@ export const Login = ({ navigation }) => {
           <TopBackground>
             <TopBar>
               <Title>
-                <Text variant="titleMedium">fobbo</Text>
+                <Text variant="fobbo">fobbo</Text>
               </Title>
               <Text variant="titleMedium">Login</Text>
               <Text variant="titleSmall">

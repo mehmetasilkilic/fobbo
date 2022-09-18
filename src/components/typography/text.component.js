@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 const defaultTextStyles = (theme) => `
-  font-family: ${theme.fonts.heading};
+  font-family: ${theme.fonts.body};
   font-weight: ${theme.fontWeights.regular};
   color: ${theme.colors.text.primary};
   flex-wrap: wrap;
@@ -20,6 +20,12 @@ const titleMedium = (theme) => `
     font-size: ${theme.fontSizes.h5};
     line-height: ${theme.fontSizes.h5};
     font-weight: ${theme.fontWeights.bold};
+    color: ${theme.colors.text.inverse};
+`;
+
+const fobbo = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.h4};
     color: ${theme.colors.text.inverse};
 `;
 
@@ -106,6 +112,7 @@ const variants = {
   brand,
   brandSmall,
   lightBrand,
+  fobbo,
   whiteButton,
   caption,
   captionWhite,

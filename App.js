@@ -1,11 +1,11 @@
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 
-import {
-  useFonts as useOswald,
-  Oswald_400Regular,
-} from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
+import {
+  useFonts as usePoiretOne,
+  PoiretOne_400Regular,
+} from "@expo-google-fonts/poiret-one";
 
 import { store } from "./src/store/store";
 
@@ -13,10 +13,10 @@ import { theme } from "./src/infrastructure/theme";
 import { Navigation } from "./src/infrastructure/navigation";
 
 export default function App() {
-  const [oswaldLoaded] = useOswald({ Oswald_400Regular });
   const [latoLoaded] = useLato({ Lato_400Regular });
+  const [poiretOneLoaded] = usePoiretOne({ PoiretOne_400Regular });
 
-  if (!oswaldLoaded || !latoLoaded) {
+  if (!latoLoaded || !poiretOneLoaded) {
     return null;
   }
 

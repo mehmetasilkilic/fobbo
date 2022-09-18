@@ -46,7 +46,7 @@ export const Register = ({ navigation }) => {
           <TopBackground>
             <TopBar>
               <Title>
-                <Text variant="titleMedium">fobbo</Text>
+                <Text variant="fobbo">fobbo</Text>
               </Title>
               <Text variant="titleMedium">Register</Text>
               <Text variant="titleSmall">

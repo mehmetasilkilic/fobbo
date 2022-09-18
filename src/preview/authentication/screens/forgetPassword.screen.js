@@ -42,7 +42,7 @@ export const ForgetPassword = ({ navigation }) => {
           <TopBackground>
             <TopBar>
               <Title>
-                <Text variant="titleMedium">fobbo</Text>
+                <Text variant="fobbo">fobbo</Text>
               </Title>
               <Text variant="titleMedium">Recover Your Password</Text>
               <Text variant="titleSmall">

@@ -47,9 +47,15 @@ export const Row = styled.View`
   padding-bottom: ${(props) => props.theme.space[2]};
 `;
 
+export const PlaceIconWrapper = styled.View`
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: ${(props) => props.theme.space[2]};
+`;
+
 export const PlaceIcon = styled.Image`
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 `;
 
 export const IsOpenContainer = styled.View`

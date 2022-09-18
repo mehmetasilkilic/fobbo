@@ -12,3 +12,13 @@ export const SafeAreaBrand = styled(SafeAreaView)`
   background-color: ${(props) => props.theme.colors.ui.primary};
   ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight}px`}
 `;
+
+export const SafeAreaBottom = styled(SafeAreaView)`
+  flex: 0;
+  background-color: ${(props) => props.theme.colors.bg.primary};
+`;
+
+export const ModalArea = styled(SafeAreaView)`
+  flex: 1;
+  background-color: ${(props) => props.theme.colors.bg.primary};
+`;

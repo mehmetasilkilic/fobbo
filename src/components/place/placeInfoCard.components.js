@@ -4,6 +4,10 @@ import { Spacer } from "../spacer/spacer.component";
 import { Text } from "../typography/text.component";
 import { Favorite } from "../favorites/favorite.component";
 
+import iceCream from "../../../assets/ice-cream.png";
+import hookah from "../../../assets/hookah.png";
+import beer from "../../../assets/beer.png";
+
 import {
   PlaceCardHorizontal,
   PlaceCardVertical,
@@ -12,6 +16,7 @@ import {
   PlaceCardCoverSmall,
   Info,
   Row,
+  PlaceIconWrapper,
   PlaceIcon,
   RatingContainerBig,
   RatingContainerSmall,
@@ -25,7 +30,15 @@ export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
     iconList = [
       {
         id: 1,
-        url: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+        url: hookah,
+      },
+      {
+        id: 2,
+        url: iceCream,
+      },
+      {
+        id: 3,
+        url: beer,
       },
     ],
     images = [
@@ -99,13 +112,13 @@ export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
             {name}
           </Text>
         </Spacer>
-        <Row>
+        <PlaceIconWrapper>
           {iconList.map((icon) => (
-            <Spacer key={icon.id} position="right" size="medium">
-              <PlaceIcon key={icon.id} source={{ uri: icon.url }} />
+            <Spacer key={icon.id} position="right" size="small">
+              <PlaceIcon key={icon.id} source={icon.url} />
             </Spacer>
           ))}
-        </Row>
+        </PlaceIconWrapper>
         <Text numberOfLines={1} variant="caption">
           {address}
         </Text>

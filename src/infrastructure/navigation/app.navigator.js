@@ -1,9 +1,5 @@
-import { useState } from "react";
 import { Image } from "react-native";
-import {
-  NavigationContainer,
-  getFocusedRouteNameFromRoute,
-} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -17,19 +13,6 @@ import {
 } from "./utils/animatedScreens";
 
 import navLogo from "../../../assets/nav-logo.png";
-
-let placesTab = "";
-let profileTab = "";
-
-const getPlacesHeaderTitle = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? "Places";
-  placesTab = routeName;
-};
-
-const getProfileHeaderTitle = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? "Profile";
-  profileTab = routeName;
-};
 
 const Tab = createBottomTabNavigator();
 
@@ -60,7 +43,20 @@ const tabBarActionButtonStyle = {
   },
 };
 
-let tabBarStyle = {};
+const tabBarStyle = {
+  // position: "absolute",
+  // margin: 10,
+  // borderRadius: 10,
+  // height: 60,
+  shadowColor: "#262626",
+  shadowOpacity: 0.06,
+  shadowOffset: {
+    width: 0,
+    height: 0,
+  },
+  elevation: 3,
+  backgroundColor: "#ffffff",
+};
 
 const screenOptions = ({ route }) => {
   const iconName = TAB_ICON[route.name];
@@ -79,56 +75,14 @@ const screenOptions = ({ route }) => {
   };
 };
 
-export const AppNavigator = () => {
-  const [displayMode, setDisplayMode] = useState("flex");
-
-  tabBarStyle = {
-    display: displayMode,
-    // position: "absolute",
-    // margin: 10,
-    // borderRadius: 10,
-    // height: 60,
-    shadowColor: "#262626",
-    shadowOpacity: 0.06,
-    shadowOffset: {
-      width: 0,
-      height: 0,
-    },
-    elevation: 3,
-    backgroundColor: "#ffffff",
-  };
-
-  return (
-    <NavigationContainer>
-      <Tab.Navigator screenOptions={screenOptions}>
-        <Tab.Screen name="Home" component={FadeHomeScreen} />
-        <Tab.Screen
-          name="Places"
-          component={FadePlacesScreen}
-          options={({ route }) => {
-            getPlacesHeaderTitle(route);
-            placesTab === "PlaceDetail"
-              ? setDisplayMode("none")
-              : setDisplayMode("flex");
-          }}
-        />
-        <Tab.Screen name="Action" component={Action} />
-        <Tab.Screen name="Map" component={FadeMapScreen} />
-        <Tab.Screen
-          name="Profile"
-          component={FadeProfileScreen}
-          options={({ route }) => {
-            getProfileHeaderTitle(route);
-            profileTab === "Favorites"
-              ? setDisplayMode("none")
-              : profileTab === "ChangePassword"
-              ? setDisplayMode("none")
-              : placesTab === "PlaceDetail"
-              ? setDisplayMode("none")
-              : setDisplayMode("flex");
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-};
+export const AppNavigator = () => (
+  <NavigationContainer>
+    <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen name="Home" component={FadeHomeScreen} />
+      <Tab.Screen name="Places" component={FadePlacesScreen} />
+      <Tab.Screen name="Action" component={Action} />
+      <Tab.Screen name="Map" component={FadeMapScreen} />
+      <Tab.Screen name="Profile" component={FadeProfileScreen} />
+    </Tab.Navigator>
+  </NavigationContainer>
+);

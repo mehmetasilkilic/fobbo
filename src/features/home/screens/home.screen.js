@@ -119,15 +119,9 @@ export const Home = ({ navigation }) => {
         ) : (
           <ScrollView keyboardShouldPersistTaps="handled">
             <CategoriesList data={categoryDummyData} />
-            <HorizontalPlaceList
-              data={topTenPlaces}
-              onNavigate={navigation.navigate}
-            />
+            <HorizontalPlaceList data={topTenPlaces} />
             <AdvertisementList data={advertisementDummyData} />
-            <SmallPlaceList
-              data={trendingPlaces}
-              onNavigate={navigation.navigate}
-            />
+            <SmallPlaceList data={trendingPlaces} />
             <AdvertisementImageWrapper>
               <AdvertisementImage
                 source={{
@@ -135,10 +129,7 @@ export const Home = ({ navigation }) => {
                 }}
               />
             </AdvertisementImageWrapper>
-            <SmallPlaceList
-              data={trendingPlaces}
-              onNavigate={navigation.navigate}
-            />
+            <SmallPlaceList data={trendingPlaces} />
             <Spacer position="bottom" size="large" />
           </ScrollView>
         )}

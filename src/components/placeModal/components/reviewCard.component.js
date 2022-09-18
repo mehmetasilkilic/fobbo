@@ -24,7 +24,7 @@ export const ReviewCard = ({ review }) => {
   const [disliked, setDisliked] = useState(false);
   const [loadMore, setLoadMore] = useState(false);
   const [numOfLines, setNumOfLines] = useState(0);
-
+  console.log(review);
   const onTextLayout = useCallback(
     (e) => {
       if (numOfLines === 0) {
@@ -61,7 +61,7 @@ export const ReviewCard = ({ review }) => {
                 {review.username}
               </Text>
             </Spacer>
-            <Text variant="caption">{review.date}</Text>
+            <Text variant="caption">{review.created_at}</Text>
           </Column>
           <StarRow>
             {rateArr.map((a, index) => (
@@ -79,7 +79,7 @@ export const ReviewCard = ({ review }) => {
             numberOfLines={numOfLines === 0 ? null : loadMore ? numOfLines : 3}
             onTextLayout={onTextLayout}
           >
-            {review.reviewText}
+            {review.body}
           </Text>
           {numOfLines > 3 && (
             <TouchableOpacity onPress={onLoadMoreToggle}>

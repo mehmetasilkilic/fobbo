@@ -61,7 +61,11 @@ export const PlacesScreen = () => {
     setShowMessage(false);
 
     dispatch(removePlaces());
-    dispatch(fetchPlaces(buildQuery(formData) + "&include=images&page=1"));
+    dispatch(
+      fetchPlaces(
+        buildQuery(formData) + "&include=images,comments,isFavorite&page=1"
+      )
+    );
     toggleMessage();
   }, [value]);
 
@@ -75,7 +79,8 @@ export const PlacesScreen = () => {
       setShowMessage(false);
       dispatch(
         fetchPlaces(
-          buildQuery(formData) + `&include=images&page=${currentPage}`
+          buildQuery(formData) +
+            `&include=images,comments,isFavorite&page=${currentPage}`
         )
       );
     }

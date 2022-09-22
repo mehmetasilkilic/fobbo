@@ -10,6 +10,7 @@ import {
 export const AdvertisementList = ({ data }) => (
   <AdvertisementFlatList
     keyboardShouldPersistTaps="handled"
+    ListFooterComponent={<Spacer position="left" size="medium" />}
     data={data}
     horizontal
     showsHorizontalScrollIndicator={false}

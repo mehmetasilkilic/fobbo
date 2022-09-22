@@ -12,6 +12,7 @@ import {
 export const CategoriesList = ({ data }) => (
   <CategoriesFlatList
     keyboardShouldPersistTaps="handled"
+    ListFooterComponent={<Spacer position="left" size="medium" />}
     data={data}
     horizontal
     showsHorizontalScrollIndicator={false}

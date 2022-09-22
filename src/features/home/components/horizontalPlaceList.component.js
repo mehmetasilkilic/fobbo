@@ -29,6 +29,7 @@ export const HorizontalPlaceList = ({ data }) => {
       </Row>
       <PlacesFlatList
         keyboardShouldPersistTaps="handled"
+        ListFooterComponent={<Spacer position="left" size="medium" />}
         data={data}
         horizontal
         showsHorizontalScrollIndicator={false}

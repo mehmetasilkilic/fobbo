@@ -1,4 +1,4 @@
-import { Image } from "react-native";
+import { Image, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign } from "@expo/vector-icons";
@@ -28,6 +28,7 @@ const tabBarStyleHidden = {
 };
 
 const tabBarItemStyle = {
+  height: 60,
   borderRadius: 10,
 };
 
@@ -42,20 +43,21 @@ const tabBarActionButtonStyle = {
     height: 0,
   },
 };
+const tabBarMarginBottom = StatusBar.currentHeight ? 10 : 45;
 
 const tabBarStyle = {
-  // position: "absolute",
-  // margin: 10,
-  // borderRadius: 10,
-  // height: 60,
+  position: "absolute",
+  margin: 10,
+  marginBottom: tabBarMarginBottom,
+  borderRadius: 10,
+  height: 60,
   shadowColor: "#262626",
   shadowOpacity: 0.06,
   shadowOffset: {
-    width: 0,
-    height: 0,
+    width: 10,
+    height: 10,
   },
-  elevation: 3,
-  backgroundColor: "#ffffff",
+  elevation: 8,
 };
 
 const screenOptions = ({ route }) => {

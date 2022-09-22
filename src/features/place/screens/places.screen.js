@@ -10,7 +10,7 @@ import { removePlaces } from "../../../store/places/places.slice";
 import { buildQuery } from "../../../utils/buildQuery";
 
 import { Text } from "../../../components/typography/text.component";
-import { SafeArea } from "../../../components/utils/safeArea.component";
+import { SafeAreaSecond } from "../../../components/utils/safeArea.component";
 import { PlaceInfoCard } from "../../../components/place/placeInfoCard.components";
 import { Search } from "../../../components/search/search.component";
 import { Loading } from "../../../components/loading/loading.component";
@@ -93,8 +93,7 @@ export const PlacesScreen = () => {
 
   return (
     <>
-      <SafeArea>
-        {isLoading && <Loading color="#f00062" />}
+      <SafeAreaSecond>
         <Search onType={onType} />
         <Row>
           <Text variant="label">Trending</Text>
@@ -115,43 +114,43 @@ export const PlacesScreen = () => {
             </TouchableOpacity>
           </InnerRow>
         </Row>
-        <PlacesContainer>
-          <PlacesList
-            onEndReached={loadMoreItem}
-            onEndReachedThreshold={0.9}
-            ListFooterComponent={
-              isLoading ? (
-                <Loading size="button" color="#f00062" />
-              ) : showMessage ? (
-                <MessageContianer>
-                  <Text variant="error">
-                    You have reached the end of the page
-                  </Text>
-                </MessageContianer>
-              ) : (
-                ""
-              )
-            }
-            keyboardShouldPersistTaps="handled"
-            numColumns={toggleAppearance ? 1 : 2}
-            key={toggleAppearance ? 1 : 2}
-            data={places}
-            renderItem={({ item }) => {
-              return (
-                <TouchableOpacity onPress={() => openModal(item)}>
-                  <Spacer position="bottom" size="medium">
-                    <PlaceInfoCard
-                      place={item}
-                      cardStyle={toggleAppearance ? "vertical" : "small"}
-                    />
-                  </Spacer>
-                </TouchableOpacity>
-              );
-            }}
-            keyExtractor={(item) => item.id}
-          />
-        </PlacesContainer>
-      </SafeArea>
+      </SafeAreaSecond>
+      <PlacesContainer>
+        <PlacesList
+          onEndReached={loadMoreItem}
+          onEndReachedThreshold={0.9}
+          ListFooterComponent={
+            isLoading ? (
+              <Loading size="button" color="#f00062" />
+            ) : showMessage ? (
+              <MessageContianer>
+                <Text variant="error">
+                  You have reached the end of the page
+                </Text>
+              </MessageContianer>
+            ) : (
+              ""
+            )
+          }
+          keyboardShouldPersistTaps="handled"
+          numColumns={toggleAppearance ? 1 : 2}
+          key={toggleAppearance ? 1 : 2}
+          data={places}
+          renderItem={({ item }) => {
+            return (
+              <TouchableOpacity onPress={() => openModal(item)}>
+                <Spacer position="bottom" size="medium">
+                  <PlaceInfoCard
+                    place={item}
+                    cardStyle={toggleAppearance ? "vertical" : "small"}
+                  />
+                </Spacer>
+              </TouchableOpacity>
+            );
+          }}
+          keyExtractor={(item) => item.id}
+        />
+      </PlacesContainer>
       <PlaceModal
         closeModal={() => setVisible(false)}
         visible={visible}

@@ -43,7 +43,7 @@ const tabBarActionButtonStyle = {
     height: 0,
   },
 };
-const tabBarMarginBottom = StatusBar.currentHeight ? 10 : 45;
+const tabBarMarginBottom = StatusBar.currentHeight ? 10 : 25;
 
 const tabBarStyle = {
   position: "absolute",

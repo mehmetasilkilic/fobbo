@@ -1,5 +1,7 @@
+import { FlatList, StatusBar } from "react-native";
 import styled from "styled-components/native";
-import { FlatList } from "react-native";
+
+const ListPaddingBottom = StatusBar.currentHeight ? 135 : 160;
 
 export const FavoritesContainer = styled.View`
   flex-grow: 1;
@@ -8,7 +10,7 @@ export const FavoritesContainer = styled.View`
 `;
 
 export const FavoritesList = styled(FlatList).attrs({
-  contentContainerStyle: { padding: 10 },
+  contentContainerStyle: { padding: 10, paddingBottom: ListPaddingBottom },
 })``;
 
 export const TopBar = styled.View`

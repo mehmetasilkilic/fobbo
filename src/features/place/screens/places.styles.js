@@ -1,5 +1,7 @@
+import { FlatList, StatusBar } from "react-native";
 import styled from "styled-components/native";
-import { FlatList } from "react-native";
+
+const ListPaddingBottom = StatusBar.currentHeight ? 125 : 140;
 
 export const PlacesContainer = styled.View`
   flex: 1;
@@ -7,7 +9,7 @@ export const PlacesContainer = styled.View`
 `;
 
 export const PlacesList = styled(FlatList).attrs({
-  contentContainerStyle: { padding: 10, paddingBottom: 60 },
+  contentContainerStyle: { padding: 10, paddingBottom: ListPaddingBottom },
 })``;
 
 export const Row = styled.View`

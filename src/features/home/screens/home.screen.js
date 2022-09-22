@@ -6,7 +6,7 @@ import { fetchTrendingPlaces } from "../../../store/places/places.service";
 
 import { buildQuery } from "../../../utils/buildQuery";
 
-import { SafeArea } from "../../../components/utils/safeArea.component";
+import { SafeAreaSecond } from "../../../components/utils/safeArea.component";
 import { Loading } from "../../../components/loading/loading.component";
 import { Search } from "../../../components/search/search.component";
 import { HorizontalPlaceList } from "../components/horizontalPlaceList.component";
@@ -111,8 +111,10 @@ export const Home = ({ navigation }) => {
   const topTenPlaces = trendingPlaces.slice(0, 10);
 
   return (
-    <SafeArea>
-      <Search />
+    <>
+      <SafeAreaSecond>
+        <Search />
+      </SafeAreaSecond>
       <HomeContainer>
         {isLoading ? (
           <Loading color="#f00062" />
@@ -134,6 +136,6 @@ export const Home = ({ navigation }) => {
           </ScrollView>
         )}
       </HomeContainer>
-    </SafeArea>
+    </>
   );
 };

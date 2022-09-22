@@ -3,13 +3,12 @@ import { StatusBar, SafeAreaView } from "react-native";
 
 export const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
+  background-color: ${(props) => props.theme.colors.bg.primary};
   ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight}px`}
 `;
 
-export const SafeAreaBrand = styled(SafeAreaView)`
-  flex: 1;
-  background-color: ${(props) => props.theme.colors.ui.primary};
+export const SafeAreaSecond = styled(SafeAreaView)`
+  background-color: ${(props) => props.theme.colors.bg.primary};
   ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight}px`}
 `;
 

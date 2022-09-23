@@ -7,17 +7,17 @@ import { AgreementsContainer, Row, AgreementText } from "./agreements.styles";
 export const Agreements = () => (
   <AgreementsContainer>
     <Spacer position="bottom" size="small">
-      <Text variant="brandSmall">By, countinuing, you agree to our</Text>
+      <Text variant="caption">By, countinuing, you agree to our</Text>
     </Spacer>
     <Row>
       <TouchableOpacity>
-        <AgreementText variant="caption">Terms of Service</AgreementText>
+        <AgreementText variant="brandSmall">Terms of Service</AgreementText>
       </TouchableOpacity>
       <TouchableOpacity>
-        <AgreementText variant="caption">Privacy Policy</AgreementText>
+        <AgreementText variant="brandSmall">Privacy Policy</AgreementText>
       </TouchableOpacity>
       <TouchableOpacity>
-        <AgreementText variant="caption">Content Policies</AgreementText>
+        <AgreementText variant="brandSmall">Content Policies</AgreementText>
       </TouchableOpacity>
     </Row>
   </AgreementsContainer>

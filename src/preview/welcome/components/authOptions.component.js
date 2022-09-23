@@ -55,29 +55,16 @@ export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => {
           <Text variant="titleSmall">Google</Text>
         </ButtonSmall>
       </Row>
-      {page === "register" ? (
-        <Spacer position="top" size="medium">
-          <Row>
-            <Spacer position="right" size="medium">
-              <Text variant="label">Dou you have an account?</Text>
-            </Spacer>
-            <TouchableOpacity onPress={goLogin}>
-              <Text variant="brand">Login</Text>
-            </TouchableOpacity>
-          </Row>
-        </Spacer>
-      ) : (
-        <Spacer position="top" size="medium">
-          <Row>
-            <Spacer position="right" size="medium">
-              <Text variant="label">Don't have an account?</Text>
-            </Spacer>
-            <TouchableOpacity onPress={goRegister}>
-              <Text variant="brand">Register</Text>
-            </TouchableOpacity>
-          </Row>
-        </Spacer>
-      )}
+      <Spacer position="top" size="medium">
+        <Row>
+          <Spacer position="right" size="medium">
+            <Text variant="label">Dou you have an account?</Text>
+          </Spacer>
+          <TouchableOpacity onPress={goLogin}>
+            <Text variant="brand">Login</Text>
+          </TouchableOpacity>
+        </Row>
+      </Spacer>
     </AuthOptionsContainer>
   );
 };

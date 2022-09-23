@@ -9,10 +9,16 @@ import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Button } from "../../../components/button/button.component";
 
-import { AuthContainer, Row, WelcomeContainer } from "./welcome.styles";
+import { AuthOptions } from "../components/authOptions.component";
+import { Agreements } from "../components/agreements.component";
+
+import { AuthContainer, Row, WelcomeContainer, MidRow, OrContainer } from "./welcome.styles";
 
 export const Welcome = ({ navigation }) => {
   const dispatch = useDispatch();
+
+  const nav = () => navigation.navigate("Onboarding");
+  const goLogin = () => navigation.navigate("Login");
 
   const deviceName = `${Device.brand}-${Device.modelName}`;
 
@@ -38,16 +44,14 @@ export const Welcome = ({ navigation }) => {
             onTouch={() => navigation.navigate("Register")}
             text="Register"
           />
-          <Spacer position="top" size="medium">
-            <Row>
-              <Spacer position="right" size="medium">
-                <Text variant="label">Dou you have an account?</Text>
-              </Spacer>
-              <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-                <Text variant="brand">Login</Text>
-              </TouchableOpacity>
-            </Row>
-          </Spacer>
+          <Spacer position="bottom" size="large" />
+          <MidRow>
+            <OrContainer>
+              <Text variant="whiteButton">OR</Text>
+            </OrContainer>
+          </MidRow>
+          <AuthOptions onTouch={nav} goLogin={goLogin} />
+          <Agreements />
         </AuthContainer>
       </WelcomeContainer>
     </SafeArea>

@@ -6,7 +6,6 @@ import { removeError } from "../../../store/user/user.slice";
 
 import { Text } from "../../../components/typography/text.component";
 
-import { AuthOptions } from "../components/authOptions.component";
 import { LoginForm } from "../components/loginForm.component";
 
 import { errorToastConfig } from "../../../utils/errorToastConfig";
@@ -14,8 +13,6 @@ import { errorToastConfig } from "../../../utils/errorToastConfig";
 import {
   TopBackground,
   LoginContainer,
-  MidRow,
-  OrContainer,
   TopBar,
   Title,
   Column,
@@ -24,10 +21,8 @@ import {
 export const Login = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  const nav = () => navigation.navigate("Onboarding");
-  const goLogin = () => navigation.navigate("Login");
-  const goRegister = () => navigation.navigate("Register");
   const goForgetPassword = () => navigation.navigate("ForgetPassword");
+  const goRegister = () => navigation.navigate("Register");
 
   const error = useSelector((state) => state.user.error);
   const showToast = () => {
@@ -60,15 +55,6 @@ export const Login = ({ navigation }) => {
             <LoginForm
               errorToast={showToast}
               goForgetPassword={goForgetPassword}
-            />
-            <MidRow>
-              <OrContainer>
-                <Text variant="whiteButton">OR</Text>
-              </OrContainer>
-            </MidRow>
-            <AuthOptions
-              onTouch={nav}
-              goLogin={goLogin}
               goRegister={goRegister}
             />
           </Column>

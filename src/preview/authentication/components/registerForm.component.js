@@ -1,3 +1,4 @@
+import { TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 import * as Device from "expo-device";
@@ -8,11 +9,9 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Button } from "../../../components/button/button.component";
 
-import { Agreements } from "../components/agreements.component";
+import { RegisterFormContainer, Input, Row } from "./registerForm.styles";
 
-import { RegisterFormContainer, Input } from "./registerForm.styles";
-
-export const RegisterForm = ({ errorToast }) => {
+export const RegisterForm = ({ errorToast, goLogin }) => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.user.error);
 
@@ -104,7 +103,14 @@ export const RegisterForm = ({ errorToast }) => {
       </Spacer>
       <Button text="Submit" onTouch={handleSubmit(onSubmit)} />
       <Spacer position="top" size="medium">
-        <Agreements />
+        <Row>
+          <Spacer position="right" size="medium">
+            <Text variant="label">Dou you have an account?</Text>
+          </Spacer>
+          <TouchableOpacity onPress={goLogin}>
+            <Text variant="brand">Login</Text>
+          </TouchableOpacity>
+        </Row>
       </Spacer>
     </RegisterFormContainer>
   );

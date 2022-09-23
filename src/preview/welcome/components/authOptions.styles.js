@@ -7,7 +7,8 @@ export const AuthOptionsContainer = styled.View`
   align-items: center;
   background-color: ${(props) => props.theme.colors.bg.primary};
   margin: ${(props) => props.theme.space[2]};
-  padding: ${(props) => props.theme.space[2]};
+  padding-top: ${(props) => props.theme.space[2]};
+  padding-horizontal: ${(props) => props.theme.space[2]};
   border-radius: ${(props) => props.theme.space[2]};
 `;
 

@@ -9,9 +9,9 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Button } from "../../../components/button/button.component";
 
-import { LoginFormContainer, Input } from "./loginForm.styles";
+import { LoginFormContainer, Input, Row } from "./loginForm.styles";
 
-export const LoginForm = ({ errorToast, goForgetPassword }) => {
+export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.user.error);
 
@@ -83,6 +83,16 @@ export const LoginForm = ({ errorToast, goForgetPassword }) => {
         <TouchableOpacity onPress={goForgetPassword}>
           <Text variant="brand">Forgot Password?</Text>
         </TouchableOpacity>
+      </Spacer>
+      <Spacer position="top" size="medium">
+        <Row>
+          <Spacer position="right" size="medium">
+            <Text variant="label">Don't have an account?</Text>
+          </Spacer>
+          <TouchableOpacity onPress={goRegister}>
+            <Text variant="brand">Register</Text>
+          </TouchableOpacity>
+        </Row>
       </Spacer>
     </LoginFormContainer>
   );

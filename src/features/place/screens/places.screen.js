@@ -63,7 +63,7 @@ export const PlacesScreen = () => {
     dispatch(removePlaces());
     dispatch(
       fetchPlaces(
-        buildQuery(formData) + "include=images,comments,isFavorite&page=1"
+        buildQuery(formData) + "&include=images,comments,isFavorite&page=1"
       )
     );
     toggleMessage();

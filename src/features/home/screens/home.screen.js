@@ -34,7 +34,9 @@ export const Home = ({ navigation }) => {
 
   useEffect(() => {
     dispatch(
-      fetchTrendingPlaces(buildQuery(formData) + "&include=images&page=1")
+      fetchTrendingPlaces(
+        buildQuery(formData) + "&include=images,isFavorite,comments&page=1"
+      )
     );
   }, []);
 

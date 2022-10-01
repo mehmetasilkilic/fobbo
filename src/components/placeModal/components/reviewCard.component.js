@@ -49,7 +49,7 @@ export const ReviewCard = ({ review }) => {
       <ImageColumn>
         <ProfilePicture
           source={{
-            uri: review.profilePicture,
+            uri: review.user.avatarPath,
           }}
         />
       </ImageColumn>
@@ -58,10 +58,10 @@ export const ReviewCard = ({ review }) => {
           <Column>
             <Spacer position="bottom" size="small">
               <Text variant="error" numberOfLines={1}>
-                {review.username}
+                {review.user.name}
               </Text>
             </Spacer>
-            <Text variant="caption">{review.created_at}</Text>
+            <Text variant="caption">{review.updatedAt}</Text>
           </Column>
           <StarRow>
             {rateArr.map((a, index) => (

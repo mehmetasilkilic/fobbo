@@ -14,7 +14,6 @@ export const Row = styled.View`
 `;
 
 export const AgreementText = styled(Text)`
-  padding-bottom: ${(props) => props.theme.space[1]};
-  border-bottom-width: 1px;
-  border-bottom-color: ${(props) => props.theme.colors.ui.tertiary};
+  text-decoration: underline;
+  text-decoration-color: ${(props) => props.theme.colors.ui.primary};
 `;

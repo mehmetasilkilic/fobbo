@@ -9,7 +9,12 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Button } from "../../../components/button/button.component";
 
-import { LoginFormContainer, Input, Row } from "./loginForm.styles";
+import {
+  LoginFormContainer,
+  Input,
+  Row,
+  AgreementText,
+} from "./loginForm.styles";
 
 export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
   const dispatch = useDispatch();
@@ -81,7 +86,7 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
       <Button text="Login" onTouch={handleSubmit(onSubmit)} />
       <Spacer position="top" size="medium">
         <TouchableOpacity onPress={goForgetPassword}>
-          <Text variant="brand">Forgot Password?</Text>
+          <AgreementText variant="brand">Forgot Password?</AgreementText>
         </TouchableOpacity>
       </Spacer>
       <Spacer position="top" size="medium">
@@ -90,7 +95,7 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
             <Text variant="label">Don't have an account?</Text>
           </Spacer>
           <TouchableOpacity onPress={goRegister}>
-            <Text variant="brand">Register</Text>
+            <AgreementText variant="brand">Register</AgreementText>
           </TouchableOpacity>
         </Row>
       </Spacer>

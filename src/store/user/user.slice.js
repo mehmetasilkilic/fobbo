@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { login, register, loginOrRegister } from "./user.service";
 
@@ -17,6 +18,14 @@ const userSlice = createSlice({
       return { ...state, error };
     },
     logout(state) {
+      const removeAccessToken = async () => {
+        try {
+          await AsyncStorage.removeItem("accessToken");
+        } catch (e) {
+          // remove error
+        }
+      };
+      removeAccessToken();
       const currentUser = null;
       return { ...state, currentUser };
     },

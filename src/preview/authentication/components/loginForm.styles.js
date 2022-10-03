@@ -1,6 +1,8 @@
 import { TextInput, Dimensions } from "react-native";
 import styled from "styled-components/native";
 
+import { Text } from "../../../components/typography/text.component";
+
 const InputWidth = Dimensions.get("window").width - 40;
 
 export const LoginFormContainer = styled.View`
@@ -23,4 +25,9 @@ export const Row = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const AgreementText = styled(Text)`
+  text-decoration: underline;
+  text-decoration-color: ${(props) => props.theme.colors.ui.primary};
 `;

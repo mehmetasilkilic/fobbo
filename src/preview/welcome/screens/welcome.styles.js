@@ -1,18 +1,14 @@
 import { Dimensions } from "react-native";
 import styled from "styled-components/native";
 
+import { Text } from "../../../components/typography/text.component";
+
 const Width = Dimensions.get("window").width;
 
 export const WelcomeContainer = styled.View`
   flex: 1;
   background-color: ${(props) => props.theme.colors.bg.primary};
   justify-content: center;
-  align-items: center;
-`;
-
-export const Row = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 `;
 
@@ -40,4 +36,9 @@ export const OrContainer = styled.View`
   background-color: ${(props) => props.theme.colors.text.primary};
   justify-content: center;
   align-items: center;
+`;
+
+export const AgreementText = styled(Text)`
+  text-decoration: underline;
+  text-decoration-color: ${(props) => props.theme.colors.ui.primary};
 `;

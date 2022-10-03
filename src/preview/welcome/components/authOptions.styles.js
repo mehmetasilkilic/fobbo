@@ -1,7 +1,9 @@
 import { TouchableOpacity, Dimensions } from "react-native";
 import styled from "styled-components/native";
 
-const ButtonWidthHalf = (Dimensions.get("window").width - 50) / 2;
+import { Text } from "../../../components/typography/text.component";
+
+const ButtonWidthHalf = (Dimensions.get("window").width - 30) / 2;
 
 export const AuthOptionsContainer = styled.View`
   align-items: center;
@@ -26,4 +28,9 @@ export const ButtonSmall = styled(TouchableOpacity)`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+`;
+
+export const AgreementText = styled(Text)`
+  text-decoration: underline;
+  text-decoration-color: ${(props) => props.theme.colors.ui.primary};
 `;

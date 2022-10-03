@@ -29,6 +29,12 @@ const fobbo = (theme) => `
     color: ${theme.colors.text.inverse};
 `;
 
+const fobboLogo = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.h2};
+    color: ${theme.colors.text.brand};
+`;
+
 const titleBrandMedium = (theme) => `
     font-size: ${theme.fontSizes.h5};
     line-height: ${theme.fontSizes.h5};
@@ -113,6 +119,7 @@ const variants = {
   brandSmall,
   lightBrand,
   fobbo,
+  fobboLogo,
   whiteButton,
   caption,
   captionWhite,

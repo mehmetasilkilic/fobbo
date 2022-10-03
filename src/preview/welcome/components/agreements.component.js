@@ -6,7 +6,7 @@ import { AgreementsContainer, Row, AgreementText } from "./agreements.styles";
 
 export const Agreements = () => (
   <AgreementsContainer>
-    <Spacer position="bottom" size="small">
+    <Spacer position="bottom" size="medium">
       <Text variant="caption">By, countinuing, you agree to our</Text>
     </Spacer>
     <Row>

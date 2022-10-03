@@ -14,6 +14,7 @@ import {
   TopBackground,
   RegisterContainer,
   TopBar,
+  AgreementText,
   Title,
   Column,
 } from "./register.styles";
@@ -21,13 +22,22 @@ import {
 export const Register = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  const goLogin = () => navigation.navigate("Login")
+  const goLogin = () => navigation.navigate("Login");
 
   const error = useSelector((state) => state.user.error);
+
   const showToast = () => {
     Toast.show({
       type: "error",
       text1: error,
+    });
+    dispatch(removeError());
+  };
+
+  const showPasswordErrorToast = () => {
+    Toast.show({
+      type: "error",
+      text1: "Passwords does not match",
     });
     dispatch(removeError());
   };
@@ -55,7 +65,10 @@ export const Register = ({ navigation }) => {
           </Column>
         </RegisterContainer>
       </ScrollView>
-      <Toast config={errorToastConfig} />
+      <Toast
+        config={errorToastConfig}
+        passwordErrorToast={showPasswordErrorToast}
+      />
     </>
   );
 };

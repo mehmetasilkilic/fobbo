@@ -12,7 +12,13 @@ import { Button } from "../../../components/button/button.component";
 import { AuthOptions } from "../components/authOptions.component";
 import { Agreements } from "../components/agreements.component";
 
-import { AuthContainer, Row, WelcomeContainer, MidRow, OrContainer } from "./welcome.styles";
+import {
+  AuthContainer,
+  WelcomeContainer,
+  AgreementText,
+  MidRow,
+  OrContainer,
+} from "./welcome.styles";
 
 export const Welcome = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -26,18 +32,18 @@ export const Welcome = ({ navigation }) => {
     device_name: deviceName,
   };
 
-  const handleSubmit = () => {
+  const handleGuestRegister = () => {
     dispatch(register(formData));
   };
 
   return (
     <SafeArea>
       <WelcomeContainer>
-        <Text>Fobbo</Text>
+        <Text variant="fobboLogo">fobbo</Text>
         <AuthContainer>
           <Spacer position="bottom" size="medium">
-            <TouchableOpacity onPress={handleSubmit}>
-              <Text variant="brand">Continue as a guest</Text>
+            <TouchableOpacity onPress={handleGuestRegister}>
+              <AgreementText variant="brand">Continue as a guest</AgreementText>
             </TouchableOpacity>
           </Spacer>
           <Button

@@ -1,4 +1,4 @@
-import { TouchableOpacity, Alert } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import * as Facebook from "expo-facebook";
@@ -9,7 +9,12 @@ import { loginOrRegister } from "../../../store/user/user.service";
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
-import { AuthOptionsContainer, Row, ButtonSmall } from "./authOptions.styles";
+import {
+  AuthOptionsContainer,
+  AgreementText,
+  Row,
+  ButtonSmall,
+} from "./authOptions.styles";
 
 export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => {
   const dispatch = useDispatch();
@@ -61,7 +66,7 @@ export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => {
             <Text variant="label">Dou you have an account?</Text>
           </Spacer>
           <TouchableOpacity onPress={goLogin}>
-            <Text variant="brand">Login</Text>
+            <AgreementText variant="brand">Login</AgreementText>
           </TouchableOpacity>
         </Row>
       </Spacer>

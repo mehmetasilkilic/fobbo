@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
@@ -9,15 +10,26 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Button } from "../../../components/button/button.component";
 
-import { RegisterFormContainer, Input, Row } from "./registerForm.styles";
+import {
+  RegisterFormContainer,
+  AgreementText,
+  Input,
+  Row,
+} from "./registerForm.styles";
 
-export const RegisterForm = ({ errorToast, goLogin }) => {
+export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.user.error);
 
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const onSubmit = (formData) => {
-    formData.device_name = `${Device.brand}-${Device.modelName}`;
-    dispatch(register(formData));
+    if (control._fields.password._f.value === confirmPassword) {
+      formData.device_name = `${Device.brand}-${Device.modelName}`;
+      dispatch(register(formData));
+    } else {
+      passwordErrorToast();
+    }
   };
 
   setTimeout(() => {
@@ -99,16 +111,20 @@ export const RegisterForm = ({ errorToast, goLogin }) => {
         {errors.password && <Text variant="error">This is required.</Text>}
       </Spacer>
       <Spacer position="bottom" size="medium">
-        <Input placeholder="password" />
+        <Input
+          placeholder="password"
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
+          autoCapitalize="none"
+          secureTextEntry
+        />
       </Spacer>
       <Button text="Submit" onTouch={handleSubmit(onSubmit)} />
       <Spacer position="top" size="medium">
         <Row>
-          <Spacer position="right" size="medium">
-            <Text variant="label">Dou you have an account?</Text>
-          </Spacer>
+          <Text variant="label">Dou you have an account? </Text>
           <TouchableOpacity onPress={goLogin}>
-            <Text variant="brand">Login</Text>
+            <AgreementText variant="brand">Login</AgreementText>
           </TouchableOpacity>
         </Row>
       </Spacer>

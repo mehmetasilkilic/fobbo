@@ -1,7 +1,7 @@
 import { TouchableOpacity, Dimensions } from "react-native";
 import styled from "styled-components/native";
 
-const ButtonWidth = Dimensions.get("window").width - 20;
+const ButtonWidth = Dimensions.get("window").width - 40;
 
 export const StartButton = styled(TouchableOpacity)`
   align-items: center;

@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 import { Text } from "../../../components/typography/text.component";
 
-const ButtonWidthHalf = (Dimensions.get("window").width - 30) / 2;
+const ButtonWidthHalf = (Dimensions.get("window").width - 50) / 2;
 
 export const AuthOptionsContainer = styled.View`
   align-items: center;

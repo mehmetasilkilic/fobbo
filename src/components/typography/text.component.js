@@ -31,7 +31,7 @@ const fobbo = (theme) => `
 
 const fobboLogo = (theme) => `
     font-family: ${theme.fonts.heading};
-    font-size: ${theme.fontSizes.h2};
+    font-size: ${theme.fontSizes.h1};
     color: ${theme.colors.text.brand};
 `;
 

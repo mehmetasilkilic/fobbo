@@ -61,10 +61,13 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
-              placeholder="email"
+              label="Email"
+              mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              outlineColor="#dddddd"
+              activeOutlineColor="#f00062"
             />
           )}
           name="email"
@@ -80,10 +83,13 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
-              placeholder="username"
+              label="Username"
+              mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              outlineColor="#dddddd"
+              activeOutlineColor="#f00062"
             />
           )}
           name="name"
@@ -100,23 +106,29 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               secureTextEntry
-              placeholder="password"
+              label="Password"
+              mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              outlineColor="#dddddd"
+              activeOutlineColor="#f00062"
             />
           )}
           name="password"
         />
         {errors.password && <Text variant="error">This is required.</Text>}
       </Spacer>
-      <Spacer position="bottom" size="medium">
+      <Spacer position="bottom" size="large">
         <Input
-          placeholder="password"
+          secureTextEntry
+          label="Confirm Password"
+          mode="outlined"
           value={confirmPassword}
           onChangeText={setConfirmPassword}
           autoCapitalize="none"
-          secureTextEntry
+          outlineColor="#dddddd"
+          activeOutlineColor="#f00062"
         />
       </Spacer>
       <Button text="Submit" onTouch={handleSubmit(onSubmit)} />

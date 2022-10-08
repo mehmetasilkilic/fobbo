@@ -1,4 +1,5 @@
-import { TextInput, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
+import { TextInput } from "react-native-paper";
 import styled from "styled-components/native";
 
 import { Text } from "../../../components/typography/text.component";
@@ -15,10 +16,8 @@ export const LoginFormContainer = styled.View`
 
 export const Input = styled(TextInput)`
   width: ${InputWidth}px;
-  background-color: ${(props) => props.theme.colors.bg.tertiary};
-  padding-horizontal: ${(props) => props.theme.space[2]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
   height: 40px;
-  border-radius: ${(props) => props.theme.space[2]};
 `;
 
 export const Row = styled.View`

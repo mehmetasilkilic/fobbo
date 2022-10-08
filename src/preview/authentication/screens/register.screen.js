@@ -14,7 +14,6 @@ import {
   TopBackground,
   RegisterContainer,
   TopBar,
-  AgreementText,
   Title,
   Column,
 } from "./register.styles";

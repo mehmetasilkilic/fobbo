@@ -54,17 +54,20 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               type="email"
-              placeholder="email"
+              label="Email"
+              mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              outlineColor="#dddddd"
+              activeOutlineColor="#f00062"
             />
           )}
           name="email"
         />
         {errors.email && <Text variant="error">This is required.</Text>}
       </Spacer>
-      <Spacer position="bottom" size="medium">
+      <Spacer position="bottom" size="large">
         <Controller
           control={control}
           rules={{
@@ -73,10 +76,14 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               secureTextEntry
-              placeholder="password"
+              label="Password"
+              mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              autoCapitalize="none"
+              outlineColor="#dddddd"
+              activeOutlineColor="#f00062"
             />
           )}
           name="password"

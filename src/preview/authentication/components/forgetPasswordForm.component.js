@@ -42,7 +42,7 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
 
   return (
     <ForgetPasswordFormContainer>
-      <Spacer position="bottom" size="medium">
+      <Spacer position="bottom" size="large">
         <Controller
           control={control}
           rules={{
@@ -51,56 +51,19 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               type="email"
-              placeholder="email"
+              label="Email"
+              mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
+              autoCapitalize="none"
+              outlineColor="#dddddd"
+              activeOutlineColor="#f00062"
             />
           )}
           name="email"
         />
         {errors.email && <Text variant="error">This is required.</Text>}
-      </Spacer>
-      <Spacer position="bottom" size="medium">
-        <Controller
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Input
-              type="text"
-              placeholder="code"
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-          name="code"
-        />
-        {errors.code && <Text variant="error">This is required.</Text>}
-      </Spacer>
-      <Spacer position="bottom" size="medium">
-        <Controller
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Input
-              secureTextEntry
-              placeholder="password"
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-          name="password"
-        />
-        {errors.password && <Text variant="error">This is required.</Text>}
-      </Spacer>
-      <Spacer position="bottom" size="medium">
-        <Input placeholder="password" />
       </Spacer>
       <Button text="Submit" onTouch={handleSubmit(onSubmit)} />
       <Spacer position="top" size="medium">

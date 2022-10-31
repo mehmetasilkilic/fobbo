@@ -24,7 +24,7 @@ export const ReviewCard = ({ review }) => {
   const [disliked, setDisliked] = useState(false);
   const [loadMore, setLoadMore] = useState(false);
   const [numOfLines, setNumOfLines] = useState(0);
-  console.log(review);
+
   const onTextLayout = useCallback(
     (e) => {
       if (numOfLines === 0) {

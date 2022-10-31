@@ -4,6 +4,8 @@ import { AntDesign } from "@expo/vector-icons";
 import * as Facebook from "expo-facebook";
 import * as Device from "expo-device";
 
+import google from "../../../../assets/google.png";
+
 import { loginOrRegister } from "../../../store/user/user.service";
 
 import { Text } from "../../../components/typography/text.component";
@@ -13,7 +15,9 @@ import {
   AuthOptionsContainer,
   AgreementText,
   Row,
-  ButtonSmall,
+  FacebookButton,
+  GoogleButton,
+  GoogleIcon,
 } from "./authOptions.styles";
 
 export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => {
@@ -46,19 +50,19 @@ export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => {
     <AuthOptionsContainer>
       <Row>
         <Spacer position="right" size="medium">
-          <ButtonSmall onPress={facebookLogin}>
+          <FacebookButton onPress={facebookLogin}>
             <Spacer position="right" size="medium">
               <AntDesign name="facebook-square" size={18} color={"#ffffff"} />
             </Spacer>
             <Text variant="titleSmall">Facebook</Text>
-          </ButtonSmall>
+          </FacebookButton>
         </Spacer>
-        <ButtonSmall onPress={onTouch}>
+        <GoogleButton onPress={onTouch}>
           <Spacer position="right" size="medium">
-            <AntDesign name="google" size={18} color={"#ffffff"} />
+            <GoogleIcon source={google} />
           </Spacer>
-          <Text variant="titleSmall">Google</Text>
-        </ButtonSmall>
+          <Text variant="label">Google</Text>
+        </GoogleButton>
       </Row>
       <Spacer position="top" size="medium">
         <Row>

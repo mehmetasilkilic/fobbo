@@ -20,17 +20,37 @@ export const Row = styled.View`
   align-items: center;
 `;
 
-export const ButtonSmall = styled(TouchableOpacity)`
-  padding-vertical: ${(props) => props.theme.space[2]};
-  background-color: ${(props) => props.theme.colors.ui.primary};
+export const FacebookButton = styled(TouchableOpacity)`
+  height: 40px;
+  background-color: #3b5998;
   border-radius: ${(props) => props.theme.space[2]};
   width: ${ButtonWidthHalf}px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-color: #3b5998;
+`;
+
+export const GoogleButton = styled(TouchableOpacity)`
+  height: 40px;
+  border-radius: ${(props) => props.theme.space[2]};
+  width: ${ButtonWidthHalf}px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-color: ${(props) => props.theme.colors.text.primary};
 `;
 
 export const AgreementText = styled(Text)`
   text-decoration: underline;
   text-decoration-color: ${(props) => props.theme.colors.ui.primary};
+`;
+
+export const GoogleIcon = styled.Image`
+  width: 30px;
+  height: 30px;
 `;

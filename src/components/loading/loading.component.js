@@ -9,7 +9,7 @@ const LoadingContainerBig = styled.View`
 
 const LoadingContainerSmall = styled.View`
   position: absolute;
-  top: 35%;
+  top: 18%;
   left: 50%;
 `;
 

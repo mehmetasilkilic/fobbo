@@ -35,7 +35,7 @@ const tabBarItemStyle = {
 const tabBarActionButtonStyle = {
   width: 60,
   height: 80,
-  transform: [{ translateY: -10 }],
+  transform: [{ translateY: -20 }],
   shadowColor: "#262626",
   shadowOpacity: 0.06,
   shadowOffset: {

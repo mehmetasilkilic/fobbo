@@ -58,7 +58,7 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
               value={value}
               autoCapitalize="none"
               outlineColor="#dddddd"
-              activeOutlineColor="#f00062"
+              activeOutlineColor="#ED0F7E"
             />
           )}
           name="email"

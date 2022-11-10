@@ -26,11 +26,11 @@ export const PlaceDetailHeader = ({ place }) => {
           <Title variant="titleBig">{place.name}</Title>
           <RatingContainer>
             <RatingContainerTop>
-              <AntDesign name="staro" size={16} color="#f00062" />
+              <AntDesign name="staro" size={16} color="#ED0F7E" />
               <Text variant="error">{place.rating} / 5</Text>
             </RatingContainerTop>
             <RatingContainerBottom>
-              <AntDesign name="message1" size={16} color="#f00062" />
+              <AntDesign name="message1" size={16} color="#ED0F7E" />
               <Text variant="error">200+</Text>
             </RatingContainerBottom>
           </RatingContainer>

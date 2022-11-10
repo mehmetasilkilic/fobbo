@@ -43,7 +43,7 @@ export const CommentForm = () => {
                 <AntDesign
                   name={star.value <= rate ? "star" : "staro"}
                   size={24}
-                  color="#f00062"
+                  color="#ED0F7E"
                 />
               </TouchableOpacity>
             ))}

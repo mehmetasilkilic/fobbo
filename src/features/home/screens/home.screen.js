@@ -119,7 +119,7 @@ export const Home = ({ navigation }) => {
       </SafeAreaSecond>
       <HomeContainer>
         {isLoading ? (
-          <Loading color="#f00062" />
+          <Loading color="#ED0F7E" />
         ) : (
           <ScrollView keyboardShouldPersistTaps="handled">
             <CategoriesList data={categoryDummyData} />

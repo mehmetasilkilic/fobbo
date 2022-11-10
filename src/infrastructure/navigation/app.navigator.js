@@ -69,7 +69,7 @@ const screenOptions = ({ route }) => {
         : () => <Image source={navLogo} style={tabBarActionButtonStyle} />,
     headerShown: false,
     tabBarShowLabel: false,
-    tabBarActiveTintColor: "#f00062",
+    tabBarActiveTintColor: "#ED0F7E",
     tabBarInactiveTintColor: "#757575",
     tabBarActiveBackgroundColor: "#EEEEEE",
     tabBarStyle: route.name !== "Action" ? tabBarStyle : tabBarStyleHidden,

@@ -24,7 +24,7 @@ export const HorizontalPlaceList = ({ data }) => {
         <Text variant="boldLabel">Trending this week</Text>
         <InlineRow>
           <Text variant="error">View all </Text>
-          <AntDesign name="doubleright" size={10} color="#f00062" />
+          <AntDesign name="doubleright" size={10} color="#ED0F7E" />
         </InlineRow>
       </Row>
       <PlacesFlatList

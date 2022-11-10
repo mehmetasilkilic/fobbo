@@ -19,7 +19,7 @@ export const Onboarding = ({ navigation }) => (
       <ImageSlider images={data} />
       <SkipButton onPress={() => navigation.navigate("Location")}>
         <Text variant="error">Skip</Text>
-        <AntDesign name="doubleright" size={10} color="#f00062" />
+        <AntDesign name="doubleright" size={10} color="#ED0F7E" />
       </SkipButton>
     </OnboardingContainer>
   </SafeArea>

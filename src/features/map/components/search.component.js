@@ -16,7 +16,7 @@ export const Search = () => {
       <SearchMap
         placeholder="Search for a location"
         icon="map"
-        iconColor="#f00062"
+        iconColor="#ED0F7E"
         onSubmitEditing={() => {
           dispatch(fetchLocation(keyword));
         }}

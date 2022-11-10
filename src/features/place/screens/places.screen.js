@@ -109,7 +109,7 @@ export const PlacesScreen = () => {
               <AntDesign
                 name={toggleAppearance ? "appstore-o" : "laptop"}
                 size={24}
-                color={"#f00062"}
+                color={"#ED0F7E"}
               />
             </TouchableOpacity>
           </InnerRow>
@@ -121,7 +121,7 @@ export const PlacesScreen = () => {
           onEndReachedThreshold={0.9}
           ListFooterComponent={
             isLoading ? (
-              <Loading size="button" color="#f00062" />
+              <Loading size="button" color="#ED0F7E" />
             ) : showMessage ? (
               <MessageContianer>
                 <Text variant="error">

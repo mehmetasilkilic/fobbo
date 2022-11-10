@@ -60,7 +60,7 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
               onChangeText={onChange}
               value={value}
               outlineColor="#dddddd"
-              activeOutlineColor="#f00062"
+              activeOutlineColor="#ED0F7E"
             />
           )}
           name="email"
@@ -83,7 +83,7 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
               value={value}
               autoCapitalize="none"
               outlineColor="#dddddd"
-              activeOutlineColor="#f00062"
+              activeOutlineColor="#ED0F7E"
             />
           )}
           name="password"

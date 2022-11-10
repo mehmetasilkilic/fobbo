@@ -24,7 +24,7 @@ export const Action = ({ navigation }) => (
         <AntDesign
           name="enviromento"
           size={24}
-          color={"#f00062"}
+          color={"#ED0F7E"}
           onPress={() => navigation.goBack()}
         />
       </TouchableOpacity>

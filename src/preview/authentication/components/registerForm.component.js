@@ -67,7 +67,7 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
               onChangeText={onChange}
               value={value}
               outlineColor="#dddddd"
-              activeOutlineColor="#f00062"
+              activeOutlineColor="#ED0F7E"
             />
           )}
           name="email"
@@ -89,7 +89,7 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
               onChangeText={onChange}
               value={value}
               outlineColor="#dddddd"
-              activeOutlineColor="#f00062"
+              activeOutlineColor="#ED0F7E"
             />
           )}
           name="name"
@@ -112,7 +112,7 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
               onChangeText={onChange}
               value={value}
               outlineColor="#dddddd"
-              activeOutlineColor="#f00062"
+              activeOutlineColor="#ED0F7E"
             />
           )}
           name="password"
@@ -128,7 +128,7 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
           onChangeText={setConfirmPassword}
           autoCapitalize="none"
           outlineColor="#dddddd"
-          activeOutlineColor="#f00062"
+          activeOutlineColor="#ED0F7E"
         />
       </Spacer>
       <Button text="Submit" onTouch={handleSubmit(onSubmit)} />

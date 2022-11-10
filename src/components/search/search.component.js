@@ -9,12 +9,12 @@ export const Search = ({ onType }) => {
     <SearchContainer>
       <SearchAll
         placeholder="Search for a location"
-        iconColor="#f00062"
+        iconColor="#ED0F7E"
         onChangeText={(text) => onType(text)}
       />
       <Spacer position="right" size="medium">
         <TouchableOpacity>
-          <AntDesign name="filter" size={24} color={"#f00062"} />
+          <AntDesign name="filter" size={24} color={"#ED0F7E"} />
         </TouchableOpacity>
       </Spacer>
     </SearchContainer>

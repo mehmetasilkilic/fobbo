@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { ScrollView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchTrendingPlaces } from "../../../store/places/places.service";
@@ -20,6 +19,7 @@ import {
   HomeContainer,
   AdvertisementImageWrapper,
   AdvertisementImage,
+  HomeScrollView,
 } from "./home.styles";
 
 export const Home = ({ navigation }) => {
@@ -121,7 +121,7 @@ export const Home = ({ navigation }) => {
         {isLoading ? (
           <Loading color="#ED0F7E" />
         ) : (
-          <ScrollView keyboardShouldPersistTaps="handled">
+          <HomeScrollView keyboardShouldPersistTaps="handled">
             <CategoriesList data={categoryDummyData} />
             <HorizontalPlaceList data={topTenPlaces} />
             <AdvertisementList data={advertisementDummyData} />
@@ -135,7 +135,7 @@ export const Home = ({ navigation }) => {
             </AdvertisementImageWrapper>
             <SmallPlaceList data={trendingPlaces} />
             <Spacer position="bottom" size="large" />
-          </ScrollView>
+          </HomeScrollView>
         )}
       </HomeContainer>
     </>

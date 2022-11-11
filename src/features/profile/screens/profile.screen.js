@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { ScrollView, Pressable } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
+import Modal from "react-native-modal";
 
 import { logout } from "../../../store/user/user.slice";
 
@@ -18,11 +20,17 @@ import {
   InlineRow,
   RowNoBorder,
   ProfileContainer,
+  ModalContainer,
+  Row,
+  ModalButton,
+  CancelButton,
 } from "./profile.styles";
 
 export const ProfileScreen = ({ navigation }) => {
   const dispatch = useDispatch();
+
   const userInfo = useSelector((state) => state.user.currentUser);
+  const [signOutModal, setSignOutModal] = useState(false);
 
   const RowList = [
     {
@@ -58,7 +66,7 @@ export const ProfileScreen = ({ navigation }) => {
       label: "Logout",
       color: "red",
       icon: "logout",
-      onTouch: () => dispatch(logout()),
+      onTouch: () => setSignOutModal(true),
     },
   ];
 
@@ -127,6 +135,28 @@ export const ProfileScreen = ({ navigation }) => {
           <Spacer position="bottom" size="large" />
         </ScrollView>
       </ProfileContainer>
+      <Modal
+        isVisible={signOutModal}
+        onBackdropPress={() => setSignOutModal(false)}
+      >
+        <ModalContainer>
+          <Text variant="label">Sign out of your Reedu account?</Text>
+          <Spacer position="bottom" size="large" />
+          <Row>
+            <CancelButton onPress={() => setSignOutModal(false)}>
+              <Text variant="whiteButton">Cancel</Text>
+            </CancelButton>
+            <ModalButton
+              onPress={() => {
+                setSignOutModal(false);
+                dispatch(logout());
+              }}
+            >
+              <Text variant="whiteButton">Sign Out</Text>
+            </ModalButton>
+          </Row>
+        </ModalContainer>
+      </Modal>
     </SafeArea>
   );
 };

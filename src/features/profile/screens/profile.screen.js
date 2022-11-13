@@ -133,7 +133,9 @@ export const ProfileScreen = ({ navigation }) => {
           </RowNoBorder>
           <Info>
             <RowNoBorder>
-              <Text variant="label">{lang}</Text>
+              <Text variant="label">
+                {lang === "tr" ? "Türkçe" : "English"}
+              </Text>
               <AntDesign name="right" size={16} color="#262626" />
             </RowNoBorder>
           </Info>

@@ -2,6 +2,8 @@ import { TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
 import * as Device from "expo-device";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { register } from "../../../store/user/user.service";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
@@ -36,6 +38,10 @@ export const Welcome = ({ navigation }) => {
     dispatch(register(formData));
   };
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <SafeArea>
       <WelcomeContainer>
@@ -43,17 +49,19 @@ export const Welcome = ({ navigation }) => {
         <AuthContainer>
           <Spacer position="bottom" size="medium">
             <TouchableOpacity onPress={handleGuestRegister}>
-              <AgreementText variant="brand">Continue as a guest</AgreementText>
+              <AgreementText variant="brand">
+                {t.auth.continueAsAGuest}
+              </AgreementText>
             </TouchableOpacity>
           </Spacer>
           <Button
             onTouch={() => navigation.navigate("Register")}
-            text="Register"
+            text={t.auth.signUp}
           />
           <Spacer position="bottom" size="large" />
           <MidRow>
             <OrContainer>
-              <Text variant="whiteButton">OR</Text>
+              <Text variant="whiteButton">&</Text>
             </OrContainer>
           </MidRow>
           <AuthOptions onTouch={nav} goLogin={goLogin} />

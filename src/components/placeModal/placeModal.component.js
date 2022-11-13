@@ -3,6 +3,8 @@ import { View, TouchableOpacity, Pressable, Modal } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
+import { useTranslations } from "../../utils/useTranslations";
+
 import { Spacer } from "../spacer/spacer.component";
 import { Text } from "../typography/text.component";
 import { Favorite } from "../favorites/favorite.component";
@@ -23,6 +25,10 @@ import {
 } from "./placeModal.styles";
 
 export const PlaceModal = ({ closeModal, visible, data }) => {
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <Modal visible={visible} animationType={"slide"}>
       <ModalArea>
@@ -56,12 +62,12 @@ export const PlaceModal = ({ closeModal, visible, data }) => {
               {data.images && <ImageSlider images={data.images} />}
             </Spacer>
             <Spacer position="left" size="medium">
-              <Text variant="label">Foot Traffic</Text>
+              <Text variant="label">{t.place.footTraffic}</Text>
             </Spacer>
             <FootTrafficChart />
             <Row>
-              <Text variant="label">All Ratings and Reviews</Text>
-              <Text variant="error">Top Rated</Text>
+              <Text variant="label">{t.place.allRatings}</Text>
+              <Text variant="error">{t.place.topRated}</Text>
             </Row>
             {data.comments &&
               data.comments
@@ -69,7 +75,7 @@ export const PlaceModal = ({ closeModal, visible, data }) => {
                 .map((item) => <ReviewCard review={item} key={item.id} />)}
             <Pressable>
               <RowCentered>
-                <Text variant="error">See All Reviews</Text>
+                <Text variant="error">{t.place.seeAll}</Text>
               </RowCentered>
             </Pressable>
             <CommentForm />

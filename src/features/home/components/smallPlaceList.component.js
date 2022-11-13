@@ -2,6 +2,8 @@ import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { PlaceInfoCard } from "../../../components/place/placeInfoCard.components";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
@@ -21,12 +23,17 @@ export const SmallPlaceList = ({ data }) => {
     setVisible(true);
     setModalData(placeData);
   };
+
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <>
       <Row>
-        <Text variant="boldLabel">Most Popular</Text>
+        <Text variant="boldLabel">{t.home.mostPop}</Text>
         <InlineRow>
-          <Text variant="error">26 Places </Text>
+          <Text variant="error">26 {t.home.places} </Text>
           <AntDesign name="doubleright" size={10} color="#ED0F7E" />
         </InlineRow>
       </Row>

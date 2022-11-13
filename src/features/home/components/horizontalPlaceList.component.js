@@ -2,6 +2,8 @@ import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { PlaceInfoCard } from "../../../components/place/placeInfoCard.components";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
@@ -18,12 +20,16 @@ export const HorizontalPlaceList = ({ data }) => {
     setModalData(placeData);
   };
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <>
       <Row>
-        <Text variant="boldLabel">Trending this week</Text>
+        <Text variant="boldLabel">{t.home.trending}</Text>
         <InlineRow>
-          <Text variant="error">View all </Text>
+          <Text variant="error">{t.home.viewAll}</Text>
           <AntDesign name="doubleright" size={10} color="#ED0F7E" />
         </InlineRow>
       </Row>

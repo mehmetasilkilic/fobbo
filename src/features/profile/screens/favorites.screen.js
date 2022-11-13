@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { fetchFavorites } from "../../../store/favorites/favorites.slice";
 
 import { PlaceInfoCard } from "../../../components/place/placeInfoCard.components";
@@ -39,6 +41,10 @@ export const FavoritesScreen = ({ navigation }) => {
     setModalData(placeData);
   };
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <>
       <SafeAreaSecond>
@@ -52,12 +58,12 @@ export const FavoritesScreen = ({ navigation }) => {
               <AntDesign name="left" size={24} color={"#262626"} />
             </TouchableOpacity>
             <Spacer position="left" size="medium">
-              <Text variant="titleBlackSmall">Favorites</Text>
+              <Text variant="titleBlackSmall">{t.profile.favorites}</Text>
             </Spacer>
           </Row>
           <Row>
             <Spacer position="right" size="medium">
-              <Text variant="caption">Appearance</Text>
+              <Text variant="caption">{t.profile.appearance}</Text>
             </Spacer>
             <TouchableOpacity
               onPress={() => {

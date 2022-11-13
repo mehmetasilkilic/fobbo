@@ -2,6 +2,8 @@ import { ScrollView } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import Toast from "react-native-toast-message";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { removeError } from "../../../store/user/user.slice";
 
 import { Text } from "../../../components/typography/text.component";
@@ -25,6 +27,10 @@ export const Register = ({ navigation }) => {
 
   const error = useSelector((state) => state.user.error);
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   const showToast = () => {
     Toast.show({
       type: "error",
@@ -36,7 +42,7 @@ export const Register = ({ navigation }) => {
   const showPasswordErrorToast = () => {
     Toast.show({
       type: "error",
-      text1: "Passwords does not match",
+      text1: t.error.passMatch,
     });
     dispatch(removeError());
   };
@@ -53,10 +59,8 @@ export const Register = ({ navigation }) => {
               <Title>
                 <Text variant="fobbo">fobbo</Text>
               </Title>
-              <Text variant="titleMedium">Register</Text>
-              <Text variant="titleSmall">
-                Sign up to discover amazing places around you
-              </Text>
+              <Text variant="titleMedium">{t.auth.signUp}</Text>
+              <Text variant="titleSmall">{t.auth.registerMsg}</Text>
             </TopBar>
           </TopBackground>
           <Column>

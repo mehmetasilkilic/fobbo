@@ -3,6 +3,8 @@ import { useForm, Controller } from "react-hook-form";
 import { TouchableOpacity } from "react-native";
 import * as Device from "expo-device";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { login } from "../../../store/user/user.service";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -43,6 +45,10 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
     },
   });
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <LoginFormContainer>
       <Spacer position="bottom" size="medium">
@@ -54,7 +60,7 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               type="email"
-              label="Email"
+              label={t.auth.email}
               mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -76,7 +82,7 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               secureTextEntry
-              label="Password"
+              label={t.auth.password}
               mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -90,19 +96,19 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
         />
         {errors.password && <Text variant="error">This is required.</Text>}
       </Spacer>
-      <Button text="Login" onTouch={handleSubmit(onSubmit)} />
+      <Button text={t.auth.signIn} onTouch={handleSubmit(onSubmit)} />
       <Spacer position="top" size="medium">
         <TouchableOpacity onPress={goForgetPassword}>
-          <AgreementText variant="brand">Forgot Password?</AgreementText>
+          <AgreementText variant="brand">{t.auth.forgetYourPass}</AgreementText>
         </TouchableOpacity>
       </Spacer>
       <Spacer position="top" size="medium">
         <Row>
           <Spacer position="right" size="medium">
-            <Text variant="label">Don't have an account?</Text>
+            <Text variant="label">{t.auth.dontHaveAcc}</Text>
           </Spacer>
           <TouchableOpacity onPress={goRegister}>
-            <AgreementText variant="brand">Register</AgreementText>
+            <AgreementText variant="brand">{t.auth.signUp}</AgreementText>
           </TouchableOpacity>
         </Row>
       </Spacer>

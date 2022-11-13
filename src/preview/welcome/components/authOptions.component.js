@@ -4,6 +4,8 @@ import { AntDesign } from "@expo/vector-icons";
 import * as Facebook from "expo-facebook";
 import * as Device from "expo-device";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import google from "../../../../assets/google.png";
 
 import { loginOrRegister } from "../../../store/user/user.service";
@@ -46,6 +48,10 @@ export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => {
     }
   };
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <AuthOptionsContainer>
       <Row>
@@ -67,10 +73,10 @@ export const AuthOptions = ({ onTouch, goLogin, goRegister, page }) => {
       <Spacer position="top" size="medium">
         <Row>
           <Spacer position="right" size="medium">
-            <Text variant="label">Dou you have an account?</Text>
+            <Text variant="label">{t.auth.alreadyHaveAnAccount}</Text>
           </Spacer>
           <TouchableOpacity onPress={goLogin}>
-            <AgreementText variant="brand">Login</AgreementText>
+            <AgreementText variant="brand">{t.auth.signIn}</AgreementText>
           </TouchableOpacity>
         </Row>
       </Spacer>

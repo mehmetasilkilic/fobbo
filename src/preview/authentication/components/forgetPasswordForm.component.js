@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
-import { TouchableOpacity } from "react-native";
+
+import { useTranslations } from "../../../utils/useTranslations";
 
 import { login } from "../../../store/user/user.service";
 
@@ -40,6 +41,10 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
     },
   });
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <ForgetPasswordFormContainer>
       <Spacer position="bottom" size="large">
@@ -51,7 +56,7 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               type="email"
-              label="Email"
+              label={t.auth.email}
               mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -65,12 +70,7 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
         />
         {errors.email && <Text variant="error">This is required.</Text>}
       </Spacer>
-      <Button text="Submit" onTouch={handleSubmit(onSubmit)} />
-      <Spacer position="top" size="medium">
-        <TouchableOpacity onPress={goLogin}>
-          <Text variant="brand">Go to Login Page</Text>
-        </TouchableOpacity>
-      </Spacer>
+      <Button text={t.auth.send} onTouch={handleSubmit(onSubmit)} />
     </ForgetPasswordFormContainer>
   );
 };

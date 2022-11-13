@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 import * as Device from "expo-device";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { register } from "../../../store/user/user.service";
 
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -51,6 +53,10 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
     },
   });
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <RegisterFormContainer>
       <Spacer position="bottom" size="medium">
@@ -61,7 +67,7 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
-              label="Email"
+              label={t.auth.email}
               mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -83,7 +89,7 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
-              label="Username"
+              label={t.auth.username}
               mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -106,7 +112,7 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               secureTextEntry
-              label="Password"
+              label={t.auth.password}
               mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -122,7 +128,7 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
       <Spacer position="bottom" size="large">
         <Input
           secureTextEntry
-          label="Confirm Password"
+          label={t.auth.confPass}
           mode="outlined"
           value={confirmPassword}
           onChangeText={setConfirmPassword}
@@ -131,12 +137,12 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
           activeOutlineColor="#ED0F7E"
         />
       </Spacer>
-      <Button text="Submit" onTouch={handleSubmit(onSubmit)} />
+      <Button text={t.auth.signUp} onTouch={handleSubmit(onSubmit)} />
       <Spacer position="top" size="medium">
         <Row>
-          <Text variant="label">Dou you have an account? </Text>
+          <Text variant="label">{t.auth.alreadyHaveAnAccount}</Text>
           <TouchableOpacity onPress={goLogin}>
-            <AgreementText variant="brand">Login</AgreementText>
+            <AgreementText variant="brand">{t.auth.signIn}</AgreementText>
           </TouchableOpacity>
         </Row>
       </Spacer>

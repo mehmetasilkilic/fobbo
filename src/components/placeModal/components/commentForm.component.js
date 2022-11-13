@@ -2,6 +2,8 @@ import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
@@ -26,14 +28,18 @@ export const CommentForm = () => {
   const [rate, setRate] = useState(5);
   const [text, onChangeText] = useState("");
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <CommentFormContainer>
       <Spacer position="bottom" size="medium">
-        <Text variant="label">Leave a comment</Text>
+        <Text variant="label">{t.place.leaveComment}</Text>
       </Spacer>
       <Spacer position="bottom" size="medium">
         <Row>
-          <Text variant="error">Rate the place</Text>
+          <Text variant="error">{t.place.tapToRate}</Text>
           <StarRow>
             {starArr.map((star) => (
               <TouchableOpacity
@@ -51,7 +57,7 @@ export const CommentForm = () => {
         </Row>
       </Spacer>
       <Spacer position="bottom" size="medium">
-        <Text variant="caption">Your comment</Text>
+        <Text variant="caption">{t.place.yourComment}</Text>
       </Spacer>
       <Spacer position="bottom" size="medium">
         <TextAreaContainer>
@@ -59,7 +65,7 @@ export const CommentForm = () => {
         </TextAreaContainer>
       </Spacer>
       <SubmitButton>
-        <Text variant="titleSmall">Submit Comment</Text>
+        <Text variant="titleSmall">{t.place.send}</Text>
       </SubmitButton>
     </CommentFormContainer>
   );

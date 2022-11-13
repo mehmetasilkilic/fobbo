@@ -1,5 +1,7 @@
 import { AntDesign } from "@expo/vector-icons";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 
@@ -18,6 +20,10 @@ export const PlaceDetailHeader = ({ place }) => {
   const typeCount = 4; //place.types.length > 3 ? 3 : place.types.length;
 
   const types = ["Restaurant", "Cafe"];
+
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
 
   return (
     <HeaderContainer>
@@ -51,7 +57,7 @@ export const PlaceDetailHeader = ({ place }) => {
       </Spacer>
       <IfOpen>
         <AntDesign name="checkcircle" size={16} color="#138000" />
-        <Text variant="success">Open now</Text>
+        <Text variant="success">{t.place.open}</Text>
       </IfOpen>
     </HeaderContainer>
   );

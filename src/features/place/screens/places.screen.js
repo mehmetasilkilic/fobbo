@@ -4,6 +4,8 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useDebounce } from "use-debounce";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { fetchPlaces } from "../../../store/places/places.service";
 import { removePlaces } from "../../../store/places/places.slice";
 
@@ -91,15 +93,19 @@ export const PlacesScreen = () => {
     setModalData(placeData);
   };
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <>
       <SafeAreaSecond>
         <Search onType={onType} />
         <Row>
-          <Text variant="label">Trending</Text>
+          <Text variant="label">{t.place.trending}</Text>
           <InnerRow>
             <Spacer position="right" size="medium">
-              <Text variant="caption">Appearance</Text>
+              <Text variant="caption">{t.place.appearance}</Text>
             </Spacer>
             <TouchableOpacity
               onPress={() => {
@@ -124,9 +130,7 @@ export const PlacesScreen = () => {
               <Loading size="button" color="#ED0F7E" />
             ) : showMessage ? (
               <MessageContianer>
-                <Text variant="error">
-                  You have reached the end of the page
-                </Text>
+                <Text variant="error">{t.endOfThePage}</Text>
               </MessageContianer>
             ) : (
               ""

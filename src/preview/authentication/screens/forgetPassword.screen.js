@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Toast from "react-native-toast-message";
 import { ScrollView } from "react-native";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { removeError } from "../../../store/user/user.slice";
 
 import { Text } from "../../../components/typography/text.component";
@@ -32,6 +34,10 @@ export const ForgetPassword = ({ navigation }) => {
     dispatch(removeError());
   };
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <>
       <ScrollView
@@ -44,10 +50,8 @@ export const ForgetPassword = ({ navigation }) => {
               <Title>
                 <Text variant="fobbo">fobbo</Text>
               </Title>
-              <Text variant="titleMedium">Recover Your Password</Text>
-              <Text variant="titleSmall">
-                We will send a new password to your email.
-              </Text>
+              <Text variant="titleMedium">{t.auth.forgetYourPass}</Text>
+              <Text variant="titleSmall">{t.auth.forgetPassMsg}</Text>
             </TopBar>
           </TopBackground>
           <Column>

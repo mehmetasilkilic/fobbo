@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Toast from "react-native-toast-message";
 import { ScrollView } from "react-native";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { removeError } from "../../../store/user/user.slice";
 
 import { Text } from "../../../components/typography/text.component";
@@ -33,6 +35,10 @@ export const Login = ({ navigation }) => {
     dispatch(removeError());
   };
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <>
       <ScrollView
@@ -45,10 +51,8 @@ export const Login = ({ navigation }) => {
               <Title>
                 <Text variant="fobbo">fobbo</Text>
               </Title>
-              <Text variant="titleMedium">Login</Text>
-              <Text variant="titleSmall">
-                Sign in to discover amazing places around you
-              </Text>
+              <Text variant="titleMedium">{t.auth.signIn}</Text>
+              <Text variant="titleSmall">{t.auth.loginMsg}</Text>
             </TopBar>
           </TopBackground>
           <Column>

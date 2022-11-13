@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import {
   fetchLocation,
   setKeyword,
@@ -11,10 +13,14 @@ export const Search = () => {
   const dispatch = useDispatch();
   const keyword = useSelector((state) => state.location.keyword);
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <SearchContainer>
       <SearchMap
-        placeholder="Search for a location"
+        placeholder={t.place.searchPlaceHolder}
         icon="map"
         iconColor="#ED0F7E"
         onSubmitEditing={() => {

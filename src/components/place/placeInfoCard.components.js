@@ -1,5 +1,7 @@
 import { AntDesign } from "@expo/vector-icons";
 
+import { useTranslations } from "../../utils/useTranslations";
+
 import { Spacer } from "../spacer/spacer.component";
 import { Text } from "../typography/text.component";
 import { Favorite } from "../favorites/favorite.component";
@@ -15,7 +17,6 @@ import {
   PlaceCardCoverBig,
   PlaceCardCoverSmall,
   Info,
-  Row,
   PlaceIconWrapper,
   PlaceIcon,
   RatingContainerBig,
@@ -85,12 +86,16 @@ export const PlaceInfoCard = ({ place = {}, cardStyle }) => {
 
   const IfOpen = isOpenNow ? IsOpenContainer : IsCloseContainer;
 
+  const { t, status } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   return (
     <PlaceCard elevation={5}>
       <Favorite place={place} styleVariable="card" />
       <IfOpen>
-        {isOpenNow && <Text variant="captionWhite">OPEN</Text>}
-        {!isOpenNow && <Text variant="captionWhite">CLOSED</Text>}
+        {isOpenNow && <Text variant="captionWhite">{t.place.open}</Text>}
+        {!isOpenNow && <Text variant="captionWhite">{t.place.closed}</Text>}
       </IfOpen>
       <RatingContainer>
         <AntDesign name="staro" size={14} color={"white"} />

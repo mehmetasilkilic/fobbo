@@ -4,6 +4,8 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-native-modal";
 
+import { useTranslations } from "../../../utils/useTranslations";
+
 import { logout } from "../../../store/user/user.slice";
 
 import { SafeArea } from "../../../components/utils/safeArea.component";
@@ -32,38 +34,49 @@ export const ProfileScreen = ({ navigation }) => {
   const userInfo = useSelector((state) => state.user.currentUser);
   const [signOutModal, setSignOutModal] = useState(false);
 
+  const { t, status, lang } = useTranslations();
+
+  if (status === "loading") return <></>;
+
   const RowList = [
     {
       id: 1,
-      label: "Contact",
+      label: t.profile.contact,
       color: "red",
       icon: "phone",
       onTouch: () => navigation.navigate("Favorites"),
     },
     {
       id: 2,
-      label: "Term of use",
+      label: t.profile.termsOfService,
       color: "green",
       icon: "infocirlceo",
       onTouch: "",
     },
     {
       id: 3,
-      label: "Privacy policy",
+      label: t.profile.privacyPolicy,
       color: "#f0bb00",
       icon: "filetext1",
       onTouch: "",
     },
     {
       id: 4,
-      label: "Change Password",
+      label: t.profile.contentPolicy,
+      color: "#f0bb00",
+      icon: "filetext1",
+      onTouch: "",
+    },
+    {
+      id: 5,
+      label: t.profile.changePass,
       color: "black",
       icon: "lock1",
       onTouch: () => navigation.navigate("ChangePassword"),
     },
     {
-      id: 5,
-      label: "Logout",
+      id: 6,
+      label: t.profile.signOut,
       color: "red",
       icon: "logout",
       onTouch: () => setSignOutModal(true),
@@ -99,7 +112,7 @@ export const ProfileScreen = ({ navigation }) => {
                     <Spacer position="right" size="medium">
                       <AntDesign name="heart" size={26} color="red" />
                     </Spacer>
-                    <Text variant="label">Favorites</Text>
+                    <Text variant="label">{t.profile.favorites}</Text>
                   </InlineRow>
                   <AntDesign name="right" size={16} color="#262626" />
                 </RowNoBorder>
@@ -120,12 +133,12 @@ export const ProfileScreen = ({ navigation }) => {
           </RowNoBorder>
           <Info>
             <RowNoBorder>
-              <Text variant="label">English</Text>
+              <Text variant="label">{lang}</Text>
               <AntDesign name="right" size={16} color="#262626" />
             </RowNoBorder>
           </Info>
           <RowNoBorder>
-            <Text variant="label">Version</Text>
+            <Text variant="label">{t.profile.version}</Text>
           </RowNoBorder>
           <Info>
             <RowNoBorder>
@@ -140,11 +153,11 @@ export const ProfileScreen = ({ navigation }) => {
         onBackdropPress={() => setSignOutModal(false)}
       >
         <ModalContainer>
-          <Text variant="label">Sign out of your Reedu account?</Text>
+          <Text variant="label">{t.signOutMsg}</Text>
           <Spacer position="bottom" size="large" />
           <Row>
             <CancelButton onPress={() => setSignOutModal(false)}>
-              <Text variant="whiteButton">Cancel</Text>
+              <Text variant="whiteButton">{t.cancel}</Text>
             </CancelButton>
             <ModalButton
               onPress={() => {
@@ -152,7 +165,7 @@ export const ProfileScreen = ({ navigation }) => {
                 dispatch(logout());
               }}
             >
-              <Text variant="whiteButton">Sign Out</Text>
+              <Text variant="whiteButton">{t.signOut}</Text>
             </ModalButton>
           </Row>
         </ModalContainer>

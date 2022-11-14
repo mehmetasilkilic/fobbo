@@ -21,3 +21,11 @@ export const AdvertisementImage = styled.Image`
   height: 200px;
   border-radius: ${(props) => props.theme.space[2]}; ;
 `;
+
+export const TopBar = styled.View`
+  padding: ${(props) => props.theme.space[2]};
+  flex-direction: row;
+  background-color: ${(props) => props.theme.colors.bg.primary};
+  justify-content: flex-start;
+  align-items: center;
+`;

@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import { AntDesign } from "@expo/vector-icons";
 
 import { fetchTrendingPlaces } from "../../../store/places/places.service";
 
@@ -7,7 +9,7 @@ import { buildQuery } from "../../../utils/buildQuery";
 
 import { SafeAreaSecond } from "../../../components/utils/safeArea.component";
 import { Loading } from "../../../components/loading/loading.component";
-import { Search } from "../../../components/search/search.component";
+import { Text } from "../../../components/typography/text.component";
 import { HorizontalPlaceList } from "../components/horizontalPlaceList.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
@@ -20,6 +22,7 @@ import {
   AdvertisementImageWrapper,
   AdvertisementImage,
   HomeScrollView,
+  TopBar,
 } from "./home.styles";
 
 export const Home = ({ navigation }) => {
@@ -115,7 +118,14 @@ export const Home = ({ navigation }) => {
   return (
     <>
       <SafeAreaSecond>
-        <Search />
+        <TopBar>
+          <Spacer position="right" size="medium">
+            <TouchableOpacity>
+              <AntDesign name="enviromento" size={24} color={"#ED0F7E"} />
+            </TouchableOpacity>
+          </Spacer>
+          <Text variant="label">Ataköy 9. Kısım, Uğur Mumcu Bulvarı</Text>
+        </TopBar>
       </SafeAreaSecond>
       <HomeContainer>
         {isLoading ? (

@@ -56,7 +56,8 @@ export const en = {
     rate: "Rate",
     feedback: "Leave Feedback",
     shareFobbo: "Share Fobbo",
-    shareMsg: "Best news app out there",
+    shareMsg:
+      "A new generation mobile application that displays the occupancy rates of businesses according to their capacities.",
     share: "Share",
     chngLang: "Change Language",
   },

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ScrollView, Pressable } from "react-native";
+import { ScrollView, Pressable, Share } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-native-modal";
@@ -36,6 +36,8 @@ export const ProfileScreen = ({ navigation }) => {
   const [signOutModal, setSignOutModal] = useState(false);
   const [isAvailable, setIsAvailable] = useState(false);
 
+  const goLanguage = () => navigation.navigate("Language");
+
   useEffect(() => {
     async function checkAvailability() {
       const isMailAvailable = await MailComposer.isAvailableAsync();
@@ -53,7 +55,24 @@ export const ProfileScreen = ({ navigation }) => {
     });
   };
 
-  const goLanguage = () => navigation.navigate("Language");
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: `Fobbo | ${t.profile.shareMsg}: https://fobbo.app`,
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   const { t, status, lang } = useTranslations();
 
@@ -63,8 +82,8 @@ export const ProfileScreen = ({ navigation }) => {
     {
       id: 1,
       label: t.profile.contact,
-      color: "red",
-      icon: "phone",
+      color: "#ED0F7E",
+      icon: "mail",
       onTouch: () => sendEmail(),
     },
     /*     {
@@ -77,7 +96,7 @@ export const ProfileScreen = ({ navigation }) => {
     {
       id: 3,
       label: t.profile.privacyPolicy,
-      color: "#f0bb00",
+      color: "#ED0F7E",
       icon: "filetext1",
       onTouch: () => navigation.navigate("Policy"),
     },
@@ -91,14 +110,21 @@ export const ProfileScreen = ({ navigation }) => {
     {
       id: 5,
       label: t.profile.changePass,
-      color: "black",
+      color: "#ED0F7E",
       icon: "lock1",
       onTouch: () => navigation.navigate("ChangePassword"),
     },
     {
       id: 6,
+      label: t.profile.share,
+      color: "#ED0F7E",
+      icon: "sharealt",
+      onTouch: () => onShare(),
+    },
+    {
+      id: 7,
       label: t.profile.signOut,
-      color: "red",
+      color: "#ED0F7E",
       icon: "logout",
       onTouch: () => setSignOutModal(true),
     },
@@ -131,7 +157,7 @@ export const ProfileScreen = ({ navigation }) => {
                 <RowNoBorder>
                   <InlineRow>
                     <Spacer position="right" size="medium">
-                      <AntDesign name="heart" size={26} color="red" />
+                      <AntDesign name="heart" size={26} color="#ED0F7E" />
                     </Spacer>
                     <Text variant="label">{t.profile.favorites}</Text>
                   </InlineRow>

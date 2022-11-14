@@ -56,7 +56,8 @@ export const tr = {
     rate: "Değerlendir",
     feedback: "Geribildirim bırak",
     shareFobbo: "Fobbo'yu paylaş",
-    shareMsg: "En iyi haber uygulaması",
+    shareMsg:
+      "İşletmelerin kapasitelerine göre doluluk oranlarını görüntüleyen yeni nesil mobil uygulama.",
     share: "Paylaş",
     chngLang: "Dil değiştir",
   },

@@ -1,6 +1,8 @@
 import { TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import * as Device from "expo-device";
+import { FontAwesome } from "@expo/vector-icons";
 
 import { useTranslations } from "../../../utils/useTranslations";
 
@@ -18,6 +20,7 @@ import {
   AuthContainer,
   WelcomeContainer,
   AgreementText,
+  Row,
   MidRow,
   OrContainer,
 } from "./welcome.styles";
@@ -25,7 +28,7 @@ import {
 export const Welcome = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  const nav = () => navigation.navigate("Onboarding");
+  const nav = () => navigation.navigate("Login");
   const goLogin = () => navigation.navigate("Login");
 
   const deviceName = `${Device.brand}-${Device.modelName}`;
@@ -41,10 +44,16 @@ export const Welcome = ({ navigation }) => {
   const { t, status } = useTranslations();
 
   if (status === "loading") return <></>;
-
+  /* onPress={goLanguage} */
   return (
     <SafeArea>
+      <ExpoStatusBar style="auto" />
       <WelcomeContainer>
+        <Row>
+          <TouchableOpacity>
+            <FontAwesome name="language" size={30} color="#ED0F7E" />
+          </TouchableOpacity>
+        </Row>
         <Text variant="fobboLogo">fobbo</Text>
         <AuthContainer>
           <Spacer position="bottom" size="medium">

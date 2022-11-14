@@ -19,6 +19,16 @@ export const AuthContainer = styled.View`
   align-items: center;
 `;
 
+export const Row = styled.View`
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-horizontal: ${(props) => props.theme.space[3]};
+`;
+
 export const MidRow = styled.View`
   width: ${Width - 20}px;
   border-bottom-width: 1px;

@@ -1,5 +1,6 @@
 import { ScrollView } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import Toast from "react-native-toast-message";
 
 import { useTranslations } from "../../../utils/useTranslations";
@@ -49,6 +50,7 @@ export const Register = ({ navigation }) => {
 
   return (
     <>
+      <ExpoStatusBar style="light" />
       <ScrollView
         alwaysBounceVertical={false}
         keyboardShouldPersistTaps="handled"

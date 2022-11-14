@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import Toast from "react-native-toast-message";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ScrollView } from "react-native";
 
 import { useTranslations } from "../../../utils/useTranslations";
@@ -40,6 +41,7 @@ export const ForgetPassword = ({ navigation }) => {
 
   return (
     <>
+      <ExpoStatusBar style="light" />
       <ScrollView
         alwaysBounceVertical={false}
         keyboardShouldPersistTaps="handled"

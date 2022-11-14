@@ -33,6 +33,7 @@ export const ProfileScreen = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const userInfo = useSelector((state) => state.user.currentUser);
+  const socialUser = useSelector((state) => state.user.socialUser);
   const [signOutModal, setSignOutModal] = useState(false);
   const [isAvailable, setIsAvailable] = useState(false);
 
@@ -78,7 +79,7 @@ export const ProfileScreen = ({ navigation }) => {
 
   if (status === "loading") return <></>;
 
-  const RowList = [
+  let RowList = [
     {
       id: 1,
       label: t.profile.contact,
@@ -129,6 +130,10 @@ export const ProfileScreen = ({ navigation }) => {
       onTouch: () => setSignOutModal(true),
     },
   ];
+
+  if (socialUser) {
+    RowList.splice(2, 1);
+  }
 
   return (
     <SafeArea>

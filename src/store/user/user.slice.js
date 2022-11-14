@@ -5,6 +5,7 @@ import { login, register, loginOrRegister } from "./user.service";
 
 const initialState = {
   currentUser: null,
+  socialUser: false,
   loading: false,
   error: null,
 };
@@ -46,7 +47,16 @@ const userSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(register.fulfilled, (state, action) => {
-      return { ...state, loading: false, currentUser: action.payload };
+      let socialUser = false;
+      if (action.payload.email.split("@")[1] === "fobbo.app") {
+        socialUser = true;
+      }
+      return {
+        ...state,
+        loading: false,
+        currentUser: action.payload,
+        socialUser,
+      };
     });
     builder.addCase(register.rejected, (state, action) => {
       return { ...state, loading: false, error: action.payload };
@@ -56,7 +66,12 @@ const userSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(loginOrRegister.fulfilled, (state, action) => {
-      return { ...state, loading: false, currentUser: action.payload };
+      return {
+        ...state,
+        loading: false,
+        currentUser: action.payload,
+        socialUser: true,
+      };
     });
     builder.addCase(loginOrRegister.rejected, (state, action) => {
       return { ...state, loading: false, error: action.payload };

@@ -34,6 +34,8 @@ export const ProfileScreen = ({ navigation }) => {
   const userInfo = useSelector((state) => state.user.currentUser);
   const [signOutModal, setSignOutModal] = useState(false);
 
+  const goLanguage = () => navigation.navigate("Language");
+
   const { t, status, lang } = useTranslations();
 
   if (status === "loading") return <></>;
@@ -132,12 +134,14 @@ export const ProfileScreen = ({ navigation }) => {
             <Text variant="label">Language - Dil</Text>
           </RowNoBorder>
           <Info>
-            <RowNoBorder>
-              <Text variant="label">
-                {lang === "tr" ? "Türkçe" : "English"}
-              </Text>
-              <AntDesign name="right" size={16} color="#262626" />
-            </RowNoBorder>
+            <Pressable onPress={goLanguage}>
+              <RowNoBorder>
+                <Text variant="label">
+                  {lang === "tr" ? "Türkçe" : "English"}
+                </Text>
+                <AntDesign name="right" size={16} color="#262626" />
+              </RowNoBorder>
+            </Pressable>
           </Info>
           <RowNoBorder>
             <Text variant="label">{t.profile.version}</Text>

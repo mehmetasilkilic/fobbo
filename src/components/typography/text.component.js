@@ -42,6 +42,13 @@ const titleBrandMedium = (theme) => `
     color: ${theme.colors.text.brand};
 `;
 
+const titleBrandSmall = (theme) => `
+    font-size: ${theme.fontSizes.title};
+    line-height: ${theme.fontSizes.h5};
+    font-weight: ${theme.fontWeights.bold};
+    color: ${theme.colors.text.brand};
+`;
+
 const titleSmall = (theme) => `
     font-size: ${theme.fontSizes.body};
     color: ${theme.colors.text.inverse};
@@ -110,6 +117,7 @@ const variants = {
   titleBig,
   titleMedium,
   titleBrandMedium,
+  titleBrandSmall,
   titleSmall,
   titleBlackSmall,
   hint,

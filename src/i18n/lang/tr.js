@@ -28,6 +28,7 @@ export const tr = {
     createAcc: "Hesap oluştur",
     username: "Kullanıcı adı",
     confPass: "Parolanı doğrula",
+    chngLang: "Dil Değiştir",
   },
   profile: {
     signOut: "Çıkış Yap",

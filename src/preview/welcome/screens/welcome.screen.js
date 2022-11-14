@@ -29,6 +29,7 @@ export const Welcome = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const nav = () => navigation.navigate("Login");
+  const goLanguage = () => navigation.navigate("Language");
   const goLogin = () => navigation.navigate("Login");
 
   const deviceName = `${Device.brand}-${Device.modelName}`;
@@ -50,7 +51,7 @@ export const Welcome = ({ navigation }) => {
       <ExpoStatusBar style="auto" />
       <WelcomeContainer>
         <Row>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={goLanguage}>
             <FontAwesome name="language" size={30} color="#ED0F7E" />
           </TouchableOpacity>
         </Row>

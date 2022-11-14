@@ -27,6 +27,7 @@ export const en = {
     createAcc: "Create an account",
     username: "Username",
     confPass: "Confirm Password",
+    chngLang: "Change Language",
   },
   profile: {
     signOut: "SignOut",

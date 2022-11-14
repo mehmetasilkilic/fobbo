@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ScrollView, Pressable } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-native-modal";
+import * as MailComposer from "expo-mail-composer";
 
 import { useTranslations } from "../../../utils/useTranslations";
 
@@ -33,6 +34,24 @@ export const ProfileScreen = ({ navigation }) => {
 
   const userInfo = useSelector((state) => state.user.currentUser);
   const [signOutModal, setSignOutModal] = useState(false);
+  const [isAvailable, setIsAvailable] = useState(false);
+
+  useEffect(() => {
+    async function checkAvailability() {
+      const isMailAvailable = await MailComposer.isAvailableAsync();
+      setIsAvailable(isMailAvailable);
+    }
+
+    checkAvailability();
+  }, []);
+
+  const sendEmail = () => {
+    MailComposer.composeAsync({
+      subject: "Hi fobbo",
+      body: "Hi",
+      recipients: ["info@fobbo.app"],
+    });
+  };
 
   const goLanguage = () => navigation.navigate("Language");
 
@@ -46,7 +65,7 @@ export const ProfileScreen = ({ navigation }) => {
       label: t.profile.contact,
       color: "red",
       icon: "phone",
-      onTouch: () => navigation.navigate("Favorites"),
+      onTouch: () => sendEmail(),
     },
     /*     {
       id: 2,

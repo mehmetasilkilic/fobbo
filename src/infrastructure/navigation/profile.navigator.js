@@ -7,6 +7,7 @@ import { ProfileScreen } from "../../features/profile/screens/profile.screen";
 import { FavoritesScreen } from "../../features/profile/screens/favorites.screen";
 import { ChangePassword } from "../../features/profile/screens/changePassword.screen";
 import { Language } from "../../features/profile/screens/language.screen";
+import { Policy } from "../../features/profile/screens/policy.screen";
 
 const ProfileStack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export const ProfileNavigator = () => {
       <ProfileStack.Screen name="Favorites" component={FavoritesScreen} />
       <ProfileStack.Screen name="ChangePassword" component={ChangePassword} />
       <ProfileStack.Screen name="Language" component={Language} />
+      <ProfileStack.Screen name="Policy" component={Policy} />
     </ProfileStack.Navigator>
   );
 };

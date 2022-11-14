@@ -31,6 +31,7 @@ export const Welcome = ({ navigation }) => {
   const nav = () => navigation.navigate("Login");
   const goLanguage = () => navigation.navigate("Language");
   const goLogin = () => navigation.navigate("Login");
+  const goPolicy = () => navigation.navigate("Policy");
 
   const deviceName = `${Device.brand}-${Device.modelName}`;
 
@@ -75,7 +76,7 @@ export const Welcome = ({ navigation }) => {
             </OrContainer>
           </MidRow>
           <AuthOptions onTouch={nav} goLogin={goLogin} />
-          <Agreements />
+          <Agreements goPolicy={goPolicy} />
         </AuthContainer>
       </WelcomeContainer>
     </SafeArea>

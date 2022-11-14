@@ -48,27 +48,27 @@ export const ProfileScreen = ({ navigation }) => {
       icon: "phone",
       onTouch: () => navigation.navigate("Favorites"),
     },
-    {
+    /*     {
       id: 2,
       label: t.profile.termsOfService,
       color: "green",
       icon: "infocirlceo",
       onTouch: "",
-    },
+    }, */
     {
       id: 3,
       label: t.profile.privacyPolicy,
       color: "#f0bb00",
       icon: "filetext1",
-      onTouch: "",
+      onTouch: () => navigation.navigate("Policy"),
     },
-    {
+    /*     {
       id: 4,
       label: t.profile.contentPolicy,
       color: "#f0bb00",
       icon: "filetext1",
       onTouch: "",
-    },
+    }, */
     {
       id: 5,
       label: t.profile.changePass,

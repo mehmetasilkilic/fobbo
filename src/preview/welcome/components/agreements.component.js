@@ -6,7 +6,7 @@ import { useTranslations } from "../../../utils/useTranslations";
 
 import { AgreementsContainer, Row, AgreementText } from "./agreements.styles";
 
-export const Agreements = () => {
+export const Agreements = ({ goPolicy }) => {
   const { t, status } = useTranslations();
 
   if (status === "loading") return <></>;
@@ -16,21 +16,21 @@ export const Agreements = () => {
         <Text variant="caption">{t.auth.agreementTitle}</Text>
       </Spacer>
       <Row>
-        <TouchableOpacity>
+        {/*         <TouchableOpacity>
           <AgreementText variant="brandSmall">
             {t.auth.termsOfService}
           </AgreementText>
-        </TouchableOpacity>
-        <TouchableOpacity>
+        </TouchableOpacity> */}
+        <TouchableOpacity onPress={goPolicy}>
           <AgreementText variant="brandSmall">
             {t.auth.privacyPolicy}
           </AgreementText>
         </TouchableOpacity>
-        <TouchableOpacity>
+        {/*         <TouchableOpacity>
           <AgreementText variant="brandSmall">
             {t.auth.contentPolicy}
           </AgreementText>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </Row>
     </AgreementsContainer>
   );

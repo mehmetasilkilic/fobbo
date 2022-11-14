@@ -9,6 +9,7 @@ import { Register } from "../../preview/authentication/screens/register.screen";
 import { Login } from "../../preview/authentication/screens/login.screen";
 import { ForgetPassword } from "../../preview/authentication/screens/forgetPassword.screen";
 import { Language } from "../../preview/welcome/screens/language.screen";
+import { Policy } from "../../preview/welcome/screens/policy.screen";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,7 @@ export const AuthNavigator = () => {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
+        <Stack.Screen name="Policy" component={Policy} />
       </Stack.Navigator>
     </NavigationContainer>
   );

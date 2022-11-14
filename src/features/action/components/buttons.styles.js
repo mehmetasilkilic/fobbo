@@ -1,4 +1,4 @@
-import { Dimensions } from "react-native";
+import { Dimensions, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
 import { Text } from "../../../components/typography/text.component";
@@ -18,19 +18,19 @@ export const Column = styled.View`
   justify-content: space-between;
 `;
 
-export const ContainerLarge = styled.View`
+export const ContainerLarge = styled(TouchableOpacity)`
   width: ${cardWidthHalf}px;
   height: 160px;
   border-radius: ${(props) => props.theme.space[2]};
 `;
 
-export const ContainerMedium = styled.View`
+export const ContainerMedium = styled(TouchableOpacity)`
   width: ${cardWidthHalf}px;
   height: 75px;
   border-radius: ${(props) => props.theme.space[2]}; ;
 `;
 
-export const ContainerSmall = styled.View`
+export const ContainerSmall = styled(TouchableOpacity)`
   border-radius: ${(props) => props.theme.space[2]}; ;
 `;
 

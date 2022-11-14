@@ -79,7 +79,7 @@ export const tr = {
     trending: "Bu haftanın trendleri",
     viewAll: "Hepsini gör ",
     mostPop: "En Popüler",
-    places: "Mekanlar ",
+    places: "Mekan ",
   },
   success: {
     forgetPassSuccess: "Sıfırlama bağlantısı e-postanıza gönderildi.",

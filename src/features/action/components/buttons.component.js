@@ -8,10 +8,10 @@ import {
   Label,
 } from "./buttons.styles";
 
-export const Buttons = () => (
+export const Buttons = ({ goBack }) => (
   <>
     <Row>
-      <ContainerLarge>
+      <ContainerLarge onPress={goBack}>
         <PictureLarge
           source={{
             uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
@@ -20,7 +20,7 @@ export const Buttons = () => (
         <Label variant="titleBig">Cafe</Label>
       </ContainerLarge>
       <Column>
-        <ContainerMedium>
+        <ContainerMedium onPress={goBack}>
           <PictureMedium
             source={{
               uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
@@ -28,7 +28,7 @@ export const Buttons = () => (
           />
           <Label variant="titleMedium">Cafe</Label>
         </ContainerMedium>
-        <ContainerMedium>
+        <ContainerMedium onPress={goBack}>
           <PictureMedium
             source={{
               uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
@@ -39,7 +39,7 @@ export const Buttons = () => (
       </Column>
     </Row>
     <Row>
-      <ContainerMedium>
+      <ContainerMedium onPress={goBack}>
         <PictureMedium
           source={{
             uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",
@@ -47,7 +47,7 @@ export const Buttons = () => (
         />
         <Label variant="titleMedium">Cafe</Label>
       </ContainerMedium>
-      <ContainerMedium>
+      <ContainerMedium onPress={goBack}>
         <PictureMedium
           source={{
             uri: "https://askbootstrap.com/preview/swiggi/template2/img/banner.png",

@@ -68,6 +68,7 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
               label={t.auth.email}
+              keyboardType="email-address"
               mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}

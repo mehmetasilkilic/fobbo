@@ -61,6 +61,7 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
             <Input
               type="email"
               label={t.auth.email}
+              keyboardType="email-address"
               mode="outlined"
               onBlur={onBlur}
               onChangeText={onChange}

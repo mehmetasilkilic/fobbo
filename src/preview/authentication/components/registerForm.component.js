@@ -73,15 +73,13 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
-              outlineColor="#dddddd"
+              outlineColor={errors.email ? "#F44336" : "#dddddd"}
               activeOutlineColor="#ED0F7E"
             />
           )}
           name="email"
         />
-        {errors.email && <Text variant="error">This is required.</Text>}
       </Spacer>
-
       <Spacer position="bottom" size="medium">
         <Controller
           control={control}
@@ -95,15 +93,13 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
-              outlineColor="#dddddd"
+              outlineColor={errors.name ? "#F44336" : "#dddddd"}
               activeOutlineColor="#ED0F7E"
             />
           )}
           name="name"
         />
-        {errors.name && <Text variant="error">This is required.</Text>}
       </Spacer>
-
       <Spacer position="bottom" size="medium">
         <Controller
           control={control}
@@ -118,13 +114,12 @@ export const RegisterForm = ({ errorToast, goLogin, passwordErrorToast }) => {
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
-              outlineColor="#dddddd"
+              outlineColor={errors.password ? "#F44336" : "#dddddd"}
               activeOutlineColor="#ED0F7E"
             />
           )}
           name="password"
         />
-        {errors.password && <Text variant="error">This is required.</Text>}
       </Spacer>
       <Spacer position="bottom" size="large">
         <Input

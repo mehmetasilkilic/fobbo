@@ -66,13 +66,12 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
-              outlineColor="#dddddd"
+              outlineColor={errors.email ? "#F44336" : "#dddddd"}
               activeOutlineColor="#ED0F7E"
             />
           )}
           name="email"
         />
-        {errors.email && <Text variant="error">This is required.</Text>}
       </Spacer>
       <Spacer position="bottom" size="large">
         <Controller
@@ -89,13 +88,12 @@ export const LoginForm = ({ errorToast, goForgetPassword, goRegister }) => {
               onChangeText={onChange}
               value={value}
               autoCapitalize="none"
-              outlineColor="#dddddd"
+              outlineColor={errors.password ? "#F44336" : "#dddddd"}
               activeOutlineColor="#ED0F7E"
             />
           )}
           name="password"
         />
-        {errors.password && <Text variant="error">This is required.</Text>}
       </Spacer>
       <Button text={t.auth.signIn} onTouch={handleSubmit(onSubmit)} />
       <Spacer position="top" size="medium">

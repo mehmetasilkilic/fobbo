@@ -63,13 +63,12 @@ export const ForgetPasswordForm = ({ errorToast, goLogin }) => {
               onChangeText={onChange}
               value={value}
               autoCapitalize="none"
-              outlineColor="#dddddd"
+              outlineColor={errors.email ? "#F44336" : "#dddddd"}
               activeOutlineColor="#ED0F7E"
             />
           )}
           name="email"
         />
-        {errors.email && <Text variant="error">This is required.</Text>}
       </Spacer>
       <Button text={t.auth.send} onTouch={handleSubmit(onSubmit)} />
     </ForgetPasswordFormContainer>
